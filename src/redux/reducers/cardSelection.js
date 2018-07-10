@@ -1,7 +1,7 @@
 const initialState = { cash: 0, credit: 0, rating: 0 };
 
-export default (cardSelection = (state = initialState, action) => {
-  const payload = action.payload.value;
+const cardSelection = (state = initialState, action) => {
+  const payload = action.payload;
   switch (action.type) {
     case "LOW":
       return { ...state, rating: payload };
@@ -12,4 +12,5 @@ export default (cardSelection = (state = initialState, action) => {
     default:
       return state;
   }
-});
+};
+export default cardSelection;
