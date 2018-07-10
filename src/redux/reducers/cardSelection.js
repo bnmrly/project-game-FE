@@ -13,4 +13,14 @@ const cardSelection = (state = initialState, action) => {
       return state;
   }
 };
-export default cardSelection;
+
+
+
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    wallet: cardSelection(state, state.cardSelectionEvent)
+  }
+}
+
+export default cardSelection

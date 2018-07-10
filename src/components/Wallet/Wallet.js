@@ -3,7 +3,7 @@ import './Wallet.css';
 
 const Wallet = props => {
   return (
-    <section className="wallet-container">Wallet dialogue to go here</section>
+    <section className="wallet__container">Wallet to go here</section>
   );
 };
 

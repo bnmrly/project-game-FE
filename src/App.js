@@ -10,7 +10,8 @@ import Card from './components/Card/Card';
 class App extends Component {
   render() {
     return (
-      <div className="App-container">
+      <div className="app__container">
+      <section className="app__turncounter">turn count goes here</section>
         <Dialogue />
         <Wallet />
         <Bank />
@@ -19,5 +20,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;
