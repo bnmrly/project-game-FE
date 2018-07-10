@@ -17,7 +17,6 @@ const cardSelection = (state = initialState, action) => {
 
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     wallet: cardSelection(state, state.cardSelectionEvent)
   }
