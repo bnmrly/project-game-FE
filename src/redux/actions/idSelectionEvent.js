@@ -1,8 +1,7 @@
- function idSelectionEvent(id){
-     console.log(id, "***")
-    return {
-        type : 'id',
-        payload:id
-    }
+function idSelectionEvent(id) {
+  return {
+    type: 'id',
+    payload: id
+  };
 }
 export default idSelectionEvent;
