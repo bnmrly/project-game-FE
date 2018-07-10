@@ -1,12 +1,10 @@
 const initialState = { cash: 0, credit: 0, rating: 0 };
 
-
-
- const cardSelection = (state = initialState, action) => {
+const cardSelection = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
     case "LOW":
-      return { ...state, rating: 1 };
+      return { ...state, rating: payload };
     case "MEDIUM":
       return { ...state, rating: payload };
     case "HIGH":
@@ -15,6 +13,8 @@ const initialState = { cash: 0, credit: 0, rating: 0 };
       return state;
   }
 };
+
+
 
 const mapStateToProps = state => {
   console.log(state)
