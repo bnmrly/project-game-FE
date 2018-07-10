@@ -9,10 +9,17 @@ import store from "./redux/index"
 import {connect} from 'react-redux'
 
 // {...store, id : "id"}
-// Conditionaly render login screen or below
-// show loggeddn user name
+
+// bank needs a bank object
+// bank button will on click change story object to bank object in dialogue
+// bank object will contain an isActive key, so that the bank link can be conditionally rendered with an
+// exit bank link. which will take you back to the story object
+
 class App extends Component {
+  store = store.getState().id
+  
   render() {
+    console.log(this.props)
     return (<React.Fragment>
       {!this.props.id ? <Login/> :
       <div className="app__game-container">
