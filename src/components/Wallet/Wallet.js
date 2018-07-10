@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Wallet.css';
 
-const Wallet = props => {
-  return (
-    <section className="wallet__container">Wallet to go here</section>
-  );
-};
+class Wallet extends Component {
+  render() {
+    return (
+         <section className="wallet__container">
+         <div></div>
+         </section>
+    );
+  }
+}
 
 export default Wallet;
