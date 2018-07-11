@@ -63,7 +63,7 @@
       "miscellaneous": 40
     }
   },
-  "storyBoard": {
+  "fixedChapters":{
     "intro": [
       { "text": "You want to buy a house and need a loan" },
       { "text": "To realise this dream you must build up your credit rating" },
@@ -75,63 +75,65 @@
         "text": "To increase your credit rating you will need a credit card",
         "choices": ["Card"]
       },
-      { "text": "EventChoice" },
       { "text": "Good choice" },
       { "text": "Now you have the choice to pay by cash or card" },
       { "text": "Paying by card will build up your credit rating" },
       { "text": "Paying by cash will affect your savings" },
       { "text": "You will be paid monthly and must decide how to manage this" }
     ],
-
-    "chapterOne": {
-      "text": [
-        "Now you have a credit card you need to learn how to use it",
-        "To build credit you need to spend using you card",
-        "Be careful, everything you spend must be paid back",
-        "Think about your wages",
-        "How you will pay back your monthly debt?",
-        "There is an opportunity at work for career development",
-        "An initial monetry outlay but could lead to a bigger monthly wage.",
-        "Your friends want to go on holiday and want you to go.",
-        "The holiday dates clash with the the career development option.",
-        "What do you do?"
+    "finale": [
+      {"text" : "This is the end"}
+    ]
+  },
+  "storyBoard": {
+    "chapterOne": [
+      {"text":"Now you have a credit card you need to learn how to use it"},
+      {"text": "To build credit you need to spend using you card"},
+      {"text":"Be careful, everything you spend must be paid back"},
+      {"text":"Think about your wages"},
+      {"text":"How you will pay back your monthly debt?"},
+      {"text":"There is an opportunity at work for career development"},
+      {"text":"An initial monetry outlay but could lead to a bigger monthly wage."},
+      {"text":"Your friends want to go on holiday and want you to go."},
+      {"text":"The holiday dates clash with the the career development option."},
+      {
+        "text":"What do you do?",
+        "choices": ["careerProgression", "holiday"]
+      }
+    ],
+    "chapterTwo": [
+      {"text":"You have bills to pay..."},
+      {"text":"A friend is having a party, you need a new outfit"},
+      {
+        "text":"What are you going to wear? Remember to spend within your means",
+        "choices": ["smartCasual", "casualClothes", "partyClothesSuit"]
+      },
+      {"text":"Nice. You are going to be the sharpest dressed at the party!"}
+    ],
+    "chapterThree":  [
+        {"text": "At the party you went for an unexpected swim..."},
+        {"text":"Maybe you were pushed in the pool..."},
+        {"text":"Sam said you slipped."},
+        {"text":"Either way you need to get a new phone."},
+        {"text":"You will be taking this phone out on credit and need an affordable contract."},
+        {"text":"Sometimes if you have the cash it can be smart to pay for things in full."},
+        {"text":"If you are trying to build credit and are comfortable having monthly payments using a credit card can be useful."},
+        {
+          "text":"What phone do you want? Sim only, contract?",  
+          "choices": ["phoneContractHigh", "phoneSimOnly"]}
       ],
-      "choices": ["careerProgression", "holiday"]
-    },
-    "chapterTwo": {
-      "text": [
-        "You have bills to pay...",
-        "A friend is having a party, you need a new outfit",
-        "What are you going to wear?",
-        "Remember to spend within your means",
-        "Nice. You are going to be the sharpest dressed at the party!"
-      ],
-      "choices": ["smartCasual", "casualClothes", "partyClothesSuit"]
-    },
-    "chapterThree": {
-      "text": [
-        "At the party you went for an unexpected swim...",
-        "Maybe you were pushed in the pool...",
-        "Sam said you slipped.",
-        "Either way you need to get a new phone.",
-        "You will be taking this phone out on credit and need an affordable contract.",
-        "Sometimes if you have the cash it can be smart to pay for things in full.",
-        "If you are trying to build credit and are comfortable having monthly payments using a credit card can be useful.",
-        "What phone do you want? Sim only, contract?"
-      ],
-      "choices": ["phoneContractHigh", "phoneSimOnly"]
-    },
-    "chapterFour": {
-      "text": [
-        "Time is passing by...",
-        "You want your own place.",
-        "Partys and your own rules",
-        "Don't forget to be building a good credit rating",
-        "Spending and paying off your credit debt is a good was to build a credit rating",
-        "What do you want to do tonight?"
-      ],
+    "chapterFour": [
+      {"text":"Time is passing by..."},
+      {"text":"You want your own place."},
+      {"text": "Partys and your own rules"},
+      {"text": "Don't forget to be building a good credit rating"},
+      {"text": "Spending and paying off your credit debt is a good way to build a credit rating"},
+      {
+        "text": "What do you want to do tonight?", 
       "choices": ["haveAQuietOne", "onlineShopping", "eatOut", "movies"]
-    },
+      }
+    ]
+  },
     "educationSnippets": [
       "Using a credit card can help build good credit when managed well.",
       "You have more purchasing options when using a credit card.",
@@ -182,4 +184,4 @@
       "card4": "A card that offers electronic device insurance"
     }
   }
-}
+
