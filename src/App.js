@@ -6,7 +6,7 @@ import Bank from './components/Bank/Bank';
 import Card from './components/Card/Card'
 import Login from "./components/Login/Login"
 import store from "./redux/index"
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 // {...store, id : "id"}
 
@@ -16,26 +16,25 @@ import {connect} from 'react-redux'
 // exit bank link. which will take you back to the story object
 
 class App extends Component {
-  store = store.getState().id
-  
+
   render() {
-    console.log(this.props)
+    console.log(store.getState())
     return (<React.Fragment>
-      {!this.props.id ? <Login/> :
-      <div className="app__game-container">
-       <section className="app__turncounter">turn count goes here</section>
-       <Dialogue />
-        <Wallet />
-         <Bank />
-      </div>}
-      </React.Fragment>
+      {!this.props.id ? <Login /> :
+        <div className="app__game-container">
+          <section className="app__turncounter">turn count goes here</section>
+          <Dialogue />
+          <Wallet />
+          <Bank />
+        </div>}
+    </React.Fragment>
     );
   }
 }
 
 const mapStateToProps = store => {
   return {
-    id  :store.id
+    id: store.playerInfo.id
   }
 }
 export default connect(mapStateToProps, null)(App);
