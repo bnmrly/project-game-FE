@@ -8,17 +8,11 @@ import Login from './components/Login/Login';
 import store from './redux/index';
 import { connect } from 'react-redux';
 
-// {...store, id : "id"}
-
-// bank needs a bank object
-// bank button will on click change story object to bank object in dialogue
-// bank object will contain an isActive key, so that the bank link can be conditionally rendered with an
-// exit bank link. which will take you back to the story object
-
 class App extends Component {
   store = store.getState().id;
 
   render() {
+    console.log(this.store, '555');
     return (
       <React.Fragment>
         {!this.props.id ? (
