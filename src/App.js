@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Dialogue from './components/Dialogue/Dialogue';
+import Display from './components/Display/Display';
 import Wallet from './components/Wallet/Wallet';
 import Bank from './components/Bank/Bank';
 import Card from './components/Card/Card'
@@ -39,3 +39,7 @@ const mapStateToProps = store => {
 }
 export default connect(mapStateToProps, null)(App);
 
+export default connect(
+  mapStateToProps,
+  null
+)(App);
