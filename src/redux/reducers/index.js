@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
 import wallet from "./cardSelection";
-
-export default combineReducers({ wallet });
+import id   from './idSelector';
+export default combineReducers({ wallet,id });
