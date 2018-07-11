@@ -1,0 +1,6 @@
+.app__game-container {
+  display: grid;
+  grid-template-columns: 80vw 20vw;
+  grid-template-rows: 20vh 60vh 20vh;
+  background-color: lightseagreen;
+}
