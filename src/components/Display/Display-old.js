@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './Display.css';
-import data from '../../data/gameplay.json';
-import Card from '../Card/Card';
 
 // to procedurally generate the chapters:
 
@@ -19,17 +17,38 @@ import Card from '../Card/Card';
 
 class Display extends Component {
   state = {
-    storyBook: data.storyBoard.intro,
-    turnCount: 1,
-    chapterCount: 0
+    storyBook: [
+      {
+        text: 'You want to buy a house and need a loan'
+      },
+      {
+        text: 'To realise this dream you must build up your credit rating'
+      },
+      {
+        text:
+          'A good credit rating will show the bank you are a responsible customer able to pay off your debts'
+      },
+      {
+        text: 'To increase credit rating you will need a credit card',
+        choices: ['cardA', 'cardB', 'cardC']
+      },
+      {
+        text: 'Good choice'
+      },
+      {
+        text: 'Now you have the choice to pay by cash or card.'
+      },
+      {
+        text: 'You will be paid monthly and must decide how to manage this'
+      }
+    ],
+    turnCount: 1
   };
   render() {
-    console.log(this.state.storyBook);
     return (
       <section className="display__container">{this.storyRevealer()}</section>
     );
   }
-
   storyRevealer = () => {
     const storyLines = [];
     const { storyBook, turnCount } = this.state;
@@ -39,14 +58,8 @@ class Display extends Component {
     const buttons = (
       <div>
         {storyBook[turnCount - 1].choices ? (
-          storyBook[turnCount - 1].choices.forEach(choice => {
-            switch (choice) {
-              case 'Card':
-                storyLines.unshift(<Card />);
-                break;
-              default:
-                console.log('dummy text');
-            }
+          storyBook[turnCount - 1].choices.map(choice => {
+            return <button>{choice}</button>;
           })
         ) : (
           <button onClick={this.nextClickHandler}>next</button>
@@ -54,9 +67,9 @@ class Display extends Component {
       </div>
     );
     storyLines.unshift(buttons);
+
     return storyLines;
   };
-
   nextClickHandler = () => {
     this.setState({
       turnCount: this.state.turnCount + 1
