@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Card.css';
 import { connect } from "react-redux"
-import { cardSelectionEvent } from '../../redux/actions/cardSelectionEvent';
+import { cardSelectionEvent } from '../../redux/actions/PlayerInfoAction';
 
 class Card extends Component {
   render() {
@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
 }
 const mapStateToProps = store => {
   return {
-    wallet: store.wallet
+    wallet: store.playerInfo.wallet
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
