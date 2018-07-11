@@ -4,9 +4,9 @@ import './Wallet.css';
 class Wallet extends Component {
   render() {
     return (
-         <section className="wallet__container">
-         <div></div>
-         </section>
+      <section className="wallet__container">
+        <div>Wallet here</div>
+      </section>
     );
   }
 }
