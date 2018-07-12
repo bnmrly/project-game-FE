@@ -13,6 +13,22 @@ export function nameSetterEvent(name) {
 export function cardSelectionEvent(data) {
   return {
     type: data,
-    payload: data === 'LOW' ? 1 : data === 'MEDIUM' ? 2 : 3
+    payload: data === "LOW" ? 1 : data === "MEDIUM" ? 2 : 3
+  };
+}
+export function setUserWage(wage) {
+  return {
+    type: "SET_USER_WAGE",
+    payload: wage
+  };
+}
+export function increaseTurnCount() {
+  return {
+    type: "INC_TURNCOUNT"
+  };
+}
+export function resetTurnCount() {
+  return {
+    type: "TURN_RESET"
   };
 }

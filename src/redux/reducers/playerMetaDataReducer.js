@@ -1,4 +1,4 @@
-const initialState = { id: '', username: '' };
+const initialState = { id: "", username: "" };
 const playerMetaDataReducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
@@ -9,5 +9,5 @@ const playerMetaDataReducer = (state = initialState, action) => {
     default:
       return state;
   }
-}
+};
 export default playerMetaDataReducer;
