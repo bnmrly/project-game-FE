@@ -2,5 +2,35 @@
   grid-column-start: 2;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: red;
+  background-color: purple;
+}
+/*rating circular bar*/
+.rating .CircularProgressbar-path {
+  stroke: blue;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.rating .CircularProgressbar-trail{
+  stroke: white;
+}
+.rating .CircularProgressbar-text{
+  fill: white;
+  text-align: center;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+/*credit circular bar*/
+.credit .CircularProgressbar-path {
+  stroke: blue;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.credit .CircularProgressbar-trail{
+  stroke: white;
+}
+.credit .CircularProgressbar-text{
+  fill: white;
+  text-align: center;
+  text-anchor: middle;
+  dominant-baseline: middle;
 }
