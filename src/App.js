@@ -17,7 +17,6 @@ import { connect } from 'react-redux'
 // exit bank link. which will take you back to the story object
 
 class App extends Component {
-
   render() {
     console.log(store.getState())
     return (<React.Fragment>
@@ -36,7 +35,12 @@ class App extends Component {
 
 const mapStateToProps = store => {
   return {
-    id: store.playerMetaData.id
-  }
-}
-export default connect(mapStateToProps, null)(App);
+    id: store.playerInfo.id
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
+

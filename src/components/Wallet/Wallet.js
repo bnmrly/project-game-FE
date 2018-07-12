@@ -27,3 +27,4 @@ const mapStateToProps = store => {
   }
 }
 export default connect(mapStateToProps, null)(Wallet)
+
