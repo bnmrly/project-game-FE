@@ -1,13 +1,13 @@
 export function idSetterEvent(id) {
   return {
-    type: "SET_ID",
+    type: 'SET_ID',
     payload: id
   };
 }
-export function usernameSetterEvent(username) {
+export function nameSetterEvent(name) {
   return {
-    type: "SET_USERNAME",
-    payload: username
+    type: 'SET_NAME',
+    payload: name
   };
 }
 export function cardSelectionEvent(data) {

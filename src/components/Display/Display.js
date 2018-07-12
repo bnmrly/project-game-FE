@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import "./Display.css";
 import data from "../../data/gameplay.json";
@@ -9,9 +10,6 @@ import {
   resetTurnCount
 } from "../../redux/actions/PlayerInfoAction";
 
-// to avoid setting state in render
-// chnage if block to create next chapter button
-// let that button change state
 
 // TO IMPLEMENT:
 
