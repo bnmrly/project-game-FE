@@ -1,18 +1,18 @@
 const initialState = {
-  wallet: { cash: 2000, credit: { available: 184, max: 200 }, rating: 300 },
+  wallet: { cash: 500, credit: { available: 0, max: 0 }, rating: 0 },
   wage: 0
 };
 const playerFinancialReducer = (state = initialState, action) => {
   const { wallet } = state;
   //
   switch (action.type) {
-    case "LOW":
+    case 'LOW':
       return { ...state, wallet: { ...wallet, rating: action.payload } };
-    case "MEDIUM":
+    case 'MEDIUM':
       return { ...state, wallet: { ...wallet, rating: action.payload } };
-    case "HIGH":
+    case 'HIGH':
       return { ...state, wallet: { ...wallet, rating: action.payload } };
-    case "SET_USER_WAGE":
+    case 'SET_USER_WAGE':
       return { ...state, wage: action.payload };
     default:
       return state;
