@@ -1,0 +1,187 @@
+{
+  "dataChoiceEvents": {
+    "phoneContractHigh": {
+      "monthlyCost": 30,
+      "initialPrice": 20,
+      "contractLength": 24
+    },
+    "phoneSimOnly": {
+      "monthlyCost": 10,
+      "initialPrice": 400,
+      "contractLength": 1
+    },
+    "partyClothesSuit": {
+      "initialPrice": 200
+    },
+    "smartCasual": {
+      "initialPrice": 110
+    },
+    "casualClothes": {
+      "initialPrice": 70
+    },
+    "creditCard": {
+      "card1": 1,
+      "card2": 2,
+      "card3": 3
+    },
+    "careerProgression": {
+      "initialPrice": 150,
+      "wageIncrease": 75
+    },
+    "holiday": {
+      "initialPrice": 600
+    },
+    "petOwner": {
+      "initialPrice": 75,
+      "monthlyCost": 20
+    },
+    "beachTrip": {
+      "initialPrice": 50
+    },
+    "haveAQuietOne": {
+      "initialPrice": null
+    },
+    "onlineShopping": {
+      "initialPrice": 40
+    },
+    "eatOut": {
+      "initialPrice": 60
+    },
+    "movies": {
+      "initialPrice": 20
+    },
+    "buyBike": {
+      "initialPrice": 80,
+      "monthlyCost": -20
+    }
+  },
+  "reoccuringEvent": {
+    "variables": "these change as the game progresses ie a phone contract",
+    "livingCosts": {
+      "groceries": 50,
+      "travel": 30,
+      "miscellaneous": 40
+    }
+  },
+  "fixedChapters":{
+    "intro": [
+      { "text": "You want to buy a house and need a loan" },
+      { "text": "To realise this dream you must build up your credit rating" },
+      {
+        "text":
+          "A good credit rating will show the bank you are a responsible customer, able to pay off your debts"
+      },
+      {
+        "text": "To increase your credit rating you will need a credit card",
+        "choices": ["Card"]
+      },
+      { "text": "Good choice" },
+      { "text": "Now you have the choice to pay by cash or card" },
+      { "text": "Paying by card will build up your credit rating" },
+      { "text": "Paying by cash will affect your savings" },
+      { "text": "You will be paid monthly and must decide how to manage this" }
+    ],
+    "finale": [
+      {"text" : "This is the end"}
+    ]
+  },
+  "storyBoard": {
+    "chapterOne": [
+      {"text":"Now you have a credit card you need to learn how to use it"},
+      {"text": "To build credit you need to spend using you card"},
+      {"text":"Be careful, everything you spend must be paid back"},
+      {"text":"Think about your wages"},
+      {"text":"How you will pay back your monthly debt?"},
+      {"text":"There is an opportunity at work for career development"},
+      {"text":"An initial monetry outlay but could lead to a bigger monthly wage."},
+      {"text":"Your friends want to go on holiday and want you to go."},
+      {"text":"The holiday dates clash with the the career development option."},
+      {
+        "text":"What do you do?",
+        "choices": ["careerProgression", "holiday"]
+      }
+    ],
+    "chapterTwo": [
+      {"text":"You have bills to pay..."},
+      {"text":"A friend is having a party, you need a new outfit"},
+      {
+        "text":"What are you going to wear? Remember to spend within your means",
+        "choices": ["smartCasual", "casualClothes", "partyClothesSuit"]
+      },
+      {"text":"Nice. You are going to be the sharpest dressed at the party!"}
+    ],
+    "chapterThree":  [
+        {"text": "At the party you went for an unexpected swim..."},
+        {"text":"Maybe you were pushed in the pool..."},
+        {"text":"Sam said you slipped."},
+        {"text":"Either way you need to get a new phone."},
+        {"text":"You will be taking this phone out on credit and need an affordable contract."},
+        {"text":"Sometimes if you have the cash it can be smart to pay for things in full."},
+        {"text":"If you are trying to build credit and are comfortable having monthly payments using a credit card can be useful."},
+        {
+          "text":"What phone do you want? Sim only, contract?",  
+          "choices": ["phoneContractHigh", "phoneSimOnly"]}
+      ],
+    "chapterFour": [
+      {"text":"Time is passing by..."},
+      {"text":"You want your own place."},
+      {"text": "Partys and your own rules"},
+      {"text": "Don't forget to be building a good credit rating"},
+      {"text": "Spending and paying off your credit debt is a good way to build a credit rating"},
+      {
+        "text": "What do you want to do tonight?", 
+      "choices": ["haveAQuietOne", "onlineShopping", "eatOut", "movies"]
+      }
+    ]
+  },
+    "educationSnippets": [
+      "Using a credit card can help build good credit when managed well.",
+      "You have more purchasing options when using a credit card.",
+      "A credit card can help if you are in need of emegency funds.",
+      "Some credit cards will offer rewards for choosing to go with their card.",
+      "There can be a temptation to spend more when you own a credit card.",
+      "Due to the workings of a credit card using one will reduce your future income.",
+      "Misuse of a credit card can lead to debt.",
+      "Although security is imporving you can be exposed to credit card fraud.",
+      "Credit cards can come with confusing terms and conditions.",
+      "Using a credit card is often quicker than paying in cash.",
+      "Certain laws protect you as the consumer if you pay with plastic and lose your receipt.",
+      "You can pay off credit debt in installments if necessary.",
+      "Using a credit card at a cash machine will incure an extra cost"
+    ],
+    "randomIncomes": [
+      {
+        "overtimeText": "You have been offered overtime at work"
+      },
+      {
+        "foundCashFiver": "You found £5 on your way to work",
+        "value": 5
+      },
+      {
+        "foundCashTenner": "You found £10 on your way to work",
+        "value": 10
+      },
+      {
+        "foundCashTwenty": "You found £20 on your way to work",
+        "value": 20
+      },
+      {
+        "birthdayMoney":
+          "Happy birthday, your family and friends gave you £100",
+        "value": 100
+      }
+    ],
+    "randomOutgoings": [
+      {
+        "Groceries": "Your shopping came to £40",
+        "value": 40
+      }
+    ],
+    "betterCreditCards": {
+      "card1": "A card that gives you better APR",
+      "card2": "A card that gives good cash back",
+      "card3": "A card that gives airmiles",
+      "card4": "A card that offers electronic device insurance"
+    }
+  }
+
