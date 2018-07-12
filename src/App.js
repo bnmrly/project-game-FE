@@ -6,6 +6,7 @@ import Bank from './components/Bank/Bank';
 import Card from './components/Card/Card'
 import Login from "./components/Login/Login"
 import store from "./redux/index"
+import Job from './components/Job/Job';
 import { connect } from 'react-redux'
 
 // {...store, id : "id"}
@@ -23,9 +24,10 @@ class App extends Component {
       {!this.props.id ? <Login /> :
         <div className="app__game-container">
           <section className="app__turncounter">turn count goes here</section>
-          <Dialogue />
+          <Display />
           <Wallet />
           <Bank />
+          <Job />
         </div>}
     </React.Fragment>
     );
@@ -34,12 +36,7 @@ class App extends Component {
 
 const mapStateToProps = store => {
   return {
-    id: store.playerInfo.id
+    id: store.playerMetaData.id
   }
 }
 export default connect(mapStateToProps, null)(App);
-
-export default connect(
-  mapStateToProps,
-  null
-)(App);
