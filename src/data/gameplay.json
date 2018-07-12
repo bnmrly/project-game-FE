@@ -10,6 +10,11 @@
       "initialPrice": 400,
       "contractLength": 1
     },
+    "phoneSecondHand": {
+      "monthlyCost": 10,
+      "initialPrice": 80,
+      "contractLength": 1
+    },
     "partyClothesSuit": {
       "initialPrice": 200
     },
@@ -65,6 +70,7 @@
   },
   "fixedChapters": {
     "intro": [
+      { "text": "", "choices": ["Name"] },
       { "text": "You want to buy a house and need a loan" },
       { "text": "To realise this dream you must build up your credit rating" },
       {
@@ -99,8 +105,9 @@
       },
       {
         "text": "What do you do?",
-        "choices": ["careerProgression", "holiday"]
-      }
+        "choices": ["Personal Investment"]
+      },
+      { "text": "Let's hope you made the right choice!" }
     ],
     "chapterTwo": [
       { "text": "You have bills to pay..." },
@@ -108,7 +115,7 @@
       {
         "text":
           "What are you going to wear? Remember to spend within your means",
-        "choices": ["smartCasual", "casualClothes", "partyClothesSuit"]
+        "choices": ["Clothes"]
       },
       { "text": "Nice. You are going to be the sharpest dressed at the party!" }
     ],
@@ -131,7 +138,7 @@
       },
       {
         "text": "What phone do you want? Sim only, contract?",
-        "choices": ["phoneContractHigh", "phoneSimOnly"]
+        "choices": ["Phone"]
       }
     ],
     "chapterFour": [
@@ -145,7 +152,7 @@
       },
       {
         "text": "What do you want to do tonight?",
-        "choices": ["haveAQuietOne", "onlineShopping", "eatOut", "movies"]
+        "choices": ["Tonight"]
       }
     ]
   },

@@ -1,25 +1,26 @@
 import React, { Component } from "react";
-import "./Card.css";
+import "./Job.css";
 import { connect } from "react-redux";
 import {
-  cardSelectionEvent,
+  setUserWage,
   increaseTurnCount
 } from "../../redux/actions/PlayerInfoAction";
+import store from "../../redux/index";
 
-class Card extends Component {
+class Job extends Component {
   render() {
     return (
-      <section className="card">
-        <button value="LOW" onClick={this.props.handleClick}>
-          Low
+      <section className="job">
+        <button value={100} onClick={this.props.handleClick}>
+          Job1
         </button>
-        <button value="MEDIUM" onClick={this.props.handleClick}>
-          Medium
+        <button value={200} onClick={this.props.handleClick}>
+          Job2
         </button>
-        <button value="HIGH" onClick={this.props.handleClick}>
-          High
+        <button value={300} onClick={this.props.handleClick}>
+          Job3
         </button>
-        <p>{this.props.wallet.rating}</p>
+        <p />
       </section>
     );
   }
@@ -27,17 +28,17 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
-      dispatch(cardSelectionEvent(e.target.value));
+      dispatch(setUserWage(e.target.value));
       dispatch(increaseTurnCount());
     }
   };
 };
 const mapStateToProps = store => {
   return {
-    wallet: store.playerFinancialInfo.wallet
+    financialInfo: store.playerFinancialInfo
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Card);
+)(Job);
