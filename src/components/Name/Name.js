@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './Name.css';
 import { connect } from 'react-redux';
-import { nameSetterEvent } from '../../redux/actions/PlayerInfoAction';
+import {
+  nameSetterEvent,
+  increaseTurnCount
+} from '../../redux/actions/PlayerInfoAction';
 
 class Name extends Component {
   state = {
@@ -30,12 +33,13 @@ const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
       dispatch(nameSetterEvent(e.target.value));
+      dispatch(increaseTurnCount());
     }
   };
 };
 const mapStateToProps = store => {
   return {
-    name: store.playerInfo.name
+    name: store.playerMetaData.name
   };
 };
 export default connect(

@@ -1,15 +1,14 @@
-
-import React, { Component } from "react";
-import "./Display.css";
-import data from "../../data/gameplay.json";
-import Card from "../Card/Card";
-import shortId from "short-id";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './Display.css';
+import data from '../../data/gameplay.json';
+import Card from '../Card/Card';
+import Name from '../Name/Name';
+import shortId from 'short-id';
+import { connect } from 'react-redux';
 import {
   increaseTurnCount,
   resetTurnCount
-} from "../../redux/actions/PlayerInfoAction";
-
+} from '../../redux/actions/PlayerInfoAction';
 
 // TO IMPLEMENT:
 
@@ -21,6 +20,7 @@ class Display extends Component {
     chapterCount: 0
   };
   render() {
+    console.log(this.state.storyBook);
     return (
       <section className="display__container">{this.storyRevealer()}</section>
     );
@@ -37,11 +37,14 @@ class Display extends Component {
         {storyBook[this.props.turnCount - 1].choices ? (
           storyBook[this.props.turnCount - 1].choices.forEach(choice => {
             switch (choice) {
-              case "Card":
+              case 'Card':
                 storyLines.unshift(<Card />);
                 break;
+              case 'Name':
+                storyLines.unshift(<Name />);
+                break;
               default:
-                console.log("dummy text");
+                console.log('blah blah text');
             }
           })
         ) : this.props.turnCount === storyBook.length ? (
