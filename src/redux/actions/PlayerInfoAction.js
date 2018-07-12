@@ -9,10 +9,16 @@ export function usernameSetterEvent(username) {
         type: 'SET_USERNAME',
         payload: username
     }
-}
+};
 export function cardSelectionEvent(data) {
     return {
         type: data,
         payload: data === "LOW" ? 1 : data === "MEDIUM" ? 2 : 3
     };
-}
+};
+export function setUserWage(wage) {
+    return {
+        type: "SET_USER_WAGE",
+        payload: wage
+    }
+};
