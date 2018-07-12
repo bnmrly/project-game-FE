@@ -23,7 +23,7 @@ class Wallet extends Component {
 }
 const mapStateToProps = store => {
   return {
-    wallet: store.playerInfo.wallet
+    wallet: store.playerFinancialInfo.wallet
   }
 }
 export default connect(mapStateToProps, null)(Wallet)

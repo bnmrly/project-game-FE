@@ -24,7 +24,7 @@ const mapDispatchToProps = dispatch => {
 }
 const mapStateToProps = store => {
   return {
-    wallet: store.playerInfo.wallet
+    wallet: store.playerFinancialInfo.wallet
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
