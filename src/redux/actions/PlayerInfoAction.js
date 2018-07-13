@@ -22,6 +22,7 @@ export function setUserWage(wage) {
     payload: wage
   };
 }
+//turn functions can have gameEvents js file
 export function increaseTurnCount() {
   return {
     type: 'INC_TURNCOUNT'
@@ -30,5 +31,22 @@ export function increaseTurnCount() {
 export function resetTurnCount() {
   return {
     type: 'TURN_RESET'
+  };
+}
+// phone component related code
+export function cashChange(initialPrice) {
+  return { type: 'CASH_CHANGE', payload: initialPrice };
+}
+export function changeAvailableCredit(initialPrice) {
+  return {
+    type: 'CREDIT_CHANGE',
+    payload: initialPrice
+  };
+}
+export function addToMonthlyCosts(livingCost) {
+  return {
+    type: 'ADD_LIVING_COST',
+    payload: livingCost
+
   };
 }
