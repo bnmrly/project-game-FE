@@ -7,6 +7,7 @@ import Job from '../Job/Job';
 import Clothing from '../Clothing/Clothing';
 import Phone from '../Phone/Phone';
 import Tonight from '../Tonight/Tonight';
+import PersonalInvestment from "../PersonalInvestment/PersonalInvestment";
 import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
@@ -58,6 +59,9 @@ class Display extends Component {
                 break;
                 case 'Tonight':
                 storyLines.unshift(<Tonight />);
+                break;
+                case 'PersonalInvestment':
+                storyLines.unshift(<PersonalInvestment />);
                 break;
               default:
                 console.log('blah blah text');
