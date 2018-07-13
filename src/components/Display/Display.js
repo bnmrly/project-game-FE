@@ -4,6 +4,7 @@ import data from '../../data/gameplay.json';
 import Card from '../Card/Card';
 import Name from '../Name/Name';
 import Job from '../Job/Job';
+import Clothing from '../Clothing/Clothing';
 import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
@@ -47,6 +48,9 @@ class Display extends Component {
                 break;
               case 'Job':
                 storyLines.unshift(<Job />);
+                break;
+              case 'Clothing':
+                storyLines.unshift(<Clothing />);
                 break;
               default:
                 console.log('blah blah text');
