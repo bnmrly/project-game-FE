@@ -43,7 +43,7 @@
     "beachTrip": {
       "initialPrice": 50
     },
-    "haveAQuietOne": {
+    "NightIn": {
       "initialPrice": null
     },
     "onlineShopping": {
@@ -184,7 +184,8 @@
       {
         "text": "What do you want to do tonight?",
         "choices": ["Tonight"]
-      }
+      },
+      {"text": "I'm sure you'll have a great time"}
     ]
   },
   "educationSnippets": [

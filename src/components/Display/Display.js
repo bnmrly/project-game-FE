@@ -5,6 +5,8 @@ import Card from '../Card/Card';
 import Name from '../Name/Name';
 import Job from '../Job/Job';
 import Clothing from '../Clothing/Clothing';
+import Phone from '../Phone/Phone';
+import Tonight from '../Tonight/Tonight';
 import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
@@ -19,7 +21,7 @@ import {
 class Display extends Component {
   state = {
     storyBook: data.fixedChapters.intro,
-    chapterCount: 3,
+    chapterCount: 0,
     lastChapterName: ''
   };
   render() {
@@ -51,6 +53,11 @@ class Display extends Component {
                 break;
               case 'Clothing':
                 storyLines.unshift(<Clothing />);
+                case 'Phone':
+                storyLines.unshift(<Phone />);
+                break;
+                case 'Tonight':
+                storyLines.unshift(<Tonight />);
                 break;
               default:
                 console.log('blah blah text');
