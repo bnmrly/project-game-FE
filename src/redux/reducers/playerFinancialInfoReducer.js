@@ -36,7 +36,8 @@ const playerFinancialReducer = (state = initialState, action) => {
         }
       };
     case 'ADD_LIVING_COST':
-      const newLivingState = { ...living_costs, ...action.payload };
+      const newLivingState = { ...state.living_costs };
+      newLivingState[action.payload.key] = action.payload.value
       return { ...state, living_costs: newLivingState };
 
     default:
