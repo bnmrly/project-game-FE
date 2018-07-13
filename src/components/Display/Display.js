@@ -60,7 +60,7 @@ class Display extends Component {
                 case 'Tonight':
                 storyLines.unshift(<Tonight />);
                 break;
-                case 'PersonalInvestment':
+                case 'Personal Investment':
                 storyLines.unshift(<PersonalInvestment />);
                 break;
               default:
