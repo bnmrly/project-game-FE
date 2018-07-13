@@ -4,6 +4,7 @@ import data from '../../data/gameplay.json';
 import Card from '../Card/Card';
 import Name from '../Name/Name';
 import Job from '../Job/Job';
+import Clothing from '../Clothing/Clothing';
 import Phone from '../Phone/Phone';
 import Tonight from '../Tonight/Tonight';
 import shortId from 'short-id';
@@ -50,6 +51,8 @@ class Display extends Component {
               case 'Job':
                 storyLines.unshift(<Job />);
                 break;
+              case 'Clothing':
+                storyLines.unshift(<Clothing />);
                 case 'Phone':
                 storyLines.unshift(<Phone />);
                 break;
