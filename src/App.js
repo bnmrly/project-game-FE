@@ -1,13 +1,11 @@
-import React, { Component } from "react";
-import "./App.css";
-import Display from "./components/Display/Display";
-import Wallet from "./components/Wallet/Wallet";
-import Bank from "./components/Bank/Bank";
-import Card from "./components/Card/Card";
-import Login from "./components/Login/Login";
-import store from "./redux/index";
-import Job from "./components/Job/Job";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './App.css';
+import Display from './components/Display/Display';
+import Wallet from './components/Wallet/Wallet';
+import Bank from './components/Bank/Bank';
+import Login from './components/Login/Login';
+import store from './redux/index';
+import { connect } from 'react-redux';
 
 // {...store, id : "id"}
 
@@ -29,7 +27,6 @@ class App extends Component {
             <Display />
             <Wallet />
             <Bank />
-            <Job />
           </div>
         )}
       </React.Fragment>

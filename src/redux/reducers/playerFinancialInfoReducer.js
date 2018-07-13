@@ -1,14 +1,5 @@
 const initialState = {
-  wallet: {
-    cash: 2000,
-    credit: { available: 184, max: 200 },
-    rating: 300
-  },
-  living_costs: {
-    groceries: 50,
-    miscellaneous: 40,
-    travel: 30
-  },
+  wallet: { cash: 500, credit: { available: 0, max: 0 }, rating: 0 },
   wage: 0
 };
 const playerFinancialReducer = (state = initialState, action) => {
