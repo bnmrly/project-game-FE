@@ -157,7 +157,7 @@
       { "text": "Either way you need to get a new phone." },
       {
         "text":
-          "You will be taking this phone out on credit and need an affordable contract."
+          "You could take this phone out on credit and need an affordable contract."
       },
       {
         "text":
@@ -170,7 +170,8 @@
       {
         "text": "What phone do you want? Sim only, contract?",
         "choices": ["Phone"]
-      }
+      },
+      {"text": "you are sure your new phone will serve you well, though you won't be taking it anywhere near a pool for a while"}
     ],
     "chapterFour": [
       { "text": "Time is passing by..." },
