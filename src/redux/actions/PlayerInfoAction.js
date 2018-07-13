@@ -13,22 +13,39 @@ export function nameSetterEvent(name) {
 export function cardSelectionEvent(data) {
   return {
     type: data,
-    payload: data === "LOW" ? 1 : data === "MEDIUM" ? 2 : 3
+    payload: data === 'LOW' ? 1 : data === 'MEDIUM' ? 2 : 3
   };
 }
 export function setUserWage(wage) {
   return {
-    type: "SET_USER_WAGE",
+    type: 'SET_USER_WAGE',
     payload: wage
   };
 }
+//turn functions can have gameEvents js file
 export function increaseTurnCount() {
   return {
-    type: "INC_TURNCOUNT"
+    type: 'INC_TURNCOUNT'
   };
 }
 export function resetTurnCount() {
   return {
-    type: "TURN_RESET"
+    type: 'TURN_RESET'
+  };
+}
+// phone component related code
+export function cashChange(initialPrice) {
+  return { type: 'CASH_CHANGE', payload: initialPrice };
+}
+export function changeAvailableCredit(initialPrice) {
+  return {
+    type: 'CREDIT_CHANGE',
+    payload: initialPrice
+  };
+}
+export function addToMonthlyCosts(livingCost) {
+  return {
+    type: 'ADD_LIVING_COST',
+    payload: livingCost
   };
 }
