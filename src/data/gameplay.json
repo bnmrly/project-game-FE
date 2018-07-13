@@ -71,6 +71,7 @@
   "fixedChapters": {
     "intro": [
       { "text": "", "choices": ["Name"] },
+      { "text": "Pick a job", "choices": ["Job"] },
       { "text": "You want to buy a house and need a loan" },
       { "text": "To realise this dream you must build up your credit rating" },
       {

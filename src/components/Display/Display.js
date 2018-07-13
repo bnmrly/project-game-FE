@@ -3,6 +3,7 @@ import './Display.css';
 import data from '../../data/gameplay.json';
 import Card from '../Card/Card';
 import Name from '../Name/Name';
+import Job from '../Job/Job';
 import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
@@ -44,6 +45,9 @@ class Display extends Component {
               case 'Name':
                 storyLines.unshift(<Name />);
                 break;
+              case 'Job':
+                storyLines.unshift(<Job />);
+                break;
               default:
                 console.log('blah blah text');
             }
@@ -63,18 +67,19 @@ class Display extends Component {
     // if finishing penultimate chapter, go to last chapter
     if (this.state.chapterCount === 3) {
       this.props.turnReset();
-    // if minimum win value credit rating reached
-      if (this.props.credit_rating > 299){
-      this.setState({
-        storyBook: data.fixedChapters.finaleWin,
-        chapterCount: 4
-      })
-      // else win condition fail
-    } else {
-      this.setState({
-        storyBook: data.fixedChapters.finaleLose,
-        chapterCount: 4
-    })}
+      // if minimum win value credit rating reached
+      if (this.props.credit_rating > 299) {
+        this.setState({
+          storyBook: data.fixedChapters.finaleWin,
+          chapterCount: 4
+        });
+        // else win condition fail
+      } else {
+        this.setState({
+          storyBook: data.fixedChapters.finaleLose,
+          chapterCount: 4
+        });
+      }
     } else {
       this.props.turnReset();
       const storyboardKeys = Object.keys(data.storyBoard);
@@ -130,5 +135,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Display);
-
-
