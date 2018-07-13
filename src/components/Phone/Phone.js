@@ -81,14 +81,14 @@ const mapDispatchToProps = dispatch => {
   return {
     payForPhoneByCash: e => {
       const contractInfo = JSON.parse(e.target.value);
-      const phoneMonthly = { phone_cost: contractInfo.monthlyCost };
+      const phoneMonthly = { key:"phone", value:contractInfo.monthlyCost };
       dispatch(cashChange(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());
     },
     payForPhoneByCredit: e => {
       const contractInfo = JSON.parse(e.target.value);
-      const phoneMonthly = { phone_cost: contractInfo.monthlyCost };
+      const phoneMonthly = { key:"phone", value:contractInfo.monthlyCost };
       dispatch(changeAvailableCredit(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());
