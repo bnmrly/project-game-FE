@@ -17,7 +17,7 @@ import {
 class Display extends Component {
   state = {
     storyBook: data.fixedChapters.intro,
-    chapterCount: 0,
+    chapterCount: 3,
     lastChapterName: ''
   };
   render() {
@@ -63,10 +63,18 @@ class Display extends Component {
     // if finishing penultimate chapter, go to last chapter
     if (this.state.chapterCount === 3) {
       this.props.turnReset();
+    // if minimum win value credit rating reached
+      if (this.props.credit_rating > 299){
       this.setState({
-        storyBook: data.fixedChapters.finale,
+        storyBook: data.fixedChapters.finaleWin,
         chapterCount: 4
-      });
+      })
+      // else win condition fail
+    } else {
+      this.setState({
+        storyBook: data.fixedChapters.finaleLose,
+        chapterCount: 4
+    })}
     } else {
       this.props.turnReset();
       const storyboardKeys = Object.keys(data.storyBoard);
@@ -114,10 +122,13 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = store => {
   return {
-    turnCount: store.gameProgress.turn_count
+    turnCount: store.gameProgress.turn_count,
+    credit_rating: store.playerFinancialInfo.wallet.rating
   };
 };
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Display);
+
+
