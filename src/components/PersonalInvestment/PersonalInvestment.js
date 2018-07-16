@@ -11,7 +11,6 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 class PersonalInvestment extends Component {
   render() {
-    console.log(this.props.wage)
     return (
       <section>
         <div>
@@ -88,15 +87,12 @@ const mapDispatchToProps = dispatch => {
     },
     payForCourseByCash: e => {
         const courseData = JSON.parse(e.target.value)
-        console.log(courseData)
         dispatch(cashChange(courseData.initialPrice));
         dispatch(increaseTurnCount());
         dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
       },
       payForCourseByCredit: e => {
-        console.log(e.target.value)
         const courseData = JSON.parse(e.target.value)
-        console.log(courseData)
         dispatch(changeAvailableCredit(courseData.initialPrice));
         dispatch(increaseTurnCount());
         dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
