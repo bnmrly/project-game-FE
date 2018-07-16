@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "./Job.css";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './Job.css';
+import { connect } from 'react-redux';
 import {
   setUserWage,
   increaseTurnCount
-} from "../../redux/actions/PlayerInfoAction";
-import store from "../../redux/index";
+} from '../../redux/actions/PlayerInfoAction';
+import store from '../../redux/index';
 
 class Job extends Component {
   render() {
@@ -20,7 +20,6 @@ class Job extends Component {
         <button value={300} onClick={this.props.handleClick}>
           Job3
         </button>
-        <p />
       </section>
     );
   }
