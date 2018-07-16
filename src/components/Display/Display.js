@@ -35,15 +35,12 @@ class Display extends Component {
   storyRevealer = () => {
     const storyLines = [];
     const { storyBook } = this.state;
-    for (let i = 0; i < this.props.turnCount; i++) {
-      storyLines.unshift(
-        <p className="p__storyline" key={shortId.generate()}>
-          {storyBook[i].text}
-        </p>
-      );
-    }
+
+    storyLines.push(
+      <p className="p__storyline">{storyBook[this.props.turnCount - 1].text}</p>
+    );
     const buttons = (
-      <div key={shortId.generate()}>
+      <div className="buttons" key={shortId.generate()}>
         {storyBook[this.props.turnCount - 1].choices ? (
           storyBook[this.props.turnCount - 1].choices.forEach(choice => {
             switch (choice) {
