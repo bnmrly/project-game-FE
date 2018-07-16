@@ -1,13 +1,14 @@
 import { db } from './config';
+import store from '../redux/index';
 
 export const initialisePlayer = (name, id) => {
+    const state = store.getState();
     const addPlayers = db
         .collection('games')
-        .doc(id);
+        .doc(state.playerMetaData.id);
 
     addPlayers.get()
         .then(docSnapShot => {
-            console.log(docSnapShot)
             if (docSnapShot.exists) {
                 const setWithMerge = addPlayers.set({
                     players: {
