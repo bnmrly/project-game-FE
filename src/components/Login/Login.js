@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { idSetterEvent } from '../../redux/actions/PlayerInfoAction';
+import './Login.css';
 class Login extends Component {
   state = {
     idInput: ''
