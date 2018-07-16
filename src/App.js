@@ -4,6 +4,8 @@ import Display from './components/Display/Display';
 import Wallet from './components/Wallet/Wallet';
 import Snippets from './components/Snippets/Snippets';
 import Login from './components/Login/Login';
+import Name from './components/Name/Name';
+import Header from './components/Header/Header';
 import store from './redux/index';
 import { connect } from 'react-redux';
 
@@ -20,13 +22,20 @@ class App extends Component {
     return (
       <React.Fragment>
         {!this.props.id ? (
-          <Login />
+          <div className="container__login-id">
+            <Header />
+            <Login />
+          </div>
+        ) : !this.props.name ? (
+          <div className="container__login-name">
+            <Header />
+            <Name />
+          </div>
         ) : (
           <div className="app__game-container">
-            <section className="app__turncounter">turn count goes here</section>
             <Display />
-            <Wallet />
             <Snippets />
+            <Wallet />
           </div>
         )}
       </React.Fragment>
@@ -36,7 +45,8 @@ class App extends Component {
 
 const mapStateToProps = store => {
   return {
-    id: store.playerMetaData.id
+    id: store.playerMetaData.id,
+    name: store.playerMetaData.name
   };
 };
 
