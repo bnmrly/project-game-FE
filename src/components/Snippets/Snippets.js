@@ -13,7 +13,7 @@ class Snippets extends Component {
         <button className="hint" onClick={this.addSnippet}>
           New Hint
         </button>
-        <div>
+        <div className="container__snippets">
           {this.state.displayedSnippets
             .slice()
             .reverse()
