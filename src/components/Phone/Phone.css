@@ -1,0 +1,15 @@
+.phone {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 80% 20%;
+}
+
+.phone__list {
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+
+.phone__list-item {
+  margin-bottom: 1rem;
+}

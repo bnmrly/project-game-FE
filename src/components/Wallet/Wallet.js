@@ -5,19 +5,20 @@ import CircularProgressbar from 'react-circular-progressbar';
 class Wallet extends Component {
   render() {
     return (
-      <section className="wallet__container">
-        <div
-          style={{
-            width: '150px'
-          }}
-        >
-          <p className="p-progress">Credit Rating</p>
+      <section
+        className="wallet__container"
+        // style={{
+        //   width: '80%'
+        // }}
+      >
+        <div>
+          <h5 className="progress">Credit Rating</h5>
           <CircularProgressbar
             className="rating"
             percentage={this.props.wallet.rating / 10}
             text={this.props.wallet.rating}
           />
-          <p className="p-progress">Available Credit / Max Credit</p>
+          <h5 className="progress">Available Credit / Max Credit</h5>
           <CircularProgressbar
             className="credit"
             percentage={
@@ -29,7 +30,7 @@ class Wallet extends Component {
               this.props.wallet.credit.max
             }`}
           />
-          <p className="p-progress">Cash</p>
+          <h5 className="progress">Cash</h5>
           <CircularProgressbar
             className="cash"
             text={`£${this.props.wallet.cash}`}

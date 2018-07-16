@@ -10,13 +10,36 @@ class Card extends Component {
   render() {
     return (
       <section className="card">
-        <button value="LOW" onClick={this.props.handleClick}>
+        <ul className="card__list ul">
+          <li className="card__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="card__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="card__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <button
+          className="button button__1"
+          value="LOW"
+          onClick={this.props.handleClick}
+        >
           Low
         </button>
-        <button value="MEDIUM" onClick={this.props.handleClick}>
+        <button
+          className="button button__2"
+          value="MEDIUM"
+          onClick={this.props.handleClick}
+        >
           Medium
         </button>
-        <button value="HIGH" onClick={this.props.handleClick}>
+        <button
+          className="button button__3"
+          value="HIGH"
+          onClick={this.props.handleClick}
+        >
           High
         </button>
       </section>
