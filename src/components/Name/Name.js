@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Name.css';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 import {
   nameSetterEvent,
   increaseTurnCount
@@ -33,7 +34,6 @@ const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
       dispatch(nameSetterEvent(e.target.value));
-      dispatch(increaseTurnCount());
     }
   };
 };
