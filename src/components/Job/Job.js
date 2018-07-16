@@ -11,13 +11,36 @@ class Job extends Component {
   render() {
     return (
       <section className="job">
-        <button value={100} onClick={this.props.handleClick}>
+        <ul className="job__list ul">
+          <li className="job__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="job__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="job__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <button
+          className="button button__1"
+          value={100}
+          onClick={this.props.handleClick}
+        >
           Job1
         </button>
-        <button value={200} onClick={this.props.handleClick}>
+        <button
+          className="button button__2"
+          value={200}
+          onClick={this.props.handleClick}
+        >
           Job2
         </button>
-        <button value={300} onClick={this.props.handleClick}>
+        <button
+          className="button button__3"
+          value={300}
+          onClick={this.props.handleClick}
+        >
           Job3
         </button>
       </section>
