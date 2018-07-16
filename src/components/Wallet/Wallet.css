@@ -1,5 +1,7 @@
 .wallet__container {
-  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   background-color: purple;
@@ -10,14 +12,14 @@
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
-.rating .CircularProgressbar-trail{
+.rating .CircularProgressbar-trail {
   stroke: white;
 }
-.rating .CircularProgressbar-text{
+.rating .CircularProgressbar-text {
   fill: white;
   text-align: center;
   text-anchor: middle;
-  dominant-baseline: middle;
+  /* dominant-baseline: middle; */
 }
 /*credit circular bar*/
 .credit .CircularProgressbar-path {
@@ -25,12 +27,28 @@
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
-.credit .CircularProgressbar-trail{
+.credit .CircularProgressbar-trail {
   stroke: white;
 }
-.credit .CircularProgressbar-text{
+.credit .CircularProgressbar-text {
   fill: white;
   text-align: center;
   text-anchor: middle;
-  dominant-baseline: middle;
+  /* dominant-baseline: middle; */
+}
+
+/*credit circular bar*/
+.cash .CircularProgressbar-path {
+  stroke: blue;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.cash .CircularProgressbar-trail {
+  stroke: white;
+}
+.cash .CircularProgressbar-text {
+  fill: white;
+  text-align: center;
+  text-anchor: middle;
+  /* dominant-baseline: middle; */
 }
