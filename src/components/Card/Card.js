@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./Card.css";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './Card.css';
+import { connect } from 'react-redux';
 import {
   cardSelectionEvent,
   increaseTurnCount
-} from "../../redux/actions/PlayerInfoAction";
+} from '../../redux/actions/PlayerInfoAction';
 
 class Card extends Component {
   render() {
@@ -19,7 +19,6 @@ class Card extends Component {
         <button value="HIGH" onClick={this.props.handleClick}>
           High
         </button>
-        <p>{this.props.wallet.rating}</p>
       </section>
     );
   }
