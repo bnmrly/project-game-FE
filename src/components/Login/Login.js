@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { idSetterEvent } from '../../redux/actions/PlayerInfoAction';
+
 class Login extends Component {
   state = {
     idInput: ''
@@ -23,7 +24,7 @@ class Login extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: (id) => {
-      dispatch(idSetterEvent(id))
+      dispatch(idSetterEvent(id));
     }
   }
 }
