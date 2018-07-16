@@ -72,7 +72,9 @@ class Display extends Component {
         ) : this.props.turnCount === storyBook.length ? (
           <button onClick={this.nextChapterClickHandler}>next chapter</button>
         ) : (
-          <button onClick={this.props.turnIncrement}>next</button>
+          <button className="button__next" onClick={this.props.turnIncrement}>
+            next
+          </button>
         )}
       </div>
     );
