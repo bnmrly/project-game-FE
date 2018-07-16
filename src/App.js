@@ -22,13 +22,13 @@ class App extends Component {
         {!this.props.id ? (
           <Login />
         ) : (
-          <div className="app__game-container">
-            <section className="app__turncounter">turn count goes here</section>
-            <Display />
-            <Wallet />
-            <Snippets />
-          </div>
-        )}
+            <div className="app__game-container">
+              <section className="app__turncounter">turn count goes here</section>
+              <Display />
+              <Wallet />
+              <Snippets />
+            </div>
+          )}
       </React.Fragment>
     );
   }
