@@ -26,7 +26,6 @@ class Display extends Component {
     lastChapterName: ''
   };
   render() {
-    console.log(this.state.storyBook, this.state.lastChapterName);
     return (
       <section className="display__container">{this.storyRevealer()}</section>
     );
@@ -52,8 +51,9 @@ class Display extends Component {
               case 'Job':
                 storyLines.unshift(<Job />);
                 break;
-              case 'Clothing':
+              case 'Clothes':
                 storyLines.unshift(<Clothing />);
+                break
                 case 'Phone':
                 storyLines.unshift(<Phone />);
                 break;
