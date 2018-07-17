@@ -6,6 +6,8 @@ const playerMetaDataReducer = (state = initialState, action) => {
       return { ...state, id: payload };
     case 'SET_NAME':
       return { ...state, name: payload };
+    case 'RESET_GAME':
+      return initialState;
     default:
       return state;
   }

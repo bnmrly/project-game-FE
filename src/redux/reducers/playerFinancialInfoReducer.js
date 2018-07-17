@@ -65,7 +65,8 @@ const playerFinancialReducer = (state = initialState, action) => {
       const newLivingState = { ...state.living_costs };
       newLivingState[action.payload.key] = action.payload.value;
       return { ...state, living_costs: newLivingState };
-
+    case 'RESET_GAME':
+      return initialState;
     default:
       return state;
   }
