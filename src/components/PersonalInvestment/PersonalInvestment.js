@@ -12,10 +12,7 @@ import {
 
 class PersonalInvestment extends Component {
   render() {
-<<<<<<< HEAD
-=======
     console.log(this.props.wage);
->>>>>>> b16788cffdc6b422c523338658ff0e60017f0644
     return (
       <section className="investment">
         <ul className="investment__list ul">
@@ -112,22 +109,6 @@ const mapDispatchToProps = dispatch => {
       dispatch(increaseTurnCount());
     },
     payForCourseByCash: e => {
-<<<<<<< HEAD
-        const courseData = JSON.parse(e.target.value)
-        dispatch(cashChange(courseData.initialPrice));
-        dispatch(increaseTurnCount());
-        dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
-      },
-      payForCourseByCredit: e => {
-        const courseData = JSON.parse(e.target.value)
-        dispatch(changeAvailableCredit(courseData.initialPrice));
-        dispatch(increaseTurnCount());
-        dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
-      },
-      cantAfford: e => {
-            dispatch(increaseTurnCount());
-      }
-=======
       const courseData = JSON.parse(e.target.value);
       dispatch(cashChange(courseData.initialPrice));
       dispatch(increaseTurnCount());
@@ -142,7 +123,6 @@ const mapDispatchToProps = dispatch => {
     cantAfford: e => {
       dispatch(increaseTurnCount());
     }
->>>>>>> b16788cffdc6b422c523338658ff0e60017f0644
   };
 };
 const mapStateToProps = store => {
