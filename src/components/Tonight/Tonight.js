@@ -94,7 +94,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(increaseTurnCount());
     },
     payByCredit: e => {
-      dispatch(cashChange(e.target.value));
+      dispatch(changeAvailableCredit(e.target.value));
       dispatch(increaseTurnCount());
     }
   };
