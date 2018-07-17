@@ -92,7 +92,6 @@ class Monthly extends Component {
                   >Don't Pay This Month
                   </button>
                   </div>
-                <button onClick>Next Chapter</button>
             </React.Fragment>   
         )
     }
