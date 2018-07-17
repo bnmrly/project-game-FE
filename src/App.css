@@ -1,6 +1,15 @@
 .app__game-container {
   display: grid;
-  grid-template-columns: 80vw 20vw;
-  grid-template-rows: 20vh 60vh 20vh;
-  background-color: lightseagreen;
+  grid-template-columns: 70vw 10vw 20vw;
+  grid-template-rows: 10vh 90vh;
+  max-height: 100vh;
+  background-color: gray;
+}
+
+.container__login-id,
+.container__login-name {
+  background-color: pink;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10vh 90vh;
 }

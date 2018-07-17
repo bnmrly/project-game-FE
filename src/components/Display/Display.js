@@ -7,7 +7,7 @@ import Job from '../Job/Job';
 import Clothing from '../Clothing/Clothing';
 import Phone from '../Phone/Phone';
 import Tonight from '../Tonight/Tonight';
-import PersonalInvestment from "../PersonalInvestment/PersonalInvestment";
+import PersonalInvestment from '../PersonalInvestment/PersonalInvestment';
 import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
@@ -34,34 +34,35 @@ class Display extends Component {
   storyRevealer = () => {
     const storyLines = [];
     const { storyBook } = this.state;
-    for (let i = 0; i < this.props.turnCount; i++) {
-      storyLines.unshift(<p key={shortId.generate()}>{storyBook[i].text}</p>);
-    }
+
+    storyLines.push(
+      <p className="p__storyline">{storyBook[this.props.turnCount - 1].text}</p>
+    );
     const buttons = (
-      <div key={shortId.generate()}>
+      <div className="buttons" key={shortId.generate()}>
         {storyBook[this.props.turnCount - 1].choices ? (
           storyBook[this.props.turnCount - 1].choices.forEach(choice => {
             switch (choice) {
               case 'Card':
-                storyLines.unshift(<Card />);
+                storyLines.push(<Card />);
                 break;
               case 'Name':
-                storyLines.unshift(<Name />);
+                storyLines.push(<Name />);
                 break;
               case 'Job':
-                storyLines.unshift(<Job />);
+                storyLines.push(<Job />);
                 break;
               case 'Clothes':
-                storyLines.unshift(<Clothing />);
-                break
-                case 'Phone':
-                storyLines.unshift(<Phone />);
+                storyLines.push(<Clothing />);
                 break;
-                case 'Tonight':
-                storyLines.unshift(<Tonight />);
+              case 'Phone':
+                storyLines.push(<Phone />);
                 break;
-                case 'Personal Investment':
-                storyLines.unshift(<PersonalInvestment />);
+              case 'Tonight':
+                storyLines.push(<Tonight />);
+                break;
+              case 'Personal Investment':
+                storyLines.push(<PersonalInvestment />);
                 break;
               default:
                 console.log('blah blah text');
@@ -70,11 +71,13 @@ class Display extends Component {
         ) : this.props.turnCount === storyBook.length ? (
           <button onClick={this.nextChapterClickHandler}>next chapter</button>
         ) : (
-          <button onClick={this.props.turnIncrement}>next</button>
+          <button className="button__next" onClick={this.props.turnIncrement}>
+            next
+          </button>
         )}
       </div>
     );
-    storyLines.unshift(buttons);
+    storyLines.push(buttons);
     return storyLines;
   };
 

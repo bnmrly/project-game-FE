@@ -9,12 +9,24 @@ import {
   setUserWage,
   increaseTurnCount
 } from '../../redux/actions/PlayerInfoAction';
+
 class PersonalInvestment extends Component {
   render() {
     console.log(this.props.wage);
     return (
-      <section>
-        <div>
+      <section className="investment">
+        <ul className="investment__list ul">
+          <li className="investment__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="investment__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="investment__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <div className="button__1">
           <p>Career Progression</p>
           {dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available ? (
@@ -44,8 +56,8 @@ class PersonalInvestment extends Component {
             </button>
           )}
         </div>
-        <div>
-          <p>Holiday</p>
+        <div className="button__2">
+          <p>Holiday with friends</p>
           {dataChoiceEvents.holiday.initialPrice >
           this.props.credit.available ? (
             <div />
@@ -68,12 +80,14 @@ class PersonalInvestment extends Component {
             </button>
           )}{' '}
         </div>
-        {dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
-        dataChoiceEvents.careerProgression.initialPrice >
-          this.props.credit.available ? (
-          <div>
+         {dataChoiceEvents.careerProgression.initialPrice > 
+          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
+          this.props.credit.available && dataChoiceEvents.holiday.initialPrice > 
+          this.props.cash && dataChoiceEvents.holiday.initialPrice >
+          this.props.credit.available ?
+          <div className="button__3">
             <p>Can't afford either</p>
-            <button onClick={this.props.payForHolidayByCash}>
+            <button onClick={this.props.cantAfford}>
               No Spending Today
             </button>
           </div>
