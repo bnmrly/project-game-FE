@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './Name.css';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
 import {
   nameSetterEvent,
   increaseTurnCount
 } from '../../redux/actions/PlayerInfoAction';
+import { initialisePlayer } from '../../firebase/fb';
+
 
 class Name extends Component {
   state = {
@@ -32,8 +35,8 @@ class Name extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
+      initialisePlayer(e.target.value)
       dispatch(nameSetterEvent(e.target.value));
-      dispatch(increaseTurnCount());
     }
   };
 };

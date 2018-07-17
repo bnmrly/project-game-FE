@@ -14,15 +14,11 @@ class Tonight extends Component {
       <section>
         <div>
           <p>Night In</p>
-            <button
-              onClick={this.props.NightIn}
-            >
-              Free
-            </button>
+          <button onClick={this.props.NightIn}>Free</button>
         </div>
         <div>
           <p>Online Shopping</p>
-          {dataChoiceEvents.onlineShopping.initialPrice>
+          {dataChoiceEvents.onlineShopping.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
@@ -87,7 +83,7 @@ class Tonight extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     NightIn: e => {
-        dispatch(increaseTurnCount());
+      dispatch(increaseTurnCount());
     },
     payByCash: e => {
       dispatch(cashChange(e.target.value));
