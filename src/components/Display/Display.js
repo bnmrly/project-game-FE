@@ -7,6 +7,7 @@ import Job from '../Job/Job';
 import Clothing from '../Clothing/Clothing';
 import Phone from '../Phone/Phone';
 import Tonight from '../Tonight/Tonight';
+import Monthly from '../Monthly/Monthly';
 import PersonalInvestment from '../PersonalInvestment/PersonalInvestment';
 import shortId from 'short-id';
 import { connect } from 'react-redux';
@@ -64,16 +65,17 @@ class Display extends Component {
               case 'Personal Investment':
                 storyLines.push(<PersonalInvestment />);
                 break;
-              case 'End Of Chapter':
-                storyLines.push(<EndOfChapter />)
-                break
+              case 'Monthly':
+                storyLines.push(<Monthly />,  
+                <div><button onClick={this.nextChapterClickHandler}>next chapter</button></div>)
+               break
+               case 'End of Chapter':
+               storyLines.push(<div><button className="button__next" onClick={this.props.turnIncrement}>Month End</button></div>)
               default:
                 console.log('blah blah text');
             }
           })
-        ) : this.props.turnCount === storyBook.length ? (
-          <button onClick={this.nextChapterClickHandler}>next chapter</button>
-        ) : (
+        ): (
           <button className="button__next" onClick={this.props.turnIncrement}>
             next
           </button>
