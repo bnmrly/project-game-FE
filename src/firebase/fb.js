@@ -1,60 +1,61 @@
 import { db } from './config';
 import store from '../redux/index';
 
-export const initialisePlayer = (name) => {
+export const initialisePlayer = (name, id) => {
     const state = store.getState();
-    const addPlayers = db
-        .collection('games')
-        .doc(state.playerMetaData.id);
+    const addPlayers = db.collection('games').doc(state.playerMetaData.id);
 
-    addPlayers.get()
-        .then(docSnapShot => {
-            console.log(docSnapShot)
-            if (docSnapShot.exists) {
-                const setWithMerge = addPlayers.set({
+    addPlayers.get().then(docSnapShot => {
+        if (docSnapShot.exists) {
+            const setWithMerge = addPlayers.set(
+                {
                     players: {
                         [name]: {
-                            rating: 0,
-                            creditAvailable: 0,
-                            creditMax: 0,
-                            cash: 0,
+                            rating: [0], // progress through chapters
+                            creditAvail: [0], // progress through chapters
+                            cashAvail: [0], // progress through chapters
+                            chapterCount: 0,
+                            billPostpones: 0, // count
+                            cashSpends: 0, // count
+                            cardSpends: 0, // count
+                            result: null,
                             decisions: {
-                                testDecision: 'test'
+                                card: null, // low/med/high
+                                phone: null, // high/sim-only/second-hand
+                                clothing: null, // shopping choice
+                                night: null, // eve entertainment choice
+                                careerProgression: null // boolean - career progression (true) vs holiday (false)
                             }
                         }
                     }
-                }, { merge: true });
+                },
+                { merge: true }
+            );
 
-                return setWithMerge;
-            }
-        })
+            return setWithMerge;
+        }
+    });
 };
 
-// export const updateWallet = () => {
-//     const state = store.getState();
-//     const updateWallet = db
-//         .collection('games')
-//         .doc(state.playerMetaData.id)
-//         .update({
-//             [`players.${state.playerMetaData.name}.cash`]: state.playerFinancialInfo.wallet.cash,
-//             [`players.${state.playerMetaData.name}.creditMax`]: state.playerFinancialInfo.wallet.credit.max,
-//             [`players.${state.playerMetaData.name}.creditAvailable`]: state.playerFinancialInfo.wallet.credit.available,
-//             [`players.${state.playerMetaData.name}.rating`]: state.playerFinancialInfo.wallet.rating
-//         })
-//     return updateWallet;
-// }
-
-export const cardDecision = (cd) => {
+export const getDecision = (type, decision) => {
     const state = store.getState();
-    const addCd = db
-        .collection('games')
-        .doc(state.playerMetaData.id)
-        .update({
-            [`players.${state.playerMetaData.name}`]: {
-                decisions: {
-                    cardDecision: cd
-                }
-            }
-        });
-    return addCd;
+    db.collection('games')
+        .doc(state.playerMetaData.id).get()
+        .then(gameDoc => {
+            const players = gameDoc.data().players;
+            db.collection('games')
+                .doc(state.playerMetaData.id)
+                .update({
+                    players: {
+                        ...players,
+                        [state.playerMetaData.name]: {
+                            ...players[state.playerMetaData.name],
+                            decisions: {
+                                ...players[state.playerMetaData.name].decisions,
+                                [type]: decision
+                            }
+                        }
+                    }
+                })
+        })
 }
