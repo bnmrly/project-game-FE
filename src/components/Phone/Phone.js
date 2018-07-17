@@ -27,7 +27,7 @@ class Phone extends Component {
           </li>
         </ul>
         <div className="grid__1">
-          <p>High contract phone deal</p>
+          <p>Contract phone deal</p>
           {dataChoiceEvents.phoneContractHigh.initialPrice >
           this.props.credit.available ? (
             <div />
@@ -75,7 +75,7 @@ class Phone extends Component {
           </button>
         </div>
         <div className="grid__3">
-          <p>Second hand phone deal</p>
+          <p>Second hand phone</p>
           {dataChoiceEvents.phoneSecondHand.initialPrice >
           this.props.credit.available ? (
             <div />
