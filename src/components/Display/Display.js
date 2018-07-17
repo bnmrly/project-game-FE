@@ -26,7 +26,6 @@ class Display extends Component {
     lastChapterName: ''
   };
   render() {
-    console.log(this.state.storyBook, this.state.lastChapterName);
     return (
       <section className="display__container">{this.storyRevealer()}</section>
     );

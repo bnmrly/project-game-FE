@@ -9,6 +9,7 @@ import {
   setUserWage,
   increaseTurnCount
 } from '../../redux/actions/PlayerInfoAction';
+
 class PersonalInvestment extends Component {
   render() {
     console.log(this.props.wage);
@@ -70,7 +71,20 @@ class PersonalInvestment extends Component {
           )}{' '}
           {dataChoiceEvents.careerProgression.initialPrice > this.props.cash ? (
             <div />
-          ) : (
+          ) :( <button
+            value={dataChoiceEvents.holiday.initialPrice}
+            onClick={this.props.payForHolidayByCash}
+          >
+            Cash
+          </button>)}{' '}
+        </div>
+        {dataChoiceEvents.careerProgression.initialPrice > 
+          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
+          this.props.credit.available && dataChoiceEvents.holiday.initialPrice > 
+          this.props.cash && dataChoiceEvents.holiday.initialPrice >
+          this.props.credit.available ?
+            <div>
+              <p>Can't afford either</p>
             <button
               value={dataChoiceEvents.holiday.initialPrice}
               onClick={this.props.payForHolidayByCash}

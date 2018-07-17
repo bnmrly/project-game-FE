@@ -38,6 +38,7 @@ class App extends Component {
             <Wallet />
           </div>
         )}
+
       </React.Fragment>
     );
   }
