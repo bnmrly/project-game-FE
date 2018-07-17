@@ -9,13 +9,9 @@ class Login extends Component {
   render() {
     return (
       <div className="login-info">
-        <p>If you are working solo, please use id zzzzz</p>
+        <p>Please enter your group id</p>
 
-        <input
-          placeholder="please enter your group id"
-          value={this.state.idInput}
-          onChange={this.handleChange}
-        />
+        <input value={this.state.idInput} onChange={this.handleChange} />
         <button
           type="submit"
           onClick={() => this.props.handleClick(this.state.idInput)}
