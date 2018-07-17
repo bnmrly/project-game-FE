@@ -9,25 +9,90 @@ import {
 import shortId from 'short-id';
 
 class Monthly extends Component {
+  state = {
+    groceriesDisabled: false,
+    miscellaneousDisabled: false,
+    travelDisabled: false,
+    phoneDisabled: false,
+    wageDisabled: false,
+    creditCardDisabled: false,
+    creditOwed: (this.props.financialInfo.wallet.credit.max -
+    this.props.financialInfo.wallet.credit.available
+    )
+  }
     render() {
-        let cashToPay = 0
-        let creditToPay = 0
         const financialInfo = this.props.financialInfo
+        console.log(this.state.creditOwed, this.props.APR)
         return (
             <React.Fragment>    
                 <div>
                 Wage:£{financialInfo.wage}{'     '}
-                <button value={financialInfo.wage}>collect wage</button></div>
+                  <button 
+                    value={-financialInfo.wage}
+                    onClick={(e) => {
+                      this.props.payByCash(e)
+                      this.setState({wageDisabled:true})
+                    }}
+                    disabled={this.state.wageDisabled}
+                  >collect wage
+                  </button>
+                </div>
                 <div>
                     Living Costs
                     {Object.keys(financialInfo.living_costs).map(key => {
                       return <p key={shortId.generate()}>
                       {key}:£{financialInfo.living_costs[key]}
-                      <button value={financialInfo.living_costs[key]}>Credit</button>
-                      <button value={financialInfo.living_costs[key]}>Cash</button>
+                      <button
+                      value={financialInfo.living_costs[key]}
+                      disabled={this.state[`${key}Disabled`]}
+                      onClick={e => {
+                        this.props.payByCredit(e)
+                        this.setState({[`${key}Disabled`]: true})
+                      }}
+                      >Credit
+                      </button>
+                      <button
+                      value={financialInfo.living_costs[key]}
+                      disabled={this.state[`${key}Disabled`]} 
+                      onClick={(e) => {
+                        this.props.payByCash(e)
+                        this.setState({[`${key}Disabled`]: true})
+                      }}
+                      >Cash
+                      </button>
                       </p>  
                     })}
                 </div>
+                <div>Credit Card 
+                  
+                  <button
+                    value={-this.state.creditOwed}
+                    onClick={e => {
+                      this.setState({creditCardDisabled: true})
+                      this.props.payByCredit(e)
+                    }}
+                   
+                    disabled={this.state.creditCardDisabled}
+                    >Pay Full Amount
+                  </button>
+                  <button
+                  onClick= {() => {this.setState({creditCardDisabled: true})}}
+                  disabled={this.state.creditCardDisabled}
+                  >Pay Interest
+                  </button>
+                  <button
+                  value={Math.floor(this.state.creditOwed/100 *this.props.financialInfo.wallet.APR /12)}
+                  onClick={e => {
+                    this.props.payByCredit(e)
+                    console.log('hi')
+                    this.setState({creditCardDisabled: true})
+                    }
+                  }
+                  disabled={this.state.creditCardDisabled}
+                  >Don't Pay This Month
+                  </button>
+                  
+                  </div>
             </React.Fragment>   
         )
     }
@@ -35,17 +100,11 @@ class Monthly extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-
-      defer: e => {
-        dispatch(changeAvailableCredit(e.target.value));
-      },
-      payByCash: e => {
+      payByCash: (e) => {
         dispatch(cashChange(e.target.value));
-
       },
-      payByCredit: e => {
+      payByCredit: (e) => {
         dispatch(changeAvailableCredit(e.target.value));
-
       }
     };
   };
