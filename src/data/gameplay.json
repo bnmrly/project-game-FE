@@ -70,7 +70,6 @@
   },
   "fixedChapters": {
     "intro": [
-      { "text": "", "choices": ["Name"] },
       { "text": "Pick a job", "choices": ["Job"] },
       { "text": "You want to buy a house and need a loan" },
       { "text": "To realise this dream you must build up your credit rating" },
@@ -171,7 +170,10 @@
         "text": "What phone do you want? Sim only, contract?",
         "choices": ["Phone"]
       },
-      {"text": "you are sure your new phone will serve you well, though you won't be taking it anywhere near a pool for a while"}
+      {
+        "text":
+          "you are sure your new phone will serve you well, though you won't be taking it anywhere near a pool for a while"
+      }
     ],
     "chapterFour": [
       { "text": "Time is passing by..." },
@@ -186,7 +188,7 @@
         "text": "What do you want to do tonight?",
         "choices": ["Tonight"]
       },
-      {"text": "I'm sure you'll have a great time"}
+      { "text": "I'm sure you'll have a great time" }
     ]
   },
   "educationSnippets": [

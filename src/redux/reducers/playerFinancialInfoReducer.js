@@ -1,5 +1,10 @@
 const initialState = {
-  wallet: { cash: 500, credit: { available: 200, max: 500 }, rating: 0 },
+  wallet: {
+    cash: 500,
+    credit: { available: 200, max: 500 },
+    rating: 0,
+    APR: 0
+  },
   living_costs: {
     groceries: 50,
     miscellaneous: 40,
@@ -15,11 +20,32 @@ const playerFinancialReducer = (state = initialState, action) => {
   //
   switch (action.type) {
     case 'LOW':
-      return { ...state, wallet: { ...wallet, rating: action.payload } };
+      return {
+        ...state,
+        wallet: {
+          ...wallet,
+          rating: action.payload.rating,
+          APR: action.payload.Apr
+        }
+      };
     case 'MEDIUM':
-      return { ...state, wallet: { ...wallet, rating: action.payload } };
+      return {
+        ...state,
+        wallet: {
+          ...wallet,
+          rating: action.payload.rating,
+          APR: action.payload.Apr
+        }
+      };
     case 'HIGH':
-      return { ...state, wallet: { ...wallet, rating: action.payload } };
+      return {
+        ...state,
+        wallet: {
+          ...wallet,
+          rating: action.payload.rating,
+          APR: action.payload.Apr
+        }
+      };
     case 'SET_USER_WAGE':
       return { ...state, wage: action.payload };
     case 'CASH_CHANGE':
@@ -37,7 +63,7 @@ const playerFinancialReducer = (state = initialState, action) => {
       };
     case 'ADD_LIVING_COST':
       const newLivingState = { ...state.living_costs };
-      newLivingState[action.payload.key] = action.payload.value
+      newLivingState[action.payload.key] = action.payload.value;
       return { ...state, living_costs: newLivingState };
 
     default:

@@ -11,7 +11,18 @@ import { POINT_CONVERSION_COMPRESSED } from 'constants';
 class Clothing extends Component {
   render() {
     return (
-      <section>
+      <section className="clothing">
+        <ul className="clothing__list ul">
+          <li className="clothing__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="clothing__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="clothing__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
         {dataChoiceEvents.partyClothesSuit.initialPrice >
           this.props.credit.available &&
         dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash &&
@@ -27,13 +38,13 @@ class Clothing extends Component {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="container__button">
             {dataChoiceEvents.partyClothesSuit.initialPrice >
               this.props.credit.available &&
             dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
               <div />
             ) : (
-              <div>
+              <div className="button__1">
                 <p>Party clothing suit</p>
                 <div>
                   {dataChoiceEvents.partyClothesSuit.initialPrice >
@@ -61,7 +72,7 @@ class Clothing extends Component {
                 </div>
               </div>
             )}
-            <div>
+            <div className="button__2">
               {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
               dataChoiceEvents.smartCasual.initialPrice >
                 this.props.credit.available ? (
@@ -96,7 +107,7 @@ class Clothing extends Component {
                 </div>
               )}
             </div>
-            <div>
+            <div className="button__3">
               {dataChoiceEvents.casualClothes.initialPrice >
                 this.props.credit.available &&
               dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (

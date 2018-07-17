@@ -9,37 +9,56 @@ import {
   setUserWage,
   increaseTurnCount
 } from '../../redux/actions/PlayerInfoAction';
+
 class PersonalInvestment extends Component {
   render() {
-    console.log(this.props.wage)
+    console.log(this.props.wage);
     return (
-      <section>
-        <div>
+      <section className="investment">
+        <ul className="investment__list ul">
+          <li className="investment__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="investment__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="investment__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <div className="button__1">
           <p>Career Progression</p>
           {dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
             <button
-            value={JSON.stringify({...dataChoiceEvents.careerProgression, wage:this.props.wage})}
-            onClick={this.props.payForCourseByCredit}
+              value={JSON.stringify({
+                ...dataChoiceEvents.careerProgression,
+                wage: this.props.wage
+              })}
+              onClick={this.props.payForCourseByCredit}
             >
               Credit
             </button>
           )}{' '}
-           {dataChoiceEvents.careerProgression.initialPrice >
-          this.props.cash ? (
+          {dataChoiceEvents.careerProgression.initialPrice > this.props.cash ? (
             <div />
-          ) :(<button
-            value={JSON.stringify({...dataChoiceEvents.careerProgression, wage:this.props.wage})}
-            onClick={this.props.payForCourseByCash}
-          >
-            Cash
-          </button>)}
+          ) : (
+            <button
+              value={JSON.stringify({
+                ...dataChoiceEvents.careerProgression,
+                wage: this.props.wage
+              })}
+              onClick={this.props.payForCourseByCash}
+            >
+              Cash
+            </button>
+          )}
         </div>
-        <div>
-          <p>Holiday</p>
-          {dataChoiceEvents.eatOut.initialPrice >
+        <div className="button__2">
+          <p>Holiday with friends</p>
+          {dataChoiceEvents.holiday.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
@@ -50,28 +69,31 @@ class PersonalInvestment extends Component {
               Credit
             </button>
           )}{' '}
-          {dataChoiceEvents.careerProgression.initialPrice>
-          this.props.cash ? (
+          {dataChoiceEvents.holiday.initialPrice > this.props.cash ? (
             <div />
-          ) :( <button
-            value={dataChoiceEvents.holiday.initialPrice}
-            onClick={this.props.payForHolidayByCash}
-          >
-            Cash
-          </button>)}{' '}
-        </div>
-        {dataChoiceEvents.careerProgression.initialPrice > 
-          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
-          this.props.credit.available ?
-            <div>
-              <p>Can't afford either</p>
+          ) : (
             <button
-            onClick={this.props.payForHolidayByCash}
-          >
-            No Spending Today
-          </button>
-            </div>
-          : ""}
+              value={dataChoiceEvents.holiday.initialPrice}
+              onClick={this.props.payForHolidayByCash}
+            >
+              Cash
+            </button>
+          )}{' '}
+        </div>
+         {dataChoiceEvents.careerProgression.initialPrice > 
+          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
+          this.props.credit.available && dataChoiceEvents.holiday.initialPrice > 
+          this.props.cash && dataChoiceEvents.holiday.initialPrice >
+          this.props.credit.available ?
+          <div className="button__3">
+            <p>Can't afford either</p>
+            <button onClick={this.props.cantAfford}>
+              No Spending Today
+            </button>
+          </div>
+         : (
+          ''
+        )}
       </section>
     );
   }
@@ -87,23 +109,20 @@ const mapDispatchToProps = dispatch => {
       dispatch(increaseTurnCount());
     },
     payForCourseByCash: e => {
-        const courseData = JSON.parse(e.target.value)
-        console.log(courseData)
-        dispatch(cashChange(courseData.initialPrice));
-        dispatch(increaseTurnCount());
-        dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
-      },
-      payForCourseByCredit: e => {
-        console.log(e.target.value)
-        const courseData = JSON.parse(e.target.value)
-        console.log(courseData)
-        dispatch(changeAvailableCredit(courseData.initialPrice));
-        dispatch(increaseTurnCount());
-        dispatch(setUserWage( courseData.wageIncrease + courseData.wage));
-      },
-      cantAfford: e => {
-            dispatch(increaseTurnCount());
-      }
+      const courseData = JSON.parse(e.target.value);
+      dispatch(cashChange(courseData.initialPrice));
+      dispatch(increaseTurnCount());
+      dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
+    },
+    payForCourseByCredit: e => {
+      const courseData = JSON.parse(e.target.value);
+      dispatch(changeAvailableCredit(courseData.initialPrice));
+      dispatch(increaseTurnCount());
+      dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
+    },
+    cantAfford: e => {
+      dispatch(increaseTurnCount());
+    }
   };
 };
 const mapStateToProps = store => {

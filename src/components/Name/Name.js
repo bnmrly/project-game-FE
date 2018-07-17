@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import './Name.css';
 import { connect } from 'react-redux';
-import { nameSetterEvent, increaseTurnCount } from '../../redux/actions/PlayerInfoAction';
+import Header from '../Header/Header';
+import {
+  nameSetterEvent,
+  increaseTurnCount
+} from '../../redux/actions/PlayerInfoAction';
 import { initialisePlayer } from '../../firebase/fb';
+
 
 class Name extends Component {
   state = {
@@ -17,7 +22,7 @@ class Name extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button value={this.state.name} onClick={(e) => { this.props.handleClick(e, this.props.id) }}>
+        <button value={this.state.name} onClick={this.props.handleClick}>
           Submit
         </button>
       </section>
@@ -29,17 +34,15 @@ class Name extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    handleClick: (e, id) => {
-      initialisePlayer(e.target.value, id)
+    handleClick: e => {
+      initialisePlayer(e.target.value)
       dispatch(nameSetterEvent(e.target.value));
-      dispatch(increaseTurnCount());
     }
   };
 };
 const mapStateToProps = store => {
   return {
-    name: store.playerMetaData.name,
-    id: store.playerMetaData.id
+    name: store.playerMetaData.name
   };
 };
 export default connect(

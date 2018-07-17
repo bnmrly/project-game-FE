@@ -1,0 +1,15 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 90% 10%;
+}
+
+.card__list {
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+
+.card__list-item {
+  margin-bottom: 1rem;
+}
