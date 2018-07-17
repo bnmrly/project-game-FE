@@ -64,6 +64,9 @@ class Display extends Component {
               case 'Personal Investment':
                 storyLines.push(<PersonalInvestment />);
                 break;
+              case 'End Of Chapter':
+                storyLines.push(<EndOfChapter />)
+                break
               default:
                 console.log('blah blah text');
             }

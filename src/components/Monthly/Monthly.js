@@ -91,8 +91,8 @@ class Monthly extends Component {
                   disabled={this.state.creditCardDisabled}
                   >Don't Pay This Month
                   </button>
-                  
                   </div>
+                <button onClick>Next Chapter</button>
             </React.Fragment>   
         )
     }
