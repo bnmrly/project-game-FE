@@ -15,22 +15,36 @@
   margin: 0;
 }
 
-.button__1 {
+.grid__1 {
   grid-column-start: 2;
 }
 
-.button__2 {
+.grid__2 {
   grid-column-start: 4;
 }
 
-.button__3 {
+.grid__3 {
   grid-column-start: 6;
 }
 
-.button__next {
-  background-image: url('../../assets/button-arrow-green.png');
-  /* background-size: contain; */
-  /* background-size: cover; */
+/* .button__next:hover {
+  color: rgb(87, 87, 87);
+} */
+
+.image__next {
+  cursor: pointer;
+}
+
+.button__1 {
+  background-image: url('../../assets/button-red.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.button__2 {
+  background-image: url('../../assets/button-yellow.png');
   background-size: 100% 100%;
   background-color: Transparent;
   outline: none;
@@ -38,6 +52,20 @@
   cursor: pointer;
 }
 
-/* .button__next:hover {
-  color: rgb(87, 87, 87);
-} */
+.button__3 {
+  background-image: url('../../assets/button-blue.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button__4 {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

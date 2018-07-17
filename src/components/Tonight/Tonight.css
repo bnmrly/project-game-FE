@@ -14,10 +14,10 @@
   margin-bottom: 1rem;
 }
 
-.button__3--tonight {
+.grid__3--tonight {
   grid-column-start: 2;
 }
 
-.button__4--tonight {
+.grid__4--tonight {
   grid-column-start: 4;
 }

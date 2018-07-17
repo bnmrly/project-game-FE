@@ -11,7 +11,6 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import { getDecision } from '../../firebase/fb';
 
-
 class Phone extends Component {
   render() {
     return (
@@ -27,66 +26,72 @@ class Phone extends Component {
             Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
         </ul>
-        <div className="button__1">
+        <div className="grid__1">
           <p>High contract phone deal</p>
           {dataChoiceEvents.phoneContractHigh.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='highContract-credit'
-                value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
-                onClick={this.props.payForPhoneByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__1"
+              name="highContract-credit"
+              value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
+              onClick={this.props.payForPhoneByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='highContract-cash'
+            className="button__1"
+            name="highContract-cash"
             value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
             onClick={this.props.payForPhoneByCash}
           >
             Cash
           </button>
         </div>
-        <div className="button__2">
+        <div className="grid__2">
           <p>Sim only phone deal</p>
           {dataChoiceEvents.phoneSimOnly.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='simOnly-credit'
-                value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
-                onClick={this.props.payForPhoneByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__2"
+              name="simOnly-credit"
+              value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
+              onClick={this.props.payForPhoneByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='simOnly-cash'
+            className="button__2"
+            name="simOnly-cash"
             value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
             onClick={this.props.payForPhoneByCash}
           >
             Cash
           </button>
         </div>
-        <div className="button__3">
+        <div className="grid__3">
           <p>Second hand phone deal</p>
           {dataChoiceEvents.phoneSecondHand.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='secondHand-credit'
-                value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
-                onClick={this.props.payForPhoneByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__3"
+              name="secondHand-credit"
+              value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
+              onClick={this.props.payForPhoneByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='secondHand-cash'
+            className="button__3"
+            name="secondHand-cash"
             value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
             onClick={this.props.payForPhoneByCash}
           >
@@ -102,7 +107,7 @@ const mapDispatchToProps = dispatch => {
     payForPhoneByCash: e => {
       const contractInfo = JSON.parse(e.target.value);
       const phoneMonthly = { key: 'phone', value: contractInfo.monthlyCost };
-      getDecision('phone', e.target.name)
+      getDecision('phone', e.target.name);
       dispatch(cashChange(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());
@@ -110,7 +115,7 @@ const mapDispatchToProps = dispatch => {
     payForPhoneByCredit: e => {
       const contractInfo = JSON.parse(e.target.value);
       const phoneMonthly = { key: 'phone', value: contractInfo.monthlyCost };
-      getDecision('phone', e.target.name)
+      getDecision('phone', e.target.name);
       dispatch(changeAvailableCredit(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());

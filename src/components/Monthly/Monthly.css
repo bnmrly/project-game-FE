@@ -1,0 +1,8 @@
+.button__next {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

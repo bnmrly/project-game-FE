@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import {
   cardSelectionEvent,
   increaseTurnCount
-} from "../../redux/actions/PlayerInfoAction";
+} from '../../redux/actions/PlayerInfoAction';
 import { getDecision } from '../../firebase/fb';
-
 
 class Card extends Component {
   render() {
@@ -24,24 +23,24 @@ class Card extends Component {
           </li>
         </ul>
         <button
-          name='low'
-          className="button button__1"
+          name="low"
+          className="button button__1 grid__1"
           value="LOW"
           onClick={this.props.handleClick}
         >
           Low
         </button>
         <button
-          name='med'
-          className="button button__2"
+          name="med"
+          className="button button__2 grid__2"
           value="MEDIUM"
           onClick={this.props.handleClick}
         >
           Medium
         </button>
         <button
-          name='high'
-          className="button button__3"
+          name="high"
+          className="button button__3 grid__3"
           value="HIGH"
           onClick={this.props.handleClick}
         >
@@ -54,7 +53,7 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
-      getDecision('card', e.target.name)
+      getDecision('card', e.target.name);
       dispatch(cardSelectionEvent(e.target.value));
       dispatch(increaseTurnCount());
     }

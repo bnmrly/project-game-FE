@@ -25,70 +25,82 @@ class Tonight extends Component {
             Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
         </ul>
-        <div className="button__1">
+        <div className="grid__1">
           <p>Night In</p>
-          <button name='nightIn-free' onClick={this.props.NightIn}>Free</button>
+          <button
+            className="button__1"
+            name="nightIn-free"
+            onClick={this.props.NightIn}
+          >
+            Free
+          </button>
         </div>
-        <div className="button__2">
+        <div className="grid__2">
           <p>Online Shopping</p>
           {dataChoiceEvents.onlineShopping.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='onlineShopping-credit'
-                value={dataChoiceEvents.onlineShopping.initialPrice}
-                onClick={this.props.payByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__2"
+              name="onlineShopping-credit"
+              value={dataChoiceEvents.onlineShopping.initialPrice}
+              onClick={this.props.payByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='onlineShopping-cash'
+            className="button__2"
+            name="onlineShopping-cash"
             value={JSON.stringify(dataChoiceEvents.onlineShopping.initialPrice)}
             onClick={this.props.payByCash}
           >
             Cash
           </button>
         </div>
-        <div className="button__3--tonight">
+        <div className="grid__3--tonight">
           <p>Eat Out</p>
           {dataChoiceEvents.eatOut.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='eatOut-credit'
-                value={dataChoiceEvents.eatOut.initialPrice}
-                onClick={this.props.payByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__3"
+              name="eatOut-credit"
+              value={dataChoiceEvents.eatOut.initialPrice}
+              onClick={this.props.payByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='eatOut-cash'
+            className="button__3"
+            name="eatOut-cash"
             value={dataChoiceEvents.eatOut.initialPrice}
             onClick={this.props.payByCash}
           >
             Cash
           </button>
         </div>
-        <div className="button__4--tonight">
+        <div className="grid__4--tonight">
           <p>Movies</p>
           {dataChoiceEvents.movies.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                name='movies-credit'
-                value={dataChoiceEvents.movies.initialPrice}
-                onClick={this.props.payByCredit}
-              >
-                Credit
+          this.props.credit.available ? (
+            <div />
+          ) : (
+            <button
+              className="button__4"
+              name="movies-credit"
+              value={dataChoiceEvents.movies.initialPrice}
+              onClick={this.props.payByCredit}
+            >
+              Credit
             </button>
-            )}{' '}
+          )}{' '}
           <button
-            name='movies-cash'
+            className="button__4"
+            name="movies-cash"
             value={dataChoiceEvents.movies.initialPrice}
             onClick={this.props.payByCash}
           >
@@ -103,17 +115,17 @@ const mapDispatchToProps = dispatch => {
   return {
     NightIn: e => {
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('night', e.target.name);
     },
     payByCash: e => {
       dispatch(cashChange(e.target.value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('night', e.target.name);
     },
     payByCredit: e => {
       dispatch(changeAvailableCredit(e.target.value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('night', e.target.name);
     }
   };
 };

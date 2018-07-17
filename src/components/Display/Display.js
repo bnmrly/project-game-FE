@@ -15,6 +15,7 @@ import {
   increaseTurnCount,
   resetTurnCount
 } from '../../redux/actions/PlayerInfoAction';
+import nextButton from '../../assets/button-arrow-green.png';
 
 // TO IMPLEMENT:
 
@@ -37,7 +38,9 @@ class Display extends Component {
     const { storyBook } = this.state;
 
     storyLines.push(
-      <p key={shortId.generate()} className="p__storyline">{storyBook[this.props.turnCount - 1].text}</p>
+      <p key={shortId.generate()} className="p__storyline">
+        {storyBook[this.props.turnCount - 1].text}
+      </p>
     );
     const buttons = (
       <div className="buttons" key={shortId.generate()}>
@@ -66,19 +69,41 @@ class Display extends Component {
                 storyLines.push(<PersonalInvestment />);
                 break;
               case 'Monthly':
-                storyLines.push(<Monthly />,  
-                <div><button onClick={this.nextChapterClickHandler}>next chapter</button></div>)
-               break
-               case 'End of Chapter':
-               storyLines.push(<div><button className="button__next" onClick={this.props.turnIncrement}>Month End</button></div>)
+                storyLines.push(
+                  <Monthly />,
+                  <div>
+                    <button onClick={this.nextChapterClickHandler}>
+                      next chapter
+                    </button>
+                  </div>
+                );
+                break;
+              case 'End of Chapter':
+                storyLines.push(
+                  <div>
+                    <button
+                      className="button__next"
+                      onClick={this.props.turnIncrement}
+                    >
+                      Month End
+                    </button>
+                  </div>
+                );
               default:
                 console.log('blah blah text');
             }
           })
-        ): (
-          <button className="button__next" onClick={this.props.turnIncrement}>
-            next
-          </button>
+        ) : (
+          // <button className="button__next" onClick={this.props.turnIncrement}>
+          //   next
+          // </button>
+
+          <img
+            className="image__next"
+            src={nextButton}
+            alt=""
+            onClick={this.props.turnIncrement}
+          />
         )}
       </div>
     );
