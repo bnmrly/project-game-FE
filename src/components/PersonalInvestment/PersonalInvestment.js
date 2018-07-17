@@ -58,7 +58,7 @@ class PersonalInvestment extends Component {
         </div>
         <div className="button__2">
           <p>Holiday with friends</p>
-          {dataChoiceEvents.eatOut.initialPrice >
+          {dataChoiceEvents.holiday.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
@@ -69,22 +69,9 @@ class PersonalInvestment extends Component {
               Credit
             </button>
           )}{' '}
-          {dataChoiceEvents.careerProgression.initialPrice > this.props.cash ? (
+          {dataChoiceEvents.holiday.initialPrice > this.props.cash ? (
             <div />
-          ) :( <button
-            value={dataChoiceEvents.holiday.initialPrice}
-            onClick={this.props.payForHolidayByCash}
-          >
-            Cash
-          </button>)}{' '}
-        </div>
-        {dataChoiceEvents.careerProgression.initialPrice > 
-          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
-          this.props.credit.available && dataChoiceEvents.holiday.initialPrice > 
-          this.props.cash && dataChoiceEvents.holiday.initialPrice >
-          this.props.credit.available ?
-            <div>
-              <p>Can't afford either</p>
+          ) : (
             <button
               value={dataChoiceEvents.holiday.initialPrice}
               onClick={this.props.payForHolidayByCash}
@@ -93,12 +80,14 @@ class PersonalInvestment extends Component {
             </button>
           )}{' '}
         </div>
-        {dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
-        dataChoiceEvents.careerProgression.initialPrice >
-          this.props.credit.available ? (
+         {dataChoiceEvents.careerProgression.initialPrice > 
+          this.props.cash && dataChoiceEvents.careerProgression.initialPrice >
+          this.props.credit.available && dataChoiceEvents.holiday.initialPrice > 
+          this.props.cash && dataChoiceEvents.holiday.initialPrice >
+          this.props.credit.available ?
           <div className="button__3">
             <p>Can't afford either</p>
-            <button onClick={this.props.payForHolidayByCash}>
+            <button onClick={this.props.cantAfford}>
               No Spending Today
             </button>
           </div>
@@ -121,15 +110,12 @@ const mapDispatchToProps = dispatch => {
     },
     payForCourseByCash: e => {
       const courseData = JSON.parse(e.target.value);
-      console.log(courseData);
       dispatch(cashChange(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
     },
     payForCourseByCredit: e => {
-      console.log(e.target.value);
       const courseData = JSON.parse(e.target.value);
-      console.log(courseData);
       dispatch(changeAvailableCredit(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
