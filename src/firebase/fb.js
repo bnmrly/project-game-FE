@@ -2,17 +2,14 @@ import { db } from './config';
 import store from '../redux/index';
 
 export const initialisePlayer = (name, id) => {
+  const state = store.getState();
+  const addPlayers = db.collection('games').doc(state.playerMetaData.id);
 
-    const state = store.getState();
-    const addPlayers = db
-        .collection('games')
-        .doc(state.playerMetaData.id);
-
-    addPlayers.get()
-        .then(docSnapShot => {
-            if (docSnapShot.exists) {
-                const setWithMerge = addPlayers.set({
-                   players: {
+  addPlayers.get().then(docSnapShot => {
+    if (docSnapShot.exists) {
+      const setWithMerge = addPlayers.set(
+        {
+          players: {
             [name]: {
               rating: [0], // progress through chapters
               creditAvail: [0], // progress through chapters
@@ -29,11 +26,6 @@ export const initialisePlayer = (name, id) => {
                 night: null, // eve entertainment choice
                 careerProgression: null // boolean - career progression (true) vs holiday (false)
               }
-                    }
-                }, { merge: true });
-
-                return setWithMerge;
-
             }
           }
         },
