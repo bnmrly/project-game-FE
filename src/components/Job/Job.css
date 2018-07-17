@@ -13,3 +13,46 @@
 .job__list-item {
   margin-bottom: 1rem;
 }
+
+.button__1--job {
+  background-image: url('../../assets/button-red.png');
+  /* background-size: contain; */
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.button__2--job {
+  background-image: url('../../assets/button-yellow.png');
+  /* background-size: contain; */
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button__2--job {
+  background-image: url('../../assets/button-yellow.png');
+  /* background-size: contain; */
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button__3--job {
+  background-image: url('../../assets/button-blue.png');
+  /* background-size: contain; */
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

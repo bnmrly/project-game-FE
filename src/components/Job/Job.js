@@ -24,21 +24,21 @@ class Job extends Component {
           </li>
         </ul>
         <button
-          className="button button__1"
+          className="button button__1 button__1--job"
           value={100}
           onClick={this.props.handleClick}
         >
           Job1
         </button>
         <button
-          className="button button__2"
+          className="button button__2 button__2--job"
           value={200}
           onClick={this.props.handleClick}
         >
           Job2
         </button>
         <button
-          className="button button__3"
+          className="button button__3 button__3--job"
           value={300}
           onClick={this.props.handleClick}
         >

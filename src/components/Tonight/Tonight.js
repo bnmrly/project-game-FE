@@ -13,12 +13,23 @@ import { getDecision } from '../../firebase/fb';
 class Tonight extends Component {
   render() {
     return (
-      <section>
-        <div>
+      <section className="tonight">
+        <ul className="tonight__list ul">
+          <li className="tonight__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="tonight__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="tonight__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <div className="button__1">
           <p>Night In</p>
           <button name='nightIn-free' onClick={this.props.NightIn}>Free</button>
         </div>
-        <div>
+        <div className="button__2">
           <p>Online Shopping</p>
           {dataChoiceEvents.onlineShopping.initialPrice >
             this.props.credit.available ? (
@@ -40,7 +51,7 @@ class Tonight extends Component {
             Cash
           </button>
         </div>
-        <div>
+        <div className="button__3--tonight">
           <p>Eat Out</p>
           {dataChoiceEvents.eatOut.initialPrice >
             this.props.credit.available ? (
@@ -62,7 +73,7 @@ class Tonight extends Component {
             Cash
           </button>
         </div>
-        <div>
+        <div className="button__4--tonight">
           <p>Movies</p>
           {dataChoiceEvents.movies.initialPrice >
             this.props.credit.available ? (

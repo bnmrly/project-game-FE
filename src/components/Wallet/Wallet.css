@@ -4,13 +4,13 @@
   grid-column-start: 3;
   display: grid;
   grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr;
-  background-color: purple;
+  background-color: lightGray;
 }
 /*rating circular bar*/
 .rating .CircularProgressbar-path {
-  stroke: blue;
+  stroke: rgb(73, 182, 146);
   stroke-linecap: butt;
-  stroke-width: 1px;
+  stroke-width: 8px;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
 .rating .CircularProgressbar-trail {
@@ -24,7 +24,7 @@
 
 /*credit circular bar*/
 .credit .CircularProgressbar-path {
-  stroke: blue;
+  stroke: rgb(73, 182, 146);
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
@@ -39,7 +39,7 @@
 
 /*cash circular bar*/
 .cash .CircularProgressbar-path {
-  stroke: blue;
+  stroke: rgb(73, 182, 146);
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }

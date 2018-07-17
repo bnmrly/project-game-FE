@@ -8,7 +8,6 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import { initialisePlayer } from '../../firebase/fb';
 
-
 class Name extends Component {
   state = {
     name: ''
@@ -16,9 +15,9 @@ class Name extends Component {
   render() {
     return (
       <section className="name">
+        <p>Please enter your name</p>
         <input
           required="true"
-          placeholder="Please enter your name"
           value={this.state.name}
           onChange={this.handleChange}
         />

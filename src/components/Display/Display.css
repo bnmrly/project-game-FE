@@ -3,7 +3,7 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  background-color: gray;
+  background-color: lightGray;
   display: grid;
   grid-template-rows: 10vh auto 10vh;
   text-align: center;
@@ -11,7 +11,6 @@
 }
 
 .p__storyline {
-  color: white;
   padding: 0;
   margin: 0;
 }
@@ -27,3 +26,18 @@
 .button__3 {
   grid-column-start: 6;
 }
+
+.button__next {
+  background-image: url('../../assets/button-arrow-green.png');
+  /* background-size: contain; */
+  /* background-size: cover; */
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* .button__next:hover {
+  color: rgb(87, 87, 87);
+} */

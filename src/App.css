@@ -3,12 +3,12 @@
   grid-template-columns: 70vw 10vw 20vw;
   grid-template-rows: 10vh 90vh;
   max-height: 100vh;
-  background-color: gray;
+  background-color: lightgray;
 }
 
 .container__login-id,
 .container__login-name {
-  background-color: pink;
+  background-color: lightgray;
   height: 100vh;
   display: grid;
   grid-template-rows: 10vh 90vh;
