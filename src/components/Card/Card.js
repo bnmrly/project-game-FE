@@ -1,26 +1,51 @@
-import React, { Component } from "react";
-import "./Card.css";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './Card.css';
+import { connect } from 'react-redux';
 import {
   cardSelectionEvent,
   increaseTurnCount
 } from "../../redux/actions/PlayerInfoAction";
-import { cardDecision } from '../../firebase/fb';
+import { getDecision } from '../../firebase/fb';
 
 class Card extends Component {
   render() {
     return (
       <section className="card">
-        <button value="LOW" onClick={this.props.handleClick}>
+        <ul className="card__list ul">
+          <li className="card__list-item">
+            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="card__list-item">
+            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+          <li className="card__list-item">
+            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </li>
+        </ul>
+        <button
+          name='low'
+          className="button button__1"
+          value="LOW"
+          onClick={this.props.handleClick}
+        >
           Low
         </button>
-        <button value="MEDIUM" onClick={this.props.handleClick}>
+        <button
+          name='med'
+          className="button button__2"
+          value="MEDIUM"
+          onClick={this.props.handleClick}
+        >
           Medium
         </button>
-        <button value="HIGH" onClick={this.props.handleClick}>
+        <button
+          name='high'
+          className="button button__3"
+          value="HIGH"
+          onClick={this.props.handleClick}
+        >
           High
         </button>
-        <p>{this.props.wallet.rating}</p>
       </section>
     );
   }
@@ -28,7 +53,7 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
-      cardDecision(e.target.value)
+      getDecision('card', e.target.name)
       dispatch(cardSelectionEvent(e.target.value));
       dispatch(increaseTurnCount());
     }
