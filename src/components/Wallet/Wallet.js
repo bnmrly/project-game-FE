@@ -12,13 +12,14 @@ class Wallet extends Component {
         // }}
       >
         <div>
-          <h5 className="progress">Credit Rating</h5>
+          <p className="progress__top">Credit Rating</p>
           <CircularProgressbar
             className="rating"
             percentage={this.props.wallet.rating / 10}
             text={this.props.wallet.rating}
           />
-          <h5 className="progress">Available Credit / Max Credit</h5>
+          <p className="progress">Available /</p>
+          <p className="progress">Max Credit</p>
           <CircularProgressbar
             className="credit"
             percentage={
@@ -30,7 +31,7 @@ class Wallet extends Component {
               this.props.wallet.credit.max
             }`}
           />
-          <h5 className="progress">Cash</h5>
+          <p className="progress">Cash</p>
           <CircularProgressbar
             className="cash"
             text={`£${this.props.wallet.cash}`}
