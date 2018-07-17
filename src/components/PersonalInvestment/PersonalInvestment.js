@@ -91,7 +91,7 @@ class PersonalInvestment extends Component {
               No Spending Today
             </button>
           </div>
-        ) : (
+         : (
           ''
         )}
       </section>
