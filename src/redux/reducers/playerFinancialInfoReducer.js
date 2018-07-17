@@ -17,7 +17,6 @@ const playerFinancialReducer = (state = initialState, action) => {
   const {
     wallet: { credit }
   } = state;
-  //
   switch (action.type) {
     case 'LOW':
       return {
@@ -25,7 +24,7 @@ const playerFinancialReducer = (state = initialState, action) => {
         wallet: {
           ...wallet,
           rating: action.payload.rating,
-          APR: action.payload.Apr
+          APR: action.payload.APR
         }
       };
     case 'MEDIUM':
@@ -34,7 +33,7 @@ const playerFinancialReducer = (state = initialState, action) => {
         wallet: {
           ...wallet,
           rating: action.payload.rating,
-          APR: action.payload.Apr
+          APR: action.payload.APR
         }
       };
     case 'HIGH':
@@ -43,7 +42,7 @@ const playerFinancialReducer = (state = initialState, action) => {
         wallet: {
           ...wallet,
           rating: action.payload.rating,
-          APR: action.payload.Apr
+          APR: action.payload.APR
         }
       };
     case 'SET_USER_WAGE':
