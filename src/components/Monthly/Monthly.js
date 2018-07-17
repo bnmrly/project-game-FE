@@ -7,6 +7,7 @@ import {
   increaseTurnCount
 } from '../../redux/actions/PlayerInfoAction';
 import shortId from 'short-id';
+import { randomEvents } from '../../data/gameplay.json';
 
 class Monthly extends Component {
   state = {
@@ -16,13 +17,15 @@ class Monthly extends Component {
     phoneDisabled: false,
     wageDisabled: false,
     creditCardDisabled: false,
+    randomDisabled: false,
+    randomEvent: {},
     creditOwed: (this.props.financialInfo.wallet.credit.max -
     this.props.financialInfo.wallet.credit.available
     )
   }
     render() {
-        const financialInfo = this.props.financialInfo
-        console.log(this.state.creditOwed, this.props.APR)
+      const financialInfo = this.props.financialInfo
+      console.log(this.props.financialInfo)
         return (
             <React.Fragment>    
                 <div>
@@ -37,34 +40,7 @@ class Monthly extends Component {
                   >collect wage
                   </button>
                 </div>
-                <div>
-                    Living Costs
-                    {Object.keys(financialInfo.living_costs).map(key => {
-                      return <p key={shortId.generate()}>
-                      {key}:£{financialInfo.living_costs[key]}
-                      <button
-                      value={financialInfo.living_costs[key]}
-                      disabled={this.state[`${key}Disabled`]}
-                      onClick={e => {
-                        this.props.payByCredit(e)
-                        this.setState({[`${key}Disabled`]: true})
-                      }}
-                      >Credit
-                      </button>
-                      <button
-                      value={financialInfo.living_costs[key]}
-                      disabled={this.state[`${key}Disabled`]} 
-                      onClick={(e) => {
-                        this.props.payByCash(e)
-                        this.setState({[`${key}Disabled`]: true})
-                      }}
-                      >Cash
-                      </button>
-                      </p>  
-                    })}
-                </div>
                 <div>Credit Card 
-                  
                   <button
                     value={-this.state.creditOwed}
                     onClick={e => {
@@ -92,8 +68,43 @@ class Monthly extends Component {
                   >Don't Pay This Month
                   </button>
                   </div>
+                <div>
+                    Living Costs
+                    {Object.keys(financialInfo.living_costs).map(key => {
+                      return <p key={shortId.generate()}>
+                      {key}:£{financialInfo.living_costs[key]}
+                      <button
+                      value={financialInfo.living_costs[key]}
+                      disabled={this.state[`${key}Disabled`]}
+                      onClick={e => {
+                        this.props.payByCredit(e)
+                        this.setState({[`${key}Disabled`]: true})
+                      }}
+                      >Credit
+                      </button>
+                      <button
+                      value={financialInfo.living_costs[key]}
+                      disabled={this.state[`${key}Disabled`]} 
+                      onClick={(e) => {
+                        this.props.payByCash(e)
+                        this.setState({[`${key}Disabled`]: true})
+                      }}
+                      >Cash
+                      </button>
+                      </p>  
+                    })}
+                </div>
+                  <div>random Event 
+                    <button disabled={this.state.randomDisabled} onClick={() => this.randomEventHandler(randomEvents)}>Risk a random Event</button>
+                    <div>{this.state.randomEvent.text} </div>
+                  </div>
             </React.Fragment>   
         )
+    }
+    randomEventHandler = (randomEvents) => {
+      const newRandomEvent = randomEvents[Math.floor(Math.random() * randomEvents.length)]
+      this.props.randomCashChanger(newRandomEvent.value)
+      this.setState({randomDisabled: true, randomEvent:newRandomEvent})
     }
 }
 
@@ -104,6 +115,9 @@ const mapDispatchToProps = dispatch => {
       },
       payByCredit: (e) => {
         dispatch(changeAvailableCredit(e.target.value));
+      },
+      randomCashChanger: (value) => {
+        dispatch(cashChange(value))
       }
     };
   };
