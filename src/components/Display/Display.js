@@ -36,7 +36,7 @@ class Display extends Component {
     const { storyBook } = this.state;
 
     storyLines.push(
-      <p className="p__storyline">{storyBook[this.props.turnCount - 1].text}</p>
+      <p key={shortId.generate()} className="p__storyline">{storyBook[this.props.turnCount - 1].text}</p>
     );
     const buttons = (
       <div className="buttons" key={shortId.generate()}>
