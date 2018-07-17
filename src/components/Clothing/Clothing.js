@@ -59,6 +59,7 @@ class Clothing extends Component {
                             onClick={this.props.payForClothingByCredit}
                           >
                             Credit
+
                     </button>
                         )}{' '}
                       {dataChoiceEvents.partyClothesSuit.initialPrice >
@@ -132,6 +133,7 @@ class Clothing extends Component {
                               onClick={this.props.payForClothingByCredit}
                             >
                               Credit
+
                       </button>
                           )}{' '}
                         {dataChoiceEvents.casualClothes.initialPrice >

@@ -1,36 +1,83 @@
 .wallet__container {
-  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr;
   background-color: purple;
 }
 /*rating circular bar*/
 .rating .CircularProgressbar-path {
   stroke: blue;
   stroke-linecap: butt;
+  stroke-width: 1px;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
-.rating .CircularProgressbar-trail{
+.rating .CircularProgressbar-trail {
   stroke: white;
 }
-.rating .CircularProgressbar-text{
+.rating .CircularProgressbar-text {
   fill: white;
   text-align: center;
   text-anchor: middle;
-  dominant-baseline: middle;
 }
+
 /*credit circular bar*/
 .credit .CircularProgressbar-path {
   stroke: blue;
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
-.credit .CircularProgressbar-trail{
+.credit .CircularProgressbar-trail {
   stroke: white;
 }
-.credit .CircularProgressbar-text{
+.credit .CircularProgressbar-text {
   fill: white;
   text-align: center;
   text-anchor: middle;
-  dominant-baseline: middle;
+}
+
+/*cash circular bar*/
+.cash .CircularProgressbar-path {
+  stroke: blue;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.cash .CircularProgressbar-trail {
+  stroke: white;
+}
+.cash .CircularProgressbar-text {
+  fill: white;
+  text-align: center;
+  text-anchor: middle;
+}
+
+.progress {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.progress__top {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.wallet__container {
+  text-align: center;
+}
+
+/* Landscape mobile up to ipad */
+
+@media screen and (min-height: 320px) and (max-height: 767px) {
+  svg {
+    max-height: 4rem;
+  }
+}
+
+/* Landscape ipad and above*/
+
+@media screen and (min-height: 768px) and (max-height: 1023px) {
+  svg {
+    max-height: 11rem;
+  }
 }

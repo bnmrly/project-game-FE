@@ -13,7 +13,12 @@ export function nameSetterEvent(name) {
 export function cardSelectionEvent(data) {
   return {
     type: data,
-    payload: data === 'LOW' ? 100 : data === 'MEDIUM' ? 200 : 300
+    payload:
+      data === 'LOW'
+        ? { rating: 100, APR: 20 }
+        : data === 'MEDIUM'
+          ? { rating: 200, APR: 25 }
+          : { rating: 300, APR: 30 }
   };
 }
 export function setUserWage(wage) {
@@ -47,6 +52,10 @@ export function addToMonthlyCosts(livingCost) {
   return {
     type: 'ADD_LIVING_COST',
     payload: livingCost
-
+  };
+}
+export function resetGame() {
+  return {
+    type: 'RESET_GAME'
   };
 }

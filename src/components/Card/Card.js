@@ -7,6 +7,7 @@ import {
 } from "../../redux/actions/PlayerInfoAction";
 import { getDecision } from '../../firebase/fb';
 
+
 class Card extends Component {
   render() {
     return (

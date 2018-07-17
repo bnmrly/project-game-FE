@@ -12,6 +12,7 @@ import {
 import { getDecision } from '../../firebase/fb';
 import { get } from 'https';
 
+
 class PersonalInvestment extends Component {
   render() {
     console.log(this.props.wage);
@@ -63,6 +64,7 @@ class PersonalInvestment extends Component {
         <div className="button__2">
           <p>Holiday with friends</p>
           {dataChoiceEvents.holiday.initialPrice >
+
             this.props.credit.available ? (
               <div />
             ) : (
