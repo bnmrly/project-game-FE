@@ -35,7 +35,7 @@ class Name extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
-      initialisePlayer(e.target.value)
+      initialisePlayer(e.target.value);
       dispatch(nameSetterEvent(e.target.value));
     }
   };

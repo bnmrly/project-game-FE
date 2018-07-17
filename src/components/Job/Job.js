@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import {
   setUserWage,
   increaseTurnCount
-} from '../../redux/actions/PlayerInfoAction';
-import store from '../../redux/index';
+} from "../../redux/actions/PlayerInfoAction";
+import store from "../../redux/index";
+import { initialisePlayer } from '../../firebase/fb';
 
 class Job extends Component {
   render() {
