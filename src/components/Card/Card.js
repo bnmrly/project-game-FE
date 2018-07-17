@@ -5,6 +5,7 @@ import {
   cardSelectionEvent,
   increaseTurnCount
 } from "../../redux/actions/PlayerInfoAction";
+import { cardDecision } from '../../firebase/fb';
 
 class Card extends Component {
   render() {
@@ -27,6 +28,7 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: e => {
+      cardDecision(e.target.value)
       dispatch(cardSelectionEvent(e.target.value));
       dispatch(increaseTurnCount());
     }

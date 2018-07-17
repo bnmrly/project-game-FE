@@ -6,15 +6,16 @@ import {
   increaseTurnCount
 } from "../../redux/actions/PlayerInfoAction";
 import store from "../../redux/index";
+import { initialisePlayer } from '../../firebase/fb';
 
 class Job extends Component {
   render() {
     return (
       <section className="job">
-        <button value={100} onClick={this.props.handleClick}>
+        <button value={300} onClick={this.props.handleClick}>
           Job1
         </button>
-        <button value={200} onClick={this.props.handleClick}>
+        <button value={300} onClick={this.props.handleClick}>
           Job2
         </button>
         <button value={300} onClick={this.props.handleClick}>
