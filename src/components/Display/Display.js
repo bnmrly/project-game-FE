@@ -143,6 +143,9 @@ const mapDispatchToProps = dispatch => {
     turnIncrement: () => {
       dispatch(increaseTurnCount());
     },
+    turnReset: () => {
+      dispatch(resetTurnCount());
+    }
   };
 
 };

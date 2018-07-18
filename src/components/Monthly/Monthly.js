@@ -131,9 +131,6 @@ const mapDispatchToProps = dispatch => {
       },
       randomCashChanger: (value) => {
         dispatch(cashChange(value))
-      },
-      turnReset: () => {
-        dispatch(resetTurnCount());
       }
     };
   };
