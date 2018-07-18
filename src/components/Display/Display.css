@@ -5,39 +5,101 @@
   grid-row-end: 3;
   background-color: lightGray;
   display: grid;
-  grid-template-rows: 10vh auto 10vh;
+  /* 10vh below at end not needed on tonight but check ok across site */
+  grid-template-rows: 15vh auto;
+  justify-items: center;
   text-align: center;
-  /* grid-template-columns: 90rem 10rem; */
 }
 
 .p__storyline {
   padding: 0;
-  margin: 0;
+  margin: 1rem 0 0 0;
 }
 
-.button__1 {
+.grid__1 {
   grid-column-start: 2;
 }
 
-.button__2 {
+.grid__2 {
   grid-column-start: 4;
 }
 
-.button__3 {
+.grid__3 {
   grid-column-start: 6;
 }
 
-.button__next {
-  background-image: url('../../assets/button-arrow-green.png');
-  /* background-size: contain; */
-  /* background-size: cover; */
-  background-size: 100% 100%;
-  background-color: Transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
+.grid__4 {
+  grid-column-start: 3;
+}
+
+.grid__row1 {
+  grid-row-start: 2;
+  align-self: center;
+}
+
+.grid__row2 {
+  grid-row-start: 3;
+}
+
+.grid__row3 {
+  grid-row-start: 4;
+  align-self: center;
+}
+
+.grid__row4 {
+  grid-row-start: 5;
 }
 
 /* .button__next:hover {
   color: rgb(87, 87, 87);
 } */
+
+.image__next {
+  margin-top: 1rem;
+  cursor: pointer;
+  height: 3rem;
+}
+
+.button__1 {
+  background-image: url('../../assets/button-red.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem;
+  height: 2rem;
+}
+
+.button__2 {
+  background-image: url('../../assets/button-yellow.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem;
+  height: 2rem;
+}
+
+.button__3 {
+  background-image: url('../../assets/button-blue.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem;
+  height: 2rem;
+}
+
+.button__4 {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem;
+  height: 2rem;
+}

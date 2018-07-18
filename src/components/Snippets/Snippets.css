@@ -1,8 +1,6 @@
 .hint {
   grid-column-start: 2;
-  background-image: url("../../assets/button-grey-square.png");
-  /* background-size: contain; */
-  /* background-size: cover; */
+  background-image: url('../../assets/button-grey-square.png');
   background-size: 100% 100%;
   background-color: Transparent;
   outline: none;
