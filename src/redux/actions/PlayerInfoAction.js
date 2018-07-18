@@ -15,10 +15,10 @@ export function cardSelectionEvent(data) {
     type: data,
     payload:
       data === 'LOW'
-        ? { rating: 100, APR: 20 }
+        ? {APR: 20, rating: 100}
         : data === 'MEDIUM'
-          ? { rating: 200, APR: 25 }
-          : { rating: 300, APR: 30 }
+          ? {APR: 25, rating: 200}
+          : {APR: 30, rating: 300}
   };
 }
 export function setUserWage(wage) {

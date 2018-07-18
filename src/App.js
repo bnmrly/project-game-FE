@@ -18,7 +18,6 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
-    console.log(store.getState());
     return (
       <React.Fragment>
         {!this.props.id ? (

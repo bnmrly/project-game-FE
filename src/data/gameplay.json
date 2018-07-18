@@ -214,31 +214,50 @@
     "You can pay off credit debt in installments if necessary.",
     "Using a credit card at a cash machine will incure an extra cost"
   ],
-  "randomIncomes": [
+  "randomEvents": [
     {
-      "overtimeText": "You have been offered overtime at work"
+      "text": "You have been offered overtime at work",
+      "value": -40
     },
     {
-      "foundCashFiver": "You found £5 on your way to work",
-      "value": 5
+      "text": "You found £5 on your way to work",
+      "value": -5
     },
     {
-      "foundCashTenner": "You found £10 on your way to work",
-      "value": 10
+      "text": "You found £20 on your way to work",
+      "value": -20
     },
     {
-      "foundCashTwenty": "You found £20 on your way to work",
-      "value": 20
+      "text": "Happy birthday! Your family and friends gave you £100",
+      "value": -100
     },
     {
-      "birthdayMoney": "Happy birthday, your family and friends gave you £100",
-      "value": 100
-    }
-  ],
-  "randomOutgoings": [
+      "text":
+        "Merry Christmas! Your Nanna gives you a Christmas card with £10 in",
+      "value": -10
+    },
     {
-      "Groceries": "Your shopping came to £40",
+      "text":
+        "Your bike needs servicing, you take it to the bike shop to be repaired. Lose £40",
       "value": 40
+    },
+    {
+      "text": "You need to buy new trainers. Lose £60",
+      "value": 60
+    },
+    {
+      "text":
+        "Your prescription is ready. You go to the chemist to collect it. Lose £15",
+      "value": 15
+    },
+    {
+      "text": "Your kettle is broken, you buy a new one. Lose £25",
+      "value": 25
+    },
+    {
+      "text":
+        "Your bike is stolen but you still have to get to work. Buy a new one. Lose £100",
+      "value": 100
     }
   ],
   "betterCreditCards": {
