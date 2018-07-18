@@ -1,8 +1,5 @@
 .phone {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  /* grid-template-columns: 1fr 2fr 2fr 1fr; */
-  grid-template-rows: 80% 20%;
 }
 
 .phone__list {
@@ -13,4 +10,8 @@
 
 .phone__list-item {
   margin-bottom: 1rem;
+}
+
+.grid__row1-phone {
+  margin-left: 0.5rem;
 }
