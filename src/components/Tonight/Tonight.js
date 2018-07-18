@@ -36,17 +36,15 @@ class Tonight extends Component {
               <div />
             ) : (
               <button
-                name='onlineShopping-credit'
                 value={dataChoiceEvents.onlineShopping.initialPrice}
-                onClick={this.props.payByCredit}
+                onClick={(e) => this.props.payByCredit(e.target.value, 'online-shopping-credit', 'creditSpends')}
               >
                 Credit
             </button>
             )}{' '}
           <button
-            name='onlineShopping-cash'
             value={JSON.stringify(dataChoiceEvents.onlineShopping.initialPrice)}
-            onClick={this.props.payByCash}
+            onClick={(e) => this.props.payByCash(e.target.value, 'online-shopping-cash', 'cashSpends')}
           >
             Cash
           </button>
@@ -58,17 +56,15 @@ class Tonight extends Component {
               <div />
             ) : (
               <button
-                name='eatOut-credit'
                 value={dataChoiceEvents.eatOut.initialPrice}
-                onClick={this.props.payByCredit}
+                onClick={(e) => this.props.payByCredit(e.target.value, 'eat-out-credit', 'creditSpends')}
               >
                 Credit
             </button>
             )}{' '}
           <button
-            name='eatOut-cash'
             value={dataChoiceEvents.eatOut.initialPrice}
-            onClick={this.props.payByCash}
+            onClick={(e) => this.props.payByCash(e.target.value, 'eat-out-cash', 'cashSpends')}
           >
             Cash
           </button>
@@ -80,17 +76,15 @@ class Tonight extends Component {
               <div />
             ) : (
               <button
-                name='movies-credit'
                 value={dataChoiceEvents.movies.initialPrice}
-                onClick={this.props.payByCredit}
+                onClick={(e) => this.props.payByCredit(e.target.value, 'movies-credit', 'creditSpends')}
               >
                 Credit
             </button>
             )}{' '}
           <button
-            name='movies-cash'
             value={dataChoiceEvents.movies.initialPrice}
-            onClick={this.props.payByCash}
+            onClick={(e) => this.props.payByCash(e.target.value, 'movies-cash', 'cashSpends')}
           >
             Cash
           </button>
@@ -101,19 +95,19 @@ class Tonight extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    NightIn: e => {
+    NightIn: (value, decision, paymentType) => {
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('nightDecision', decision, paymentType)
     },
-    payByCash: e => {
-      dispatch(cashChange(e.target.value));
+    payByCash: (value, decision, paymentType) => {
+      dispatch(cashChange(value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('nightDecision', decision, paymentType)
     },
-    payByCredit: e => {
-      dispatch(changeAvailableCredit(e.target.value));
+    payByCredit: (value, decision, paymentType) => {
+      dispatch(changeAvailableCredit(value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name)
+      getDecision('nightDecision', decision, paymentType)
     }
   };
 };

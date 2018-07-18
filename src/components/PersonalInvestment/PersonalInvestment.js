@@ -36,12 +36,11 @@ class PersonalInvestment extends Component {
               <div />
             ) : (
               <button
-                name='course-credit'
                 value={JSON.stringify({
                   ...dataChoiceEvents.careerProgression,
                   wage: this.props.wage
                 })}
-                onClick={this.props.payForCourseByCredit}
+                onClick={(e) => this.props.payForCourseByCredit(e.target.value, 'career-progression-credit', 'creditSpends')}
               >
                 Credit
             </button>
@@ -50,12 +49,11 @@ class PersonalInvestment extends Component {
             <div />
           ) : (
               <button
-                name='course-cash'
                 value={JSON.stringify({
                   ...dataChoiceEvents.careerProgression,
                   wage: this.props.wage
                 })}
-                onClick={this.props.payForCourseByCash}
+                onClick={(e) => this.props.payForCourseByCash(e.target.value, 'career-progession-cash', 'cashSpends')}
               >
                 Cash
             </button>
@@ -69,9 +67,8 @@ class PersonalInvestment extends Component {
               <div />
             ) : (
               <button
-                name='holiday-credit'
                 value={dataChoiceEvents.holiday.initialPrice}
-                onClick={this.props.payForHolidayByCredit}
+                onClick={(e) => this.props.payForHolidayByCredit(e.target.value, 'holiday-credit', 'creditSpends')}
               >
                 Credit
             </button>
@@ -80,9 +77,8 @@ class PersonalInvestment extends Component {
             <div />
           ) : (
               <button
-                name='holiday-cash'
                 value={dataChoiceEvents.holiday.initialPrice}
-                onClick={this.props.payForHolidayByCash}
+                onClick={(e) => this.props.payForHolidayByCash(e.target.value, 'holiday-cash', 'cashSpends')}
               >
                 Cash
             </button>
@@ -96,7 +92,6 @@ class PersonalInvestment extends Component {
           <div className="button__3">
             <p>Can't afford either</p>
             <button
-              name='none-free'
               onClick={this.props.cantAfford}>
               No Spending Today
             </button>
@@ -110,33 +105,32 @@ class PersonalInvestment extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    payForHolidayByCash: e => {
-      dispatch(cashChange(e.target.value));
+    payForHolidayByCash: (value, decision, paymentType) => {
+      dispatch(cashChange(value));
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name)
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForHolidayByCredit: e => {
-      dispatch(changeAvailableCredit(e.target.value));
+    payForHolidayByCredit: (value, decision, paymentType) => {
+      dispatch(changeAvailableCredit(value));
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name)
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForCourseByCash: e => {
-      const courseData = JSON.parse(e.target.value);
+    payForCourseByCash: (value, decision, paymentType) => {
+      const courseData = JSON.parse(value);
       dispatch(cashChange(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
-      getDecision('careerProgression', e.target.name)
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForCourseByCredit: e => {
-      const courseData = JSON.parse(e.target.value);
+    payForCourseByCredit: (value, decision, paymentType) => {
+      const courseData = JSON.parse(value);
       dispatch(changeAvailableCredit(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
-      getDecision('careerProgression', e.target.name)
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
     cantAfford: e => {
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name)
     }
   };
 };
