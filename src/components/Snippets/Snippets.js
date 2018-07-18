@@ -23,7 +23,7 @@ class Snippets extends Component {
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            className="modal w3-animate-opacity"
+            className="modal modal-animate-opacity"
           >
             <h3 className="close-button" onClick={this.closeModal}>
               X

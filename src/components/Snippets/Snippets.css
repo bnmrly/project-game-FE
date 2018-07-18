@@ -23,6 +23,18 @@
   padding: 5em;
 }
 
+.modal-animate-opacity {
+  animation: opac 0.8s;
+}
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .close-button {
   margin-top: 8px;
   margin-right: 20px;
