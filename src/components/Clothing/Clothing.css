@@ -4,14 +4,7 @@
   grid-template-rows: 70% 20% 10%;
 }
 
-/* .container__button {
-  grid-row-start: 2;
-  grid-column-start: 2;
-  grid-column-end: 7;
-} */
-
 .clothing__list {
-  /* text-align: center; */
   grid-column-start: 1;
   grid-column-end: 8;
 }
