@@ -5,10 +5,8 @@
   grid-row-end: 3;
   background-color: lightGray;
   display: grid;
-  /* grid-template-rows: 10vh auto 10vh; */
-  grid-template-rows: 4rem auto 3rem 2rem;
+  grid-template-rows: 10vh auto 10vh;
   text-align: center;
-  /* grid-template-columns: 90rem 10rem; */
 }
 
 .p__storyline {
