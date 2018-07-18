@@ -103,10 +103,10 @@ class Monthly extends Component {
                     <div>{this.state.randomEvent.text} </div>
                   </div>
                   <div>
-                    {this.state.groceriesDisabled && this.state.miscellaneousDisabled && this.state.travelDisabled && 
+                    {/* {this.state.groceriesDisabled && this.state.miscellaneousDisabled && this.state.travelDisabled && 
                     (this.state.phoneDisabled || financialInfo.living_costs.phone === undefined) && this.state.wageDisabled && this.state.creditCardDisabled ?
-                    <button onClick={this.nextChapterClickHandler}>next chapter</button>
-                  :  <button disabled onClick={this.nextChapterClickHandler}>next chapter</button>
+                  
+                  :  <button disabled onClick={this.nextChapterClickHandler}>next chapter</button> */}
                   }
 
                   </div>
@@ -118,57 +118,7 @@ class Monthly extends Component {
       this.props.randomCashChanger(newRandomEvent.value)
       this.setState({randomDisabled: true, randomEvent:newRandomEvent})
     }
-    nextChapterClickHandler = () => {
-      // if finishing penultimate chapter, go to last chapter
-      if (this.state.chapterCount === 3) {
-        this.props.turnReset();
-        // if minimum win value credit rating reached
-        if (this.props.credit_rating > 299) {
-          this.setState({
-            storyBook: data.fixedChapters.finaleWin,
-            chapterCount: 4
-          });
-          // else win condition fail
-        } else {
-          this.setState({
-            storyBook: data.fixedChapters.finaleLose,
-            chapterCount: 4
-          });
-        }
-      } else {
-        this.props.turnReset();
-        const storyboardKeys = Object.keys(data.storyBoard);
-        const storyPos = Math.floor(Math.random() * 4);
-        // pick a random chapter using Math.random
-        const nextChapterKey = storyboardKeys[storyPos];
-        // if it picks the same chapter as you have just played
-        if (this.state.lastChapterName === nextChapterKey) {
-          // check if chapter is last chapter from array of keys
-          if (!storyboardKeys[storyPos + 1]) {
-            // if last chapter, run first chapter from array of keys
-            this.setState({
-              storyBook: data.storyBoard[storyboardKeys[0]],
-              chapterCount: this.state.chapterCount + 1,
-              lastChapterName: storyboardKeys[0]
-            });
-            //else run next chapter in array of keys
-          } else {
-            this.setState({
-              storyBook: data.storyBoard[storyboardKeys[storyPos + 1]],
-              chapterCount: this.state.chapterCount + 1,
-              lastChapterName: storyboardKeys[storyPos + 1]
-            });
-          }
-          // if not the same chapter, run the chapter that has been randomly picked
-        } else {
-          this.setState({
-            storyBook: data.storyBoard[nextChapterKey],
-            chapterCount: this.state.chapterCount + 1,
-            lastChapterName: nextChapterKey
-          });
-        }
-      }
-    };
+
 }
 
 const mapDispatchToProps = dispatch => {
