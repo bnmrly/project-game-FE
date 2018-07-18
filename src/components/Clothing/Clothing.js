@@ -43,15 +43,15 @@ class Clothing extends Component {
             </button>
           </div>
         ) : (
-          <div className="container__button">
+          <React.Fragment>
             {dataChoiceEvents.partyClothesSuit.initialPrice >
               this.props.credit.available &&
             dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
               <div />
             ) : (
-              <div className="grid__1">
-                <p>Party clothing suit</p>
-                <div>
+              <React.Fragment>
+                <p className="grid__1 grid__row1">Party clothing suit</p>
+                <div className="grid__1 grid__row2">
                   {dataChoiceEvents.partyClothesSuit.initialPrice >
                   this.props.credit.available ? (
                     <div />
@@ -79,17 +79,17 @@ class Clothing extends Component {
                     </button>
                   )}
                 </div>
-              </div>
+              </React.Fragment>
             )}
-            <div className="grid__2">
+            <React.Fragment>
               {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
               dataChoiceEvents.smartCasual.initialPrice >
                 this.props.credit.available ? (
                 <div />
               ) : (
-                <div>
-                  <p>Smart casual clothing</p>
-                  <div>
+                <React.Fragment>
+                  <p className="grid__2 grid__row1">Smart casual clothing</p>
+                  <div className="grid__2 grid__row2">
                     {dataChoiceEvents.smartCasual.initialPrice >
                     this.props.credit.available ? (
                       <div />
@@ -117,18 +117,19 @@ class Clothing extends Component {
                       </button>
                     )}
                   </div>
-                </div>
+                </React.Fragment>
               )}
-            </div>
-            <div className="grid__3">
+            </React.Fragment>
+
+            <React.Fragment>
               {dataChoiceEvents.casualClothes.initialPrice >
                 this.props.credit.available &&
               dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
                 <div />
               ) : (
-                <div>
-                  <p>Casual clothing</p>
-                  <div>
+                <React.Fragment>
+                  <p className="grid__3 grid__row1">Casual clothing</p>
+                  <div className="grid__3 grid__row2">
                     {dataChoiceEvents.casualClothes.initialPrice >
                     this.props.credit.available ? (
                       <div />
@@ -156,10 +157,10 @@ class Clothing extends Component {
                       </button>
                     )}
                   </div>
-                </div>
+                </React.Fragment>
               )}
-            </div>
-          </div>
+            </React.Fragment>
+          </React.Fragment>
         )}
       </section>
     );

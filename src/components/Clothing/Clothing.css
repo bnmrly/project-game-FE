@@ -1,20 +1,19 @@
 .clothing {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 90% 10%;
+  grid-template-rows: 70% 20% 10%;
 }
 
-.container__button {
-  display: grid;
+/* .container__button {
   grid-row-start: 2;
   grid-column-start: 2;
   grid-column-end: 7;
-}
+} */
 
 .clothing__list {
-  text-align: center;
-  grid-column-start: 2;
-  grid-column-end: 7;
+  /* text-align: center; */
+  grid-column-start: 1;
+  grid-column-end: 8;
 }
 
 .clothing__list-item {
