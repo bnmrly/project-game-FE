@@ -1,7 +1,7 @@
 const initialState = {
   wallet: {
-    cash: 500,
-    credit: { available: 200, max: 500 },
+    cash: 50000,
+    credit: { available: 50000, max: 500 },
     rating: 0,
     APR: 0
   },

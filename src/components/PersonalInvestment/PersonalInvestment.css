@@ -1,11 +1,10 @@
 .investment {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 90% 10%;
+  grid-template-rows: 70% 20% 10%;
 }
 
 .investment__list {
-  text-align: center;
   grid-column-start: 2;
   grid-column-end: 5;
 }

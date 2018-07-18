@@ -28,14 +28,14 @@ class PersonalInvestment extends Component {
             Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
         </ul>
-        <div className="grid__1">
-          <p>Career Progression</p>
+        <React.Fragment>
+          <p className="grid__1 grid__row1">Career Progression</p>
           {dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
             <button
-              className="button__1"
+              className="button__1 grid__1 grid__row2"
               name="course-credit"
               value={JSON.stringify({
                 ...dataChoiceEvents.careerProgression,
@@ -50,7 +50,7 @@ class PersonalInvestment extends Component {
             <div />
           ) : (
             <button
-              className="button__1"
+              className="button__1 grid__1 grid__row2"
               name="course-cash"
               value={JSON.stringify({
                 ...dataChoiceEvents.careerProgression,
@@ -61,15 +61,15 @@ class PersonalInvestment extends Component {
               Cash
             </button>
           )}
-        </div>
-        <div className="grid__2">
-          <p>Holiday with friends</p>
+        </React.Fragment>
+        <React.Fragment>
+          <p className="grid__2 grid__row1">Holiday with friends</p>
           {dataChoiceEvents.holiday.initialPrice >
           this.props.credit.available ? (
             <div />
           ) : (
             <button
-              className="button__2"
+              className="button__2 grid__2 grid__row2"
               name="holiday-credit"
               value={dataChoiceEvents.holiday.initialPrice}
               onClick={this.props.payForHolidayByCredit}
@@ -81,7 +81,7 @@ class PersonalInvestment extends Component {
             <div />
           ) : (
             <button
-              className="button__2"
+              className="button__2 grid__2 grid__row2"
               name="holiday-cash"
               value={dataChoiceEvents.holiday.initialPrice}
               onClick={this.props.payForHolidayByCash}
@@ -89,7 +89,7 @@ class PersonalInvestment extends Component {
               Cash
             </button>
           )}{' '}
-        </div>
+        </React.Fragment>
         {dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
         dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available &&

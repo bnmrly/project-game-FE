@@ -4,7 +4,7 @@ import { idSetterEvent } from '../../redux/actions/PlayerInfoAction';
 import './Login.css';
 class Login extends Component {
   state = {
-    idInput: ''
+    idInput: 'zITTr6PZEW158IHq8CcM'
   };
   render() {
     return (
