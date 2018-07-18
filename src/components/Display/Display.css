@@ -5,7 +5,9 @@
   grid-row-end: 3;
   background-color: lightGray;
   display: grid;
-  grid-template-rows: 10vh auto 10vh;
+  /* 10vh below at end not needed on tonight but check ok across site */
+  grid-template-rows: 15vh auto;
+  justify-items: center;
   text-align: center;
 }
 
@@ -26,8 +28,13 @@
   grid-column-start: 6;
 }
 
+.grid__4 {
+  grid-column-start: 3;
+}
+
 .grid__row1 {
   grid-row-start: 2;
+  align-self: center;
 }
 
 .grid__row2 {
@@ -36,6 +43,7 @@
 
 .grid__row3 {
   grid-row-start: 4;
+  align-self: center;
 }
 
 .grid__row4 {

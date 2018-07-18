@@ -43,7 +43,7 @@ class Display extends Component {
       </p>
     );
     const buttons = (
-      <div className="buttons" key={shortId.generate()}>
+      <React.Fragment>
         {storyBook[this.props.turnCount - 1].choices ? (
           storyBook[this.props.turnCount - 1].choices.forEach(choice => {
             switch (choice) {
@@ -71,9 +71,14 @@ class Display extends Component {
               case 'Monthly':
                 storyLines.push(
                   <Monthly />,
-                  <button onClick={this.nextChapterClickHandler}>
-                    next chapter
-                  </button>
+                  <div className="container__next-button">
+                    <button
+                      className="button__4"
+                      onClick={this.nextChapterClickHandler}
+                    >
+                      next chapter
+                    </button>
+                  </div>
                 );
                 break;
               case 'End of Chapter':
@@ -103,7 +108,7 @@ class Display extends Component {
             onClick={this.props.turnIncrement}
           />
         )}
-      </div>
+      </React.Fragment>
     );
     storyLines.push(buttons);
     return storyLines;
