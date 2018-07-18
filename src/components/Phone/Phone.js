@@ -55,7 +55,7 @@ class Phone extends Component {
             ) : (
               <React.Fragment>
                 <p className="grid__1 grid__row1 grid__row1-phone">
-                  High contract phone dealt
+                  Contract phone
                 </p>
                 <div className="grid__1 grid__row2">
                   {dataChoiceEvents.phoneContractHigh.initialPrice >
@@ -95,7 +95,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__2 grid__row1 grid__row1-phone">
-                    Sim only phone deal
+                    Sim only phone
                   </p>
                   <div className="grid__2 grid__row2">
                     {dataChoiceEvents.phoneSimOnly.initialPrice >
@@ -137,7 +137,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__3 grid__row1 grid__row1-phone">
-                    Second hand phone deal
+                    Second hand phone
                   </p>
                   <div className="grid__3 grid__row2">
                     {dataChoiceEvents.phoneSecondHand.initialPrice >
