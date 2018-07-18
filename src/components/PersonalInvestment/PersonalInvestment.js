@@ -14,7 +14,6 @@ import { get } from 'https';
 
 class PersonalInvestment extends Component {
   render() {
-    console.log(this.props.wage);
     return (
       <section className="investment">
         <ul className="investment__list ul">
@@ -28,90 +27,107 @@ class PersonalInvestment extends Component {
             Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
         </ul>
-        <React.Fragment>
-          <p className="grid__1 grid__row1">Career Progression</p>
-          {dataChoiceEvents.careerProgression.initialPrice >
-          this.props.credit.available ? (
-            <div />
-          ) : (
-            <button
-              className="button__1 grid__1 grid__row2"
-              name="course-credit"
-              value={JSON.stringify({
-                ...dataChoiceEvents.careerProgression,
-                wage: this.props.wage
-              })}
-              onClick={this.props.payForCourseByCredit}
-            >
-              Credit
-            </button>
-          )}{' '}
-          {dataChoiceEvents.careerProgression.initialPrice > this.props.cash ? (
-            <div />
-          ) : (
-            <button
-              className="button__1 grid__1 grid__row2"
-              name="course-cash"
-              value={JSON.stringify({
-                ...dataChoiceEvents.careerProgression,
-                wage: this.props.wage
-              })}
-              onClick={this.props.payForCourseByCash}
-            >
-              Cash
-            </button>
-          )}
-        </React.Fragment>
-        <React.Fragment>
-          <p className="grid__2 grid__row1">Holiday with friends</p>
-          {dataChoiceEvents.holiday.initialPrice >
-          this.props.credit.available ? (
-            <div />
-          ) : (
-            <button
-              className="button__2 grid__2 grid__row2"
-              name="holiday-credit"
-              value={dataChoiceEvents.holiday.initialPrice}
-              onClick={this.props.payForHolidayByCredit}
-            >
-              Credit
-            </button>
-          )}{' '}
-          {dataChoiceEvents.holiday.initialPrice > this.props.cash ? (
-            <div />
-          ) : (
-            <button
-              className="button__2 grid__2 grid__row2"
-              name="holiday-cash"
-              value={dataChoiceEvents.holiday.initialPrice}
-              onClick={this.props.payForHolidayByCash}
-            >
-              Cash
-            </button>
-          )}{' '}
-        </React.Fragment>
-        {dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
-        dataChoiceEvents.careerProgression.initialPrice >
+        {dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available &&
-        dataChoiceEvents.holiday.initialPrice > this.props.cash &&
-        dataChoiceEvents.holiday.initialPrice > this.props.credit.available ? (
-          <div className="grid__3">
-            <p>Can't afford either</p>
-            <button
-              className="button__3"
-              name="none-free"
-              onClick={this.props.cantAfford}
-            >
+        dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
+        dataChoiceEvents.smartCasual.initialPrice >
+          this.props.credit.available &&
+        dataChoiceEvents.smartCasual.initialPrice > this.props.cash ? (
+          <div>
+            <button name="none-free" onClick={this.props.cantAfford}>
               No Spending Today
             </button>
           </div>
         ) : (
-          ''
+          <React.Fragment>
+            {dataChoiceEvents.partyClothesSuit.initialPrice >
+              this.props.credit.available &&
+            dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
+              <div />
+            ) : (
+              <React.Fragment>
+                <p className="grid__1 grid__row1">Career Progression</p>
+                <div className="grid__1 grid__row2">
+                  {dataChoiceEvents.careerProgression.initialPrice >
+                  this.props.credit.available ? (
+                    <div />
+                  ) : (
+                    <button
+                      className="button__1"
+                      name="course-credit"
+                      value={JSON.stringify({
+                        ...dataChoiceEvents.careerProgression,
+                        wage: this.props.wage
+                      })}
+                      onClick={this.props.payForCourseByCredit}
+                    >
+                      Credit
+                    </button>
+                  )}{' '}
+                  {dataChoiceEvents.careerProgression.initialPrice >
+                  this.props.cash ? (
+                    <div />
+                  ) : (
+                    <button
+                      className="button__1"
+                      name="course-cash"
+                      value={JSON.stringify({
+                        ...dataChoiceEvents.careerProgression,
+                        wage: this.props.wage
+                      })}
+                      onClick={this.props.payForCourseByCash}
+                    >
+                      Cash
+                    </button>
+                  )}
+                </div>
+              </React.Fragment>
+            )}
+            <React.Fragment>
+              {dataChoiceEvents.holiday.initialPrice > this.props.cash &&
+              dataChoiceEvents.holiday.initialPrice >
+                this.props.credit.available ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__2 grid__row1">Holiday with friends</p>
+                  <div className="grid__2 grid__row2">
+                    {dataChoiceEvents.holiday.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        name="holiday-credit"
+                        value={dataChoiceEvents.holiday.initialPrice}
+                        onClick={this.props.payForHolidayByCredit}
+                      >
+                        Credit
+                      </button>
+                    )}{' '}
+                    {dataChoiceEvents.holiday.initialPrice > this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        name="holiday-cash"
+                        value={dataChoiceEvents.holiday.initialPrice}
+                        onClick={this.props.payForHolidayByCash}
+                      >
+                        Cash
+                      </button>
+                    )}
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+          </React.Fragment>
         )}
       </section>
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
     payForHolidayByCash: e => {
