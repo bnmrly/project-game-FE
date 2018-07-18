@@ -9,6 +9,9 @@
   grid-template-rows: 15vh auto;
   justify-items: center;
   text-align: center;
+  background-color: rgb(238, 238, 201);
+  border: 6px solid rgb(92, 67, 67);
+  border-radius: 8%;
 }
 
 .p__storyline {
