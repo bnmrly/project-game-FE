@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   cashChange,
   changeAvailableCredit,
-  increaseTurnCount
+  changeCreditRating
 } from '../../redux/actions/PlayerInfoAction';
 import shortId from 'short-id';
 import { randomEvents } from '../../data/gameplay.json';
@@ -55,6 +55,8 @@ class Monthly extends Component {
             onClick={e => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCredit(e);
+              this.props.payByCash(-e)
+              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.available)
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -62,8 +64,15 @@ class Monthly extends Component {
           </button>
           <button
             className="button__monthly"
-            onClick={() => {
+            value={Math.floor(
+              ((this.state.creditOwed / 100) *
+                this.props.financialInfo.wallet.APR) /
+                12
+            )}
+            onClick={(e) => {
               this.setState({ creditCardDisabled: true });
+              this.props.payByCash(e)
+              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.available)
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -77,9 +86,10 @@ class Monthly extends Component {
                 12
             )}
             onClick={e => {
-              this.props.payByCredit(e);
-              console.log('hi');
               this.setState({ creditCardDisabled: true });
+              this.props.payByCredit(e);
+              this.props.payByCash(-e)
+              this.props.failToPay()
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -152,6 +162,19 @@ const mapDispatchToProps = dispatch => {
     },
     randomCashChanger: value => {
       dispatch(cashChange(value));
+    },
+    creditRatingChanger: (creditOwed, maxCredit) => {
+      let direction
+       if (creditOwed/maxCredit * 100 < 75){
+        direction = 'up' 
+      } 
+      else {
+        direction = 'down'
+      }
+      dispatch(changeCreditRating(direction))
+    },
+    failToPay: () => {
+      dispatch(changeCreditRation("down"))
     }
   };
 };
