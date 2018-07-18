@@ -1,7 +1,5 @@
 .tonight {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 40% 15% 15% 15% 15%;
 }
 
 .tonight__list {
