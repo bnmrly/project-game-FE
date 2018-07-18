@@ -174,7 +174,7 @@ const mapDispatchToProps = dispatch => {
       dispatch(changeCreditRating(direction))
     },
     failToPay: () => {
-      dispatch(changeCreditRation("down"))
+      dispatch(changeCreditRating("down"))
     }
   };
 };
