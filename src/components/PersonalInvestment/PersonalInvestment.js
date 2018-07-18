@@ -33,11 +33,16 @@ class PersonalInvestment extends Component {
         dataChoiceEvents.smartCasual.initialPrice >
           this.props.credit.available &&
         dataChoiceEvents.smartCasual.initialPrice > this.props.cash ? (
-          <div>
-            <button name="none-free" onClick={this.props.cantAfford}>
-              No Spending Today
+          <React.Fragment>
+            <p className="grid__4 grid__row1">Empty pockets!</p>
+            <button
+              className="button__4 grid__4 grid__row2"
+              name="none-free"
+              onClick={this.props.cantAfford}
+            >
+              No money!
             </button>
-          </div>
+          </React.Fragment>
         ) : (
           <React.Fragment>
             {dataChoiceEvents.partyClothesSuit.initialPrice >
