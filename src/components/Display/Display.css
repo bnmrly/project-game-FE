@@ -6,14 +6,14 @@
   background-color: lightGray;
   display: grid;
   /* grid-template-rows: 10vh auto 10vh; */
-  grid-template-rows: 2rem auto 5rem;
+  grid-template-rows: 4rem auto 3rem 2rem;
   text-align: center;
   /* grid-template-columns: 90rem 10rem; */
 }
 
 .p__storyline {
   padding: 0;
-  margin: 0;
+  margin: 1rem 0 0 0;
 }
 
 .grid__1 {
@@ -26,6 +26,22 @@
 
 .grid__3 {
   grid-column-start: 6;
+}
+
+.grid__row1 {
+  grid-row-start: 2;
+}
+
+.grid__row2 {
+  grid-row-start: 3;
+}
+
+.grid__row3 {
+  grid-row-start: 4;
+}
+
+.grid__row4 {
+  grid-row-start: 5;
 }
 
 /* .button__next:hover {
@@ -44,6 +60,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  margin: 0.3rem;
 }
 .button__2 {
   background-image: url('../../assets/button-yellow.png');
@@ -52,6 +69,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  margin: 0.3rem;
 }
 
 .button__3 {
@@ -61,6 +79,7 @@
   outline: none;
   border: none;
   cursor: pointer;
+  margin: 0.3rem;
 }
 
 .button__4 {
@@ -70,4 +89,5 @@
   outline: none;
   border: none;
   cursor: pointer;
+  margin: 0.3rem;
 }
