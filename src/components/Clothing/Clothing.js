@@ -8,7 +8,7 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import { dataChoiceEvents } from '../../data/gameplay.json';
 import { POINT_CONVERSION_COMPRESSED } from 'constants';
-import { getDecision } from '../../firebase/fb';
+import { getDecision } from '../../firebase/fb';;
 
 class Clothing extends Component {
   render() {
@@ -61,8 +61,7 @@ class Clothing extends Component {
                     <div />
                   ) : (
                     <button
-                      className="button__1"
-                      name="partyClothing-credit"
+                      className="button__1"    
                       value={dataChoiceEvents.partyClothesSuit.initialPrice}
                       onClick={this.props.payForClothingByCredit}
                     >
@@ -75,7 +74,6 @@ class Clothing extends Component {
                   ) : (
                     <button
                       className="button__1"
-                      name="partyClothing-cash"
                       value={dataChoiceEvents.partyClothesSuit.initialPrice}
                       onClick={this.props.payForClothingByCash}
                     >
@@ -102,7 +100,6 @@ class Clothing extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="smartCasual-credit"
                         value={dataChoiceEvents.smartCasual.initialPrice}
                         onClick={this.props.payForClothingByCredit}
                       >
@@ -115,7 +112,6 @@ class Clothing extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="smartCasual-cash"
                         value={dataChoiceEvents.smartCasual.initialPrice}
                         onClick={this.props.payForClothingByCash}
                       >
@@ -157,7 +153,6 @@ class Clothing extends Component {
                     ) : (
                       <button
                         className="button__3"
-                        name="casualCloting-cash"
                         value={dataChoiceEvents.casualClothes.initialPrice}
                         onClick={this.props.payForClothingByCash}
                       >
@@ -176,19 +171,19 @@ class Clothing extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    continueWithStory: e => {
+    continueWithStory: (value, decision, paymentType) => {
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name);
+      getDecision('clothingDecision', decision, paymentType)
     },
-    payForClothingByCash: e => {
-      dispatch(cashChange(e.target.value));
+    payForClothingByCash: (value, decision, paymentType) => {
+      dispatch(cashChange(value));
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name);
+      getDecision('clothingDecision', decision, paymentType)
     },
-    payForClothingByCredit: e => {
-      dispatch(changeAvailableCredit(e.target.value));
+    payForClothingByCredit: (value, decision, paymentType) => {
+      dispatch(changeAvailableCredit(value));
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name);
+      getDecision('clothingDecision', decision, paymentType)
     }
   };
 };

@@ -22,10 +22,10 @@ export const idCheckFirebase = id => {
       console.log(err);
     });
 };
+
 export const initialisePlayer = name => {
   const state = store.getState();
   const addPlayers = db.collection('games').doc(state.playerMetaData.id);
-
   addPlayers
     .get()
     .then(docSnapShot => {
@@ -36,23 +36,22 @@ export const initialisePlayer = name => {
         const setWithMerge = addPlayers.set(
           {
             players: {
-              [name]: {
-                rating: [0], // progress through chapters
-                creditAvail: [0], // progress through chapters
-                cashAvail: [0], // progress through chapters
-                chapterCount: 0,
-                billPostpones: 0, // count
-                cashSpends: 0, // count
-                cardSpends: 0, // count
-                result: null,
-                decisions: {
-                  card: null, // low/med/high
-                  phone: null, // high/sim-only/second-hand
-                  clothing: null, // shopping choice
-                  night: null, // eve entertainment choice
-                  careerProgression: null // boolean - career progression (true) vs holiday (false)
-                }
-              }
+                        [name]: {
+                            rating: [0], // progress through chapters
+                            creditAvail: [0], // progress through chapters
+                            cashAvail: [0], // progress through chapters
+                            chapterCount: 0,
+                            billPostpones: 0, // count
+                            cashSpends: 0, // count
+                            creditSpends: 0, // count
+                            result: null,
+                            cardDecision: null, // low/med/high
+                            phoneDecision: null, // high/sim-only/second-hand
+                            clothingDecision: null, // shopping choice
+                            nightDecision: null, // eve entertainment choice
+                            careerProgressionDecision: null // boolean - career progression (true) vs holiday (false)
+                        }
+                    }
             }
           },
           { merge: true }
@@ -65,26 +64,49 @@ export const initialisePlayer = name => {
     });
 };
 
-export const getDecision = (type, decision) => {
-  const state = store.getState();
-  db.collection('games')
-    .doc(state.playerMetaData.id)
-    .get()
-    .then(gameDoc => {
-      const players = gameDoc.data().players;
-      db.collection('games')
-        .doc(state.playerMetaData.id)
-        .update({
-          players: {
-            ...players,
-            [state.playerMetaData.name]: {
-              ...players[state.playerMetaData.name],
-              decisions: {
-                ...players[state.playerMetaData.name].decisions,
-                [type]: decision
-              }
-            }
-          }
-        });
-    });
-};
+export const getDecision = (decisionType, decision, paymentType) => {
+    const state = store.getState();
+    db.collection('games')
+        .doc(state.playerMetaData.id).get()
+        .then(gameDoc => {
+            const players = gameDoc.data().players;
+            db.collection('games')
+                .doc(state.playerMetaData.id)
+                .update({
+                    players: {
+                        ...players,
+                        [state.playerMetaData.name]: {
+                            ...players[state.playerMetaData.name],
+                            [decisionType]: decision,
+                            [paymentType]: players[state.playerMetaData.name][paymentType] + 1
+                        }
+                    }
+                })
+        })
+}
+
+// export const incrementDecision = (type) => {
+//     const state = store.getState();
+//     db.collection('games')
+//         .doc(state.playerMetaData.id).get()
+//         .then(gameDoc => {
+//             const players = gameDoc.data().players;
+//             db.collection('games')
+//                 .doc(state.playerMetaData.id)
+//                 .update({
+//                     players: {
+//                         ...players,
+//                         [state.playerMetaData.name]: {
+//                             ...players[state.playerMetaData.name],
+//                             [type]: players[state.playerMetaData.name][type] + 1
+//                         }
+//                     }
+//                 })
+//         })
+// }
+
+// export const getCashorCredit = () => {
+//     const state = store.getState();
+//     const check = decision.match(/[a-z]+$/)[0];
+// }
+

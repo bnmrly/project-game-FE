@@ -79,8 +79,7 @@ class Tonight extends Component {
                     <div />
                   ) : (
                     <button
-                      className="button__2"
-                      name="eatOut-credit"
+                      className="button__2" 
                       value={dataChoiceEvents.eatOut.initialPrice}
                       onClick={this.props.payByCredit}
                     >
@@ -92,7 +91,6 @@ class Tonight extends Component {
                   ) : (
                     <button
                       className="button__2"
-                      name="eatOut-cash"
                       value={dataChoiceEvents.eatOut.initialPrice}
                       onClick={this.props.payByCash}
                     >
@@ -119,7 +117,6 @@ class Tonight extends Component {
                   ) : (
                     <button
                       className="button__3"
-                      name="movies-credit"
                       value={dataChoiceEvents.movies.initialPrice}
                       onClick={this.props.payByCredit}
                     >
@@ -131,7 +128,6 @@ class Tonight extends Component {
                   ) : (
                     <button
                       className="button__3"
-                      name="movies-cash"
                       value={dataChoiceEvents.movies.initialPrice}
                       onClick={this.props.payByCash}
                     >
@@ -144,7 +140,6 @@ class Tonight extends Component {
                   <div className="grid__2 grid__row4">
                     <button
                       className="button__4"
-                      name="nightIn-free"
                       onClick={this.props.NightIn}
                     >
                       Free
@@ -161,19 +156,19 @@ class Tonight extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    NightIn: e => {
+    NightIn: (value, decision, paymentType) => {
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name);
+      getDecision('nightDecision', decision, paymentType)
     },
-    payByCash: e => {
-      dispatch(cashChange(e.target.value));
+    payByCash: (value, decision, paymentType) => {
+      dispatch(cashChange(value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name);
+      getDecision('nightDecision', decision, paymentType)
     },
-    payByCredit: e => {
-      dispatch(changeAvailableCredit(e.target.value));
+    payByCredit: (value, decision, paymentType) => {
+      dispatch(changeAvailableCredit(value));
       dispatch(increaseTurnCount());
-      getDecision('night', e.target.name);
+      getDecision('nightDecision', decision, paymentType)
     }
   };
 };

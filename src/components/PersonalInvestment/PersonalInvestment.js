@@ -37,7 +37,6 @@ class PersonalInvestment extends Component {
             <p className="grid__4 grid__row1">Empty pockets!</p>
             <button
               className="button__4 grid__4 grid__row2"
-              name="none-free"
               onClick={this.props.cantAfford}
             >
               No money!
@@ -59,7 +58,6 @@ class PersonalInvestment extends Component {
                   ) : (
                     <button
                       className="button__1"
-                      name="course-credit"
                       value={JSON.stringify({
                         ...dataChoiceEvents.careerProgression,
                         wage: this.props.wage
@@ -75,7 +73,6 @@ class PersonalInvestment extends Component {
                   ) : (
                     <button
                       className="button__1"
-                      name="course-cash"
                       value={JSON.stringify({
                         ...dataChoiceEvents.careerProgression,
                         wage: this.props.wage
@@ -103,7 +100,6 @@ class PersonalInvestment extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="holiday-credit"
                         value={dataChoiceEvents.holiday.initialPrice}
                         onClick={this.props.payForHolidayByCredit}
                       >
@@ -115,7 +111,6 @@ class PersonalInvestment extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="holiday-cash"
                         value={dataChoiceEvents.holiday.initialPrice}
                         onClick={this.props.payForHolidayByCash}
                       >
@@ -135,33 +130,34 @@ class PersonalInvestment extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    payForHolidayByCash: e => {
-      dispatch(cashChange(e.target.value));
+    payForHolidayByCash: (value, decision, paymentType) => {
+      dispatch(cashChange(value));
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name);
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForHolidayByCredit: e => {
-      dispatch(changeAvailableCredit(e.target.value));
+    payForHolidayByCredit: (value, decision, paymentType) => {
+      dispatch(changeAvailableCredit(value));
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name);
+
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForCourseByCash: e => {
-      const courseData = JSON.parse(e.target.value);
+    payForCourseByCash: (value, decision, paymentType) => {
+      const courseData = JSON.parse(value);
       dispatch(cashChange(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
-      getDecision('careerProgression', e.target.name);
+
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
-    payForCourseByCredit: e => {
-      const courseData = JSON.parse(e.target.value);
+    payForCourseByCredit: (value, decision, paymentType) => {
+      const courseData = JSON.parse(value);
       dispatch(changeAvailableCredit(courseData.initialPrice));
       dispatch(increaseTurnCount());
       dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
-      getDecision('careerProgression', e.target.name);
+      getDecision('careerProgressionDecision', decision, paymentType)
     },
     cantAfford: e => {
       dispatch(increaseTurnCount());
-      getDecision('careerProgression', e.target.name);
     }
   };
 };
