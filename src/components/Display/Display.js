@@ -69,7 +69,12 @@ class Display extends Component {
                 storyLines.push(<PersonalInvestment />);
                 break;
               case 'Monthly':
-                storyLines.push(<Monthly />);
+                storyLines.push(
+                  <Monthly />,
+                  <button onClick={this.nextChapterClickHandler}>
+                    next chapter
+                  </button>
+                );
                 break;
               case 'End of Chapter':
                 storyLines.push(
@@ -103,11 +108,65 @@ class Display extends Component {
     storyLines.push(buttons);
     return storyLines;
   };
+  nextChapterClickHandler = () => {
+    // if finishing penultimate chapter, go to last chapter
+    if (this.state.chapterCount === 3) {
+      this.props.turnReset();
+      // if minimum win value credit rating reached
+      if (this.props.credit_rating > 299) {
+        this.setState({
+          storyBook: data.fixedChapters.finaleWin,
+          chapterCount: 4
+        });
+        // else win condition fail
+      } else {
+        this.setState({
+          storyBook: data.fixedChapters.finaleLose,
+          chapterCount: 4
+        });
+      }
+    } else {
+      this.props.turnReset();
+      const storyboardKeys = Object.keys(data.storyBoard);
+      const storyPos = Math.floor(Math.random() * 4);
+      // pick a random chapter using Math.random
+      const nextChapterKey = storyboardKeys[storyPos];
+      // if it picks the same chapter as you have just played
+      if (this.state.lastChapterName === nextChapterKey) {
+        // check if chapter is last chapter from array of keys
+        if (!storyboardKeys[storyPos + 1]) {
+          // if last chapter, run first chapter from array of keys
+          this.setState({
+            storyBook: data.storyBoard[storyboardKeys[0]],
+            chapterCount: this.state.chapterCount + 1,
+            lastChapterName: storyboardKeys[0]
+          });
+          //else run next chapter in array of keys
+        } else {
+          this.setState({
+            storyBook: data.storyBoard[storyboardKeys[storyPos + 1]],
+            chapterCount: this.state.chapterCount + 1,
+            lastChapterName: storyboardKeys[storyPos + 1]
+          });
+        }
+        // if not the same chapter, run the chapter that has been randomly picked
+      } else {
+        this.setState({
+          storyBook: data.storyBoard[nextChapterKey],
+          chapterCount: this.state.chapterCount + 1,
+          lastChapterName: nextChapterKey
+        });
+      }
+    }
+  };
 }
 const mapDispatchToProps = dispatch => {
   return {
     turnIncrement: () => {
       dispatch(increaseTurnCount());
+    },
+    turnReset: () => {
+      dispatch(resetTurnCount());
     }
   };
 };
