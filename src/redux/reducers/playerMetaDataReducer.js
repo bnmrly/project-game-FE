@@ -1,4 +1,9 @@
-const initialState = { id: '', name: '' };
+const initialState = {
+  id: '',
+  name: '',
+  invalidIdAttempt: false,
+  usernameTaken: false
+};
 const playerMetaDataReducer = (state = initialState, action) => {
   const payload = action.payload;
   switch (action.type) {
@@ -8,6 +13,10 @@ const playerMetaDataReducer = (state = initialState, action) => {
       return { ...state, name: payload };
     case 'RESET_GAME':
       return initialState;
+    case 'INVALID_ID':
+      return { ...state, invalidIdAttempt: true };
+    case 'USERNAME_TAKEN':
+      return { ...state, usernameTaken: true };
     default:
       return state;
   }

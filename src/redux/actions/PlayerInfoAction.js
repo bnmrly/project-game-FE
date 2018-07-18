@@ -4,6 +4,16 @@ export function idSetterEvent(id) {
     payload: id
   };
 }
+export function invalidIdSetter() {
+  return {
+    type: 'INVALID_ID'
+  };
+}
+export function usernameTakenSetter() {
+  return {
+    type: 'USERNAME_TAKEN'
+  };
+}
 export function nameSetterEvent(name) {
   return {
     type: 'SET_NAME',
@@ -15,10 +25,10 @@ export function cardSelectionEvent(data) {
     type: data,
     payload:
       data === 'LOW'
-        ? {APR: 20, rating: 100}
+        ? { APR: 20, rating: 100 }
         : data === 'MEDIUM'
-          ? {APR: 25, rating: 200}
-          : {APR: 30, rating: 300}
+          ? { APR: 25, rating: 200 }
+          : { APR: 30, rating: 300 }
   };
 }
 export function setUserWage(wage) {
