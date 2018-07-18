@@ -9,6 +9,9 @@ import {
 import shortId from 'short-id';
 import { randomEvents } from '../../data/gameplay.json';
 import data from '../../data/gameplay.json';
+import {
+  resetTurnCount
+} from '../../redux/actions/PlayerInfoAction';
 
 class Monthly extends Component {
   state = {
@@ -178,6 +181,9 @@ const mapDispatchToProps = dispatch => {
       },
       randomCashChanger: (value) => {
         dispatch(cashChange(value))
+      },
+      turnReset: () => {
+        dispatch(resetTurnCount());
       }
     };
   };
