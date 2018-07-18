@@ -8,16 +8,29 @@
   cursor: pointer;
 }
 
-.content {
-  margin-top: 20%;
+.modal {
+  margin-top: 10%;
   margin-right: 25%;
   margin-left: 25%;
+  margin-bottom: 10%;
   background-color: aliceblue;
   border-radius: 2%;
 }
 
 .modal-content {
-  padding: 100px;
+  padding: 5em;
+}
+
+.modal-animate-opacity {
+  animation: opac 0.8s;
+}
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .close-button {
