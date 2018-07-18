@@ -50,10 +50,6 @@
   grid-row-start: 5;
 }
 
-/* .button__next:hover {
-  color: rgb(87, 87, 87);
-} */
-
 .image__next {
   margin-top: 1rem;
   cursor: pointer;
