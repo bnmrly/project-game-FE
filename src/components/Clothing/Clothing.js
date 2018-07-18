@@ -27,133 +27,149 @@ class Clothing extends Component {
         </ul>
         {dataChoiceEvents.partyClothesSuit.initialPrice >
           this.props.credit.available &&
-          dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash &&
-          dataChoiceEvents.smartCasual.initialPrice >
+        dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash &&
+        dataChoiceEvents.smartCasual.initialPrice >
           this.props.credit.available &&
-          dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
-          dataChoiceEvents.casualClothes.initialPrice >
+        dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
+        dataChoiceEvents.casualClothes.initialPrice >
           this.props.credit.available &&
-          dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
-            <div>
-              <button name='currentClothing-free' onClick={this.props.continueWithStory}>
-                Proceed with current clothing
+        dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
+          <React.Fragment>
+            <p className="grid__2 grid__row1 p__clothing">Empty pockets!</p>
+            <button
+              className="button__4 grid__2 grid__row2"
+              name="none-free"
+              onClick={this.props.continueWithStory}
+            >
+              No Spending Today
             </button>
-            </div>
-          ) : (
-            <div className="container__button">
-              {dataChoiceEvents.partyClothesSuit.initialPrice >
-                this.props.credit.available &&
-                dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
-                  <div />
-                ) : (
-                  <div className="button__1">
-                    <p>Party clothing suit</p>
-                    <div>
-                      {dataChoiceEvents.partyClothesSuit.initialPrice >
-                        this.props.credit.available ? (
-                          <div />
-                        ) : (
-                          <button
-                            name='partyClothing-credit'
-                            value={dataChoiceEvents.partyClothesSuit.initialPrice}
-                            onClick={this.props.payForClothingByCredit}
-                          >
-                            Credit
-
-                    </button>
-                        )}{' '}
-                      {dataChoiceEvents.partyClothesSuit.initialPrice >
-                        this.props.cash ? (
-                          <div />
-                        ) : (
-                          <button
-                            name='partyClothing-cash'
-                            value={dataChoiceEvents.partyClothesSuit.initialPrice}
-                            onClick={this.props.payForClothingByCash}
-                          >
-                            Cash
-                    </button>
-                        )}
-                    </div>
-                  </div>
-                )}
-              <div className="button__2">
-                {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
-                  dataChoiceEvents.smartCasual.initialPrice >
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {dataChoiceEvents.partyClothesSuit.initialPrice >
+              this.props.credit.available &&
+            dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
+              <div />
+            ) : (
+              <React.Fragment>
+                <p className="grid__1 grid__row1 p__clothing">
+                  Party clothing suit
+                </p>
+                <div className="grid__1 grid__row2">
+                  {dataChoiceEvents.partyClothesSuit.initialPrice >
                   this.props.credit.available ? (
                     <div />
                   ) : (
-                    <div>
-                      <p>Smart casual clothing</p>
-                      <div>
-                        {dataChoiceEvents.smartCasual.initialPrice >
-                          this.props.credit.available ? (
-                            <div />
-                          ) : (
-                            <button
-                              name='smartCasual-credit'
-                              value={dataChoiceEvents.smartCasual.initialPrice}
-                              onClick={this.props.payForClothingByCredit}
-                            >
-                              Credit
-                      </button>
-                          )}{' '}
-                        {dataChoiceEvents.smartCasual.initialPrice >
-                          this.props.cash ? (
-                            <div />
-                          ) : (
-                            <button
-                              name='smartCasual-cash'
-                              value={dataChoiceEvents.smartCasual.initialPrice}
-                              onClick={this.props.payForClothingByCash}
-                            >
-                              Cash
-                      </button>
-                          )}
-                      </div>
-                    </div>
-                  )}
-              </div>
-              <div className="button__3">
-                {dataChoiceEvents.casualClothes.initialPrice >
-                  this.props.credit.available &&
-                  dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
+                    <button
+                      className="button__1"
+                      name="partyClothing-credit"
+                      value={dataChoiceEvents.partyClothesSuit.initialPrice}
+                      onClick={this.props.payForClothingByCredit}
+                    >
+                      Credit
+                    </button>
+                  )}{' '}
+                  {dataChoiceEvents.partyClothesSuit.initialPrice >
+                  this.props.cash ? (
                     <div />
                   ) : (
-                    <div>
-                      <p>Casual clothing</p>
-                      <div>
-                        {dataChoiceEvents.casualClothes.initialPrice >
-                          this.props.credit.available ? (
-                            <div />
-                          ) : (
-                            <button
-                              name='casualCloting-credit'
-                              value={dataChoiceEvents.casualClothes.initialPrice}
-                              onClick={this.props.payForClothingByCredit}
-                            >
-                              Credit
-
-                      </button>
-                          )}{' '}
-                        {dataChoiceEvents.casualClothes.initialPrice >
-                          this.props.cash ? (
-                            <div />
-                          ) : (
-                            <button
-                              name='casualCloting-cash'
-                              value={dataChoiceEvents.casualClothes.initialPrice}
-                              onClick={this.props.payForClothingByCash}
-                            >
-                              Cash
-                      </button>
-                          )}
-                      </div>
-                    </div>
+                    <button
+                      className="button__1"
+                      name="partyClothing-cash"
+                      value={dataChoiceEvents.partyClothesSuit.initialPrice}
+                      onClick={this.props.payForClothingByCash}
+                    >
+                      Cash
+                    </button>
                   )}
-              </div>
-            </div>
-          )}
+                </div>
+              </React.Fragment>
+            )}
+            <React.Fragment>
+              {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
+              dataChoiceEvents.smartCasual.initialPrice >
+                this.props.credit.available ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__2 grid__row1 p__clothing">
+                    Smart casual clothing
+                  </p>
+                  <div className="grid__2 grid__row2">
+                    {dataChoiceEvents.smartCasual.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        name="smartCasual-credit"
+                        value={dataChoiceEvents.smartCasual.initialPrice}
+                        onClick={this.props.payForClothingByCredit}
+                      >
+                        Credit
+                      </button>
+                    )}{' '}
+                    {dataChoiceEvents.smartCasual.initialPrice >
+                    this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        name="smartCasual-cash"
+                        value={dataChoiceEvents.smartCasual.initialPrice}
+                        onClick={this.props.payForClothingByCash}
+                      >
+                        Cash
+                      </button>
+                    )}
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+
+            <React.Fragment>
+              {dataChoiceEvents.casualClothes.initialPrice >
+                this.props.credit.available &&
+              dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__3 grid__row1 p__clothing">
+                    Casual clothing
+                  </p>
+                  <div className="grid__3 grid__row2">
+                    {dataChoiceEvents.casualClothes.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__3"
+                        name="casualCloting-credit"
+                        value={dataChoiceEvents.casualClothes.initialPrice}
+                        onClick={this.props.payForClothingByCredit}
+                      >
+                        Credit
+                      </button>
+                    )}{' '}
+                    {dataChoiceEvents.casualClothes.initialPrice >
+                    this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__3"
+                        name="casualCloting-cash"
+                        value={dataChoiceEvents.casualClothes.initialPrice}
+                        onClick={this.props.payForClothingByCash}
+                      >
+                        Cash
+                      </button>
+                    )}
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+          </React.Fragment>
+        )}
       </section>
     );
   }
@@ -162,17 +178,17 @@ const mapDispatchToProps = dispatch => {
   return {
     continueWithStory: e => {
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name)
+      getDecision('clothing', e.target.name);
     },
     payForClothingByCash: e => {
       dispatch(cashChange(e.target.value));
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name)
+      getDecision('clothing', e.target.name);
     },
     payForClothingByCredit: e => {
       dispatch(changeAvailableCredit(e.target.value));
       dispatch(increaseTurnCount());
-      getDecision('clothing', e.target.name)
+      getDecision('clothing', e.target.name);
     }
   };
 };

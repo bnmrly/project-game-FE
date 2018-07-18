@@ -8,7 +8,7 @@
 }
 /*rating circular bar*/
 .rating .CircularProgressbar-path {
-  stroke: rgb(73, 182, 146);
+  stroke: rgb(255, 115, 22);
   stroke-linecap: butt;
   stroke-width: 8px;
   transition: stroke-dashoffset 0.5s ease 0s;
@@ -24,7 +24,7 @@
 
 /*credit circular bar*/
 .credit .CircularProgressbar-path {
-  stroke: rgb(73, 182, 146);
+  stroke: rgb(255, 115, 22);
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
@@ -39,7 +39,7 @@
 
 /*cash circular bar*/
 .cash .CircularProgressbar-path {
-  stroke: rgb(73, 182, 146);
+  stroke: rgb(255, 115, 22);
   stroke-linecap: butt;
   transition: stroke-dashoffset 0.5s ease 0s;
 }
