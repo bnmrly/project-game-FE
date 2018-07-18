@@ -1,3 +1,7 @@
+.monthly {
+  margin-top: -3rem;
+}
+
 .button__next {
   background-image: url('../../assets/button-green.png');
   background-size: 100% 100%;
@@ -6,4 +10,41 @@
   border: none;
   cursor: pointer;
   height: 2rem;
+}
+
+.container__wage {
+  margin-bottom: 0.75rem;
+}
+
+.container__card {
+  margin-bottom: 0.75rem;
+}
+
+.container__costs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2rem 3rem 3rem;
+}
+
+.p__costs {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: 0;
+  margin-bottom: 0.75rem;
+}
+
+.button__monthly {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  margin-left: 0.4rem;
+}
+
+.p__monthly {
+  margin: 0;
+  margin-bottom: 0.75rem;
 }
