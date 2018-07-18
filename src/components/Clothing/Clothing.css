@@ -1,7 +1,5 @@
 .clothing {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 70% 20% 10%;
 }
 
 .clothing__list {
@@ -11,4 +9,8 @@
 
 .clothing__list-item {
   margin-bottom: 1rem;
+}
+
+.p__clothing {
+  margin: 0;
 }

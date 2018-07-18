@@ -34,14 +34,16 @@ class Clothing extends Component {
         dataChoiceEvents.casualClothes.initialPrice >
           this.props.credit.available &&
         dataChoiceEvents.casualClothes.initialPrice > this.props.cash ? (
-          <div>
+          <React.Fragment>
+            <p className="grid__2 grid__row1 p__clothing">Empty pockets!</p>
             <button
-              name="currentClothing-free"
+              className="button__4 grid__2 grid__row2"
+              name="none-free"
               onClick={this.props.continueWithStory}
             >
-              Proceed with current clothing
+              No Spending Today
             </button>
-          </div>
+          </React.Fragment>
         ) : (
           <React.Fragment>
             {dataChoiceEvents.partyClothesSuit.initialPrice >
@@ -50,7 +52,9 @@ class Clothing extends Component {
               <div />
             ) : (
               <React.Fragment>
-                <p className="grid__1 grid__row1">Party clothing suit</p>
+                <p className="grid__1 grid__row1 p__clothing">
+                  Party clothing suit
+                </p>
                 <div className="grid__1 grid__row2">
                   {dataChoiceEvents.partyClothesSuit.initialPrice >
                   this.props.credit.available ? (
@@ -88,7 +92,9 @@ class Clothing extends Component {
                 <div />
               ) : (
                 <React.Fragment>
-                  <p className="grid__2 grid__row1">Smart casual clothing</p>
+                  <p className="grid__2 grid__row1 p__clothing">
+                    Smart casual clothing
+                  </p>
                   <div className="grid__2 grid__row2">
                     {dataChoiceEvents.smartCasual.initialPrice >
                     this.props.credit.available ? (
@@ -128,7 +134,9 @@ class Clothing extends Component {
                 <div />
               ) : (
                 <React.Fragment>
-                  <p className="grid__3 grid__row1">Casual clothing</p>
+                  <p className="grid__3 grid__row1 p__clothing">
+                    Casual clothing
+                  </p>
                   <div className="grid__3 grid__row2">
                     {dataChoiceEvents.casualClothes.initialPrice >
                     this.props.credit.available ? (
