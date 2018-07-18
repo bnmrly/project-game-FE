@@ -1,6 +1,6 @@
 .hint {
   grid-column-start: 2;
-  background-image: url('../../assets/button-grey-square.png');
+  background-image: url("../../assets/button-grey-square.png");
   /* background-size: contain; */
   /* background-size: cover; */
   background-size: 100% 100%;
@@ -10,16 +10,17 @@
   cursor: pointer;
 }
 
-.content {
-  margin-top: 20%;
+.modal {
+  margin-top: 10%;
   margin-right: 25%;
   margin-left: 25%;
+  margin-bottom: 10%;
   background-color: aliceblue;
   border-radius: 2%;
 }
 
 .modal-content {
-  padding: 100px;
+  padding: 5em;
 }
 
 .close-button {

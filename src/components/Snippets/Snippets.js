@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
 import data from "../../data/gameplay.json";
 import { connect } from "react-redux";
 import "./Snippets.css";
@@ -18,12 +18,12 @@ class Snippets extends Component {
           Hint
         </button>
         <div>
-          <Modal
+          <ReactModal
             snippets={snippets}
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
-            className="content w3-animate-opacity"
+            className="modal w3-animate-opacity"
           >
             <h3 className="close-button" onClick={this.closeModal}>
               X
@@ -36,7 +36,7 @@ class Snippets extends Component {
                   return <p className="modal-content">{snippet}</p>;
                 })}
             </div>
-          </Modal>
+          </ReactModal>
         </div>
       </React.Fragment>
     );
