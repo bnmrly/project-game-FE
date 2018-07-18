@@ -1,7 +1,7 @@
 .card {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 90% 10%;
+  grid-template-rows: 80% 20%;
 }
 
 .card__list {

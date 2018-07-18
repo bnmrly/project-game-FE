@@ -1,14 +1,14 @@
 const initialState = {
   wallet: {
-    cash: 500,
-    credit: { available: 200, max: 500 },
+    cash: 0,
+    credit: { available: 0, max: 0 },
     rating: 0,
     APR: 0
   },
   living_costs: {
-    groceries: 50,
-    miscellaneous: 40,
-    travel: 30
+    Groceries: 50,
+    Other: 40,
+    Travel: 30
   },
   wage: 0
 };

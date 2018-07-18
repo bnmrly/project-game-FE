@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 import {
   cardSelectionEvent,
   increaseTurnCount
-} from "../../redux/actions/PlayerInfoAction";
+} from '../../redux/actions/PlayerInfoAction';
 import { getDecision } from '../../firebase/fb';
-
 
 class Card extends Component {
   render() {
@@ -50,6 +49,7 @@ class Card extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
+
     handleClick: (value, decision) => {
       getDecision('cardDecision', decision)
       dispatch(cardSelectionEvent(value));

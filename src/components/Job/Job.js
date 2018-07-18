@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import {
   setUserWage,
   increaseTurnCount
-} from "../../redux/actions/PlayerInfoAction";
-import store from "../../redux/index";
+} from '../../redux/actions/PlayerInfoAction';
+import store from '../../redux/index';
 import { initialisePlayer } from '../../firebase/fb';
 
 class Job extends Component {
@@ -24,21 +24,21 @@ class Job extends Component {
           </li>
         </ul>
         <button
-          className="button button__1 button__1--job"
+          className="button button__1 grid__1"
           value={100}
           onClick={this.props.handleClick}
         >
           Job1
         </button>
         <button
-          className="button button__2 button__2--job"
+          className="button button__2 grid__2"
           value={200}
           onClick={this.props.handleClick}
         >
           Job2
         </button>
         <button
-          className="button button__3 button__3--job"
+          className="button button__3 grid__3"
           value={300}
           onClick={this.props.handleClick}
         >

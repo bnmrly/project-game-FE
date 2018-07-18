@@ -11,7 +11,6 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import { getDecision } from '../../firebase/fb';
 
-
 class Phone extends Component {
   render() {
     return (
@@ -27,72 +26,156 @@ class Phone extends Component {
             Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </li>
         </ul>
-        <div className="button__1">
-          <p>High contract phone deal</p>
-          {dataChoiceEvents.phoneContractHigh.initialPrice >
-            this.props.credit.available ? (
+        {dataChoiceEvents.phoneContractHigh.initialPrice >
+          this.props.credit.available &&
+        dataChoiceEvents.phoneContractHigh.initialPrice > this.props.cash &&
+        dataChoiceEvents.phoneSimOnly.initialPrice >
+          this.props.credit.available &&
+        dataChoiceEvents.phoneSimOnly.initialPrice > this.props.cash &&
+        dataChoiceEvents.phoneSecondHand.initialPrice >
+          this.props.credit.available &&
+        dataChoiceEvents.phoneSecondHand.initialPrice > this.props.cash ? (
+          <div>
+            <p className="grid__2 grid__row1">Empty pockets!</p>
+            <button
+              className="button__4 grid__2 grid__row2"
+              onClick={this.props.continueWithStory}
+            >
+              No Spending Today
+            </button>
+          </div>
+        ) : (
+          <React.Fragment>
+            {dataChoiceEvents.phoneContractHigh.initialPrice >
+              this.props.credit.available &&
+            dataChoiceEvents.phoneContractHigh.initialPrice >
+              this.props.cash ? (
               <div />
             ) : (
-              <button
-                value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
-                onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'high-contract-credit', 'creditSpends')}
-              >
-                Credit
-            </button>
-            )}{' '}
-          <button
-            value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
-            onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'high-contract-cash', 'cashSpends')}
-          >
-            Cash
-          </button>
-        </div>
-        <div className="button__2">
-          <p>Sim only phone deal</p>
-          {dataChoiceEvents.phoneSimOnly.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
-                onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'sim-only-credit', 'creditSpends')}
-              >
-                Credit
-            </button>
-            )}{' '}
-          <button
-            value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
-            onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'sim-only-cash', 'cashSpends')}
-          >
-            Cash
-          </button>
-        </div>
-        <div className="button__3">
-          <p>Second hand phone deal</p>
-          {dataChoiceEvents.phoneSecondHand.initialPrice >
-            this.props.credit.available ? (
-              <div />
-            ) : (
-              <button
-                value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
-                onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'second-hand-credit', 'creditSpends')}
-              >
-                Credit
-            </button>
-            )}{' '}
-          <button
-            value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
-            onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'second-hand-cash', 'cashSpends')}
-          >
-            Cash
-          </button>
-        </div>
+              <React.Fragment>
+                <p className="grid__1 grid__row1 grid__row1-phone">
+                  High contract phone dealt
+                </p>
+                <div className="grid__1 grid__row2">
+                  {dataChoiceEvents.phoneContractHigh.initialPrice >
+                  this.props.credit.available ? (
+                    <div />
+                  ) : (
+                    <button
+                      className="button__1"
+                      value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
+                      onClick={this.props.payForPhoneByCredit}
+                    >
+                      Credit
+                    </button>
+                  )}{' '}
+                  {dataChoiceEvents.phoneContractHigh.initialPrice >
+                  this.props.cash ? (
+                    <div />
+                  ) : (
+                    <button
+                      className="button__1"
+                      value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
+                      onClick={this.props.payForPhoneByCash}
+                    >
+                      Cash
+                    </button>
+                  )}
+                </div>
+              </React.Fragment>
+            )}
+            <React.Fragment>
+              {dataChoiceEvents.phoneSimOnly.initialPrice > this.props.cash &&
+              dataChoiceEvents.phoneSimOnly.initialPrice >
+                this.props.credit.available ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__2 grid__row1 grid__row1-phone">
+                    Sim only phone deal
+                  </p>
+                  <div className="grid__2 grid__row2">
+                    {dataChoiceEvents.phoneSimOnly.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
+                        onClick={this.props.payForPhoneByCredit}
+                      >
+                        Credit
+                      </button>
+                    )}{' '}
+                    {dataChoiceEvents.phoneSimOnly.initialPrice >
+                    this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__2"
+                        value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
+                        onClick={this.props.payForPhoneByCash}
+                      >
+                        Cash
+                      </button>
+                    )}
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+            <React.Fragment>
+              {dataChoiceEvents.phoneSecondHand.initialPrice >
+                this.props.credit.available &&
+              dataChoiceEvents.phoneSecondHand.initialPrice >
+                this.props.cash ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__3 grid__row1 grid__row1-phone">
+                    Second hand phone deal
+                  </p>
+                  <div className="grid__3 grid__row2">
+                    {dataChoiceEvents.phoneSecondHand.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__3"
+                        value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
+                        onClick={this.props.payForPhoneByCredit}
+                      >
+                        Credit
+                      </button>
+                    )}{' '}
+                    {dataChoiceEvents.phoneSecondHand.initialPrice >
+                    this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__3"
+                        value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
+                        onClick={this.props.payForPhoneByCash}
+                      >
+                        Cash
+                      </button>
+                    )}
+                  </div>
+                </React.Fragment>
+              )}
+            </React.Fragment>
+          </React.Fragment>
+        )}
       </section>
     );
   }
 }
+
 const mapDispatchToProps = dispatch => {
   return {
+continueWithStory: e => {
+      dispatch(increaseTurnCount());
+      getDecision('phone', e.target.name);
+    },
     payForPhoneByCash: (value, decision, paymentType) => {
       const contractInfo = JSON.parse(value);
       const phoneMonthly = { key: 'phone', value: contractInfo.monthlyCost };
