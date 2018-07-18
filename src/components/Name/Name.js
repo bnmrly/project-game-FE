@@ -21,9 +21,15 @@ class Name extends Component {
           value={this.state.name}
           onChange={this.handleChange}
         />
-        <button value={this.state.name} onClick={this.props.handleClick}>
+        <button
+          value={this.state.name}
+          onClick={() => {
+            initialisePlayer(this.state.name);
+          }}
+        >
           Submit
         </button>
+        {this.props.usernameTaken ? <div>Username is taken!</div> : <div />}
       </section>
     );
   }
@@ -31,20 +37,10 @@ class Name extends Component {
     this.setState({ name: e.target.value });
   };
 }
-const mapDispatchToProps = dispatch => {
-  return {
-    handleClick: e => {
-      initialisePlayer(e.target.value);
-      dispatch(nameSetterEvent(e.target.value));
-    }
-  };
-};
 const mapStateToProps = store => {
-  return {
-    name: store.playerMetaData.name
-  };
+  return { usernameTaken: store.playerMetaData.usernameTaken };
 };
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(Name);
