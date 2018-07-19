@@ -148,7 +148,7 @@ class Display extends Component {
     if (this.state.chapterCount === 3) {
       this.props.turnReset();
       // if minimum win value credit rating reached
-      if (this.props.credit_rating > 299) {
+      if (this.props.credit_rating > 650) {
         this.setState({
           storyBook: data.fixedChapters.finaleWin,
           chapterCount: 4
