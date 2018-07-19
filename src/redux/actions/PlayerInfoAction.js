@@ -68,6 +68,7 @@ export function resetGame() {
   return {
     type: 'RESET_GAME'
   };
+<<<<<<< HEAD
 }
 export function changeCreditRating(direction) {
   if (direction === "up") { 
@@ -82,3 +83,6 @@ export function changeCreditRating(direction) {
 }
   }
 }
+=======
+}
+>>>>>>> e7f9b9ac4d13cb91a8fe87801c76f13266ee6d64

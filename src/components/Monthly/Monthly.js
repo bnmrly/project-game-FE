@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import './Monthly.css';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import "./Monthly.css";
+import { connect } from "react-redux";
 import {
   cashChange,
   changeAvailableCredit,
+  increaseTurnCount,
   changeCreditRating
-} from '../../redux/actions/PlayerInfoAction';
-import shortId from 'short-id';
-import { randomEvents } from '../../data/gameplay.json';
-import data from '../../data/gameplay.json';
-import { resetTurnCount } from '../../redux/actions/PlayerInfoAction';
+} from "../../redux/actions/PlayerInfoAction";
+import shortId from "short-id";
+import ReactModal from "react-modal";
+import { randomEvents } from "../../data/gameplay.json";
+import data from "../../data/gameplay.json";
+import { resetTurnCount } from "../../redux/actions/PlayerInfoAction";
 
 class Monthly extends Component {
   state = {
@@ -23,7 +25,9 @@ class Monthly extends Component {
     randomEvent: {},
     creditOwed:
       this.props.financialInfo.wallet.credit.max -
-      this.props.financialInfo.wallet.credit.available
+      this.props.financialInfo.wallet.credit.available,
+    modalIsOpen: false,
+    modalOpened: false
   };
   render() {
     const financialInfo = this.props.financialInfo;
@@ -64,12 +68,7 @@ class Monthly extends Component {
 
           <button
             className="button__monthly"
-            value={Math.floor(
-              ((this.state.creditOwed / 100) *
-                this.props.financialInfo.wallet.APR) /
-                12
-            )}
-            onClick={(e) => {
+            onClick={() => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCash(e)
               this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
@@ -87,7 +86,6 @@ class Monthly extends Component {
                 12
             )}
             onClick={e => {
-              this.setState({ creditCardDisabled: true });
               this.props.payByCredit(e);
               this.props.failToPay()  
             }}
@@ -136,16 +134,43 @@ class Monthly extends Component {
           <button
             className="button__monthly"
             disabled={this.state.randomDisabled}
-            onClick={() => this.randomEventHandler(randomEvents)}
+            onClick={() => this.openModal(randomEvents)}
           >
             Risk a random Event
           </button>
-          <div>{this.state.randomEvent.text} </div>
+          <ReactModal
+            randomEvent={this.state.randomEvent}
+            randomEvents={randomEvents}
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            className="modal modal-animate-opacity"
+          >
+            {this.state.randomEvent && (
+              <div>
+                <h3 className="close-button" onClick={this.closeModal}>
+                  X
+                </h3>{" "}
+                <p className="modal-content">{this.state.randomEvent.text}</p>{" "}
+              </div>
+            )}
+          </ReactModal>
         </div>
         <div />
       </section>
     );
   }
+
+  openModal = () => {
+    console.log(randomEvents);
+    this.randomEventHandler(randomEvents);
+    this.setState({ modalIsOpen: true });
+  };
+
+  closeModal = () => {
+    this.setState({ modalIsOpen: false });
+  };
+
   randomEventHandler = randomEvents => {
     const newRandomEvent =
       randomEvents[Math.floor(Math.random() * randomEvents.length)];
