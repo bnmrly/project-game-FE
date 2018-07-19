@@ -87,7 +87,8 @@ class Monthly extends Component {
             )}
             onClick={e => {
               this.props.payByCredit(e);
-              this.props.failToPay()  
+              this.props.failToPay()
+              this.setState({creditCardDisabled: true})  
             }}
             disabled={this.state.creditCardDisabled}
           >
