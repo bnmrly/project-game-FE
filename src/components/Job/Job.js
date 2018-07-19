@@ -14,13 +14,15 @@ class Job extends Component {
       <section className="job">
         <ul className="job__list ul">
           <li className="job__list-item">
-            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Chef: Know your onions from your oranges!
           </li>
+          <br />
           <li className="job__list-item">
-            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Teacher: Know your ABC's from your 123's!
           </li>
+          <br />
           <li className="job__list-item">
-            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Doctor: Know your funny bone from your hip bone!
           </li>
         </ul>
         <button
@@ -28,21 +30,21 @@ class Job extends Component {
           value={100}
           onClick={this.props.handleClick}
         >
-          Job1
+          Chef
         </button>
         <button
           className="button button__2 grid__2"
           value={200}
           onClick={this.props.handleClick}
         >
-          Job2
+          Teacher
         </button>
         <button
           className="button button__3 grid__3"
           value={300}
           onClick={this.props.handleClick}
         >
-          Job3
+          Doctor
         </button>
       </section>
     );
