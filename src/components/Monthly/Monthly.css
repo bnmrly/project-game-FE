@@ -3,7 +3,7 @@
 }
 
 .button__next {
-  background-image: url('../../assets/button-green.png');
+  background-image: url("../../assets/button-green.png");
   background-size: 100% 100%;
   background-color: Transparent;
   outline: none;
@@ -34,7 +34,7 @@
 }
 
 .button__monthly {
-  background-image: url('../../assets/button-green.png');
+  background-image: url("../../assets/button-green.png");
   background-size: 100% 100%;
   background-color: Transparent;
   outline: none;
@@ -47,4 +47,21 @@
 .p__monthly {
   margin: 0;
   margin-bottom: 0.75rem;
+}
+
+.modal {
+  margin-top: 10%;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+  background-color: aliceblue;
+  border-radius: 2%;
+}
+
+.modal-content {
+  padding: 5em;
+}
+
+.modal-animate-opacity {
+  animation: opac 0.8s;
 }
