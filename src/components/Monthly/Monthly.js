@@ -61,7 +61,7 @@ class Monthly extends Component {
             {this.state.creditOwed}
           </p>
 
-          <button
+          {this.state.creditOwed > financialInfo.wallet.cash ? ('') : <button
             className="button__monthly"
             value={-this.state.creditOwed}
             onClick={e => {
@@ -73,8 +73,12 @@ class Monthly extends Component {
           >
             Pay Full Amount
           </button>
-
-          <button
+}
+          {Math.floor(
+              ((this.state.creditOwed / 100) *
+                this.props.financialInfo.wallet.APR) /
+                12
+            ) > financialInfo.wallet.cash ?  ('') :<button
             className="button__monthly"
             onClick={(e) => {
               this.setState({ creditCardDisabled: true, disabledCount: this.state.disabledCount + 1 });
@@ -85,7 +89,7 @@ class Monthly extends Component {
           >
             Pay Interest
           </button>
-
+}
           <button
             className="button__monthly"
             value={Math.floor(
