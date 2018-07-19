@@ -52,7 +52,7 @@ const playerFinancialReducer = (state = initialState, action) => {
         ...state,
         wallet: { ...wallet, cash: wallet.cash - action.payload }
       };
-    case 'CREDIT_CHANGE':
+    case 'AVAILABLE_CREDIT_CHANGE':
       return {
         ...state,
         wallet: {
@@ -78,6 +78,13 @@ const playerFinancialReducer = (state = initialState, action) => {
           }
         }
       };
+    case 'CHANGE_CREDIT_RATING':
+    return {
+      ...state,
+      wallet:{ ...wallet,
+        rating: wallet.rating - action.payload
+      }
+    }
     default:
       return state;
   }
