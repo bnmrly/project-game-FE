@@ -117,6 +117,7 @@ class Display extends Component {
                     className="button__reset"
                     onClick={() => {this.props.reset('lose')}}
                     >
+                    Reset
                   </button>
                   </div>
                 )

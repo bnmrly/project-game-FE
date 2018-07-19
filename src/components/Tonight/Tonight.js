@@ -47,7 +47,7 @@ class Tonight extends Component {
                         Credit
                   </button>
                     )}{' '}
-                  {dataChoiceEvents.partyClothesSuit.initialPrice >
+                  {dataChoiceEvents.onlineShopping.initialPrice >
                     this.props.cash ? (
                       <div />
                     ) : (
@@ -66,8 +66,8 @@ class Tonight extends Component {
               </React.Fragment>
             )}
           <React.Fragment>
-            {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
-              dataChoiceEvents.smartCasual.initialPrice >
+            {dataChoiceEvents.eatOut.initialPrice > this.props.cash &&
+              dataChoiceEvents.eatOut.initialPrice >
               this.props.credit.available ? (
                 <div />
               ) : (
@@ -135,7 +135,9 @@ class Tonight extends Component {
                     </button>
                       )}
                   </div>
-                  <React.Fragment>
+                </React.Fragment>
+              )}
+               <React.Fragment>
                     <p className="grid__2 grid__row3">Night In</p>
                     <div className="grid__2 grid__row4">
                       <button
@@ -146,8 +148,6 @@ class Tonight extends Component {
                     </button>
                     </div>
                   </React.Fragment>
-                </React.Fragment>
-              )}
           </React.Fragment>
         </React.Fragment>
       </section>
@@ -174,7 +174,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = store => {
   return {
-    credit: store.playerFinancialInfo.wallet.credit
+    credit: store.playerFinancialInfo.wallet.credit,
+    cash: store.playerFinancialInfo.wallet.cash
   };
 };
 export default connect(
