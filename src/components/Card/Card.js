@@ -3,7 +3,8 @@ import './Card.css';
 import { connect } from 'react-redux';
 import {
   cardSelectionEvent,
-  increaseTurnCount
+  increaseTurnCount,
+  changeCredit
 } from '../../redux/actions/PlayerInfoAction';
 import { getDecision } from '../../firebase/fb';
 
@@ -53,6 +54,7 @@ const mapDispatchToProps = dispatch => {
       getDecision('card', decision);
       dispatch(cardSelectionEvent(value));
       dispatch(increaseTurnCount());
+      dispatch(changeCredit({available:500, max:500}))
     }
   };
 };
