@@ -22,6 +22,7 @@ class Name extends Component {
           onChange={this.handleChange}
         />
         <button
+          className="button__login"
           value={this.state.name}
           onClick={() => {
             initialisePlayer(this.state.name);

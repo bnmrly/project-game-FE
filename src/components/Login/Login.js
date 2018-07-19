@@ -13,6 +13,7 @@ class Login extends Component {
 
         <input value={this.state.idInput} onChange={this.handleChange} />
         <button
+          className="button__login"
           type="submit"
           onClick={() => idCheckFirebase(this.state.idInput)}
         >
