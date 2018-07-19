@@ -23,7 +23,6 @@ class Card extends Component {
           </li>
         </ul>
         <button
-          name="low"
           className="button button__1 grid__1"
           value="LOW"
           onClick={(e) => this.props.handleClick(e.target.value, 'low')}
@@ -31,7 +30,6 @@ class Card extends Component {
           Low
         </button>
         <button
-          name="med"
           className="button button__2 grid__2"
           value="MEDIUM"
           onClick={(e) => this.props.handleClick(e.target.value, 'med')}
@@ -39,7 +37,6 @@ class Card extends Component {
           Medium
         </button>
         <button
-          name="high"
           className="button button__3 grid__3"
           value="HIGH"
           onClick={(e) => this.props.handleClick(e.target.value, 'high')}
