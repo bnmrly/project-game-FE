@@ -51,10 +51,10 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     handleClick: (value, decision) => {
-      getDecision('card', decision);
+      getDecision('cardDecision', decision);
       dispatch(cardSelectionEvent(value));
       dispatch(increaseTurnCount());
-      dispatch(changeCredit({available:500, max:500}))
+      dispatch(changeCredit({ available: 500, max: 500 }))
     }
   };
 };
