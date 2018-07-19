@@ -19,6 +19,7 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import nextButton from '../../assets/button-arrow-green.png';
 import Typing from 'react-typing-animation';
+import { getDecision } from '../../firebase/fb';
 
 // TO IMPLEMENT:
 
@@ -77,9 +78,10 @@ class Display extends Component {
                   <div className="container__next-button">
                     <button
                       className="button__4"
-                      onClick={e => {
-                        this.nextChapterClickHandler(e);
-                        this.props.disableNextChapter();
+                      onClick={(e) => {
+                        getDecision('bin', 'thatdoesntmattereither', 'neitherdoesthis', true)
+                        this.nextChapterClickHandler(e)
+                        this.props.disableNextChapter()
                       }}
                       disabled={this.props.nextChapterDisabled}
                     >
@@ -105,10 +107,9 @@ class Display extends Component {
                   <div>
                     <button
                       className="button__reset"
-                      onClick={() => {
-                        this.props.reset('win');
-                      }}
-                    />
+                      onClick={() => { this.props.reset('win') }}
+                    >
+                    </button>
                   </div>
                 );
                 break;
@@ -117,12 +118,10 @@ class Display extends Component {
                   <div>
                     <button
                       className="button__reset"
-                      onClick={() => {
-                        this.props.reset('lose');
-                      }}
+                      onClick={() => { this.props.reset('lose') }}
                     >
                       Reset
-                    </button>
+                  </button>
                   </div>
                 );
                 break;
@@ -131,17 +130,17 @@ class Display extends Component {
             }
           })
         ) : (
-          // <button className="button__next" onClick={this.props.turnIncrement}>
-          //   next
-          // </button>
+            // <button className="button__next" onClick={this.props.turnIncrement}>
+            //   next
+            // </button>
 
-          <img
-            className="image__next"
-            src={nextButton}
-            alt=""
-            onClick={this.props.turnIncrement}
-          />
-        )}
+            <img
+              className="image__next"
+              src={nextButton}
+              alt=""
+              onClick={this.props.turnIncrement}
+            />
+          )}
       </React.Fragment>
     );
     storyLines.push(buttons);
@@ -152,7 +151,7 @@ class Display extends Component {
     if (this.state.chapterCount === 3) {
       this.props.turnReset();
       // if minimum win value credit rating reached
-      if (this.props.credit_rating > 299) {
+      if (this.props.credit_rating > 650) {
         this.setState({
           storyBook: data.fixedChapters.finaleWin,
           chapterCount: 4

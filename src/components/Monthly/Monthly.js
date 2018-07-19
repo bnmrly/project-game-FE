@@ -6,13 +6,14 @@ import {
   changeAvailableCredit,
   increaseTurnCount,
   changeCreditRating,
-  enableChapterChange
-} from '../../redux/actions/PlayerInfoAction';
-import shortId from 'short-id';
-import ReactModal from 'react-modal';
-import { randomEvents } from '../../data/gameplay.json';
-import data from '../../data/gameplay.json';
-import { resetTurnCount } from '../../redux/actions/PlayerInfoAction';
+  enableChapterChange,
+} from "../../redux/actions/PlayerInfoAction";
+import shortId from "short-id";
+import ReactModal from "react-modal";
+import { randomEvents } from "../../data/gameplay.json";
+import data from "../../data/gameplay.json";
+import { resetTurnCount } from "../../redux/actions/PlayerInfoAction";
+import { getDecision } from '../../firebase/fb';
 
 class Monthly extends Component {
   state = {
@@ -34,13 +35,10 @@ class Monthly extends Component {
   };
   render() {
     const financialInfo = this.props.financialInfo;
-    if (
-      ((!financialInfo.living_costs.phone && this.state.disabledCount === 5) ||
-        this.state.disabledCount === 6) &&
-      this.state.nextChapterDisabled
-    ) {
-      this.setState({ nextChapterDisabled: false });
-      this.props.enableNextChapter();
+    if (((!financialInfo.living_costs.phone && this.state.disabledCount === 5)
+      || this.state.disabledCount === 6) && this.state.nextChapterDisabled) {
+      this.setState({ nextChapterDisabled: false })
+      this.props.enableNextChapter()
     }
     return (
       <section className="monthly">
@@ -51,10 +49,7 @@ class Monthly extends Component {
             value={-financialInfo.wage}
             onClick={e => {
               this.props.payByCash(e);
-              this.setState({
-                wageDisabled: true,
-                disabledCount: this.state.disabledCount + 1
-              });
+              this.setState({ wageDisabled: true, disabledCount: this.state.disabledCount + 1 });
             }}
             disabled={this.state.wageDisabled}
           >
@@ -109,15 +104,13 @@ class Monthly extends Component {
             value={Math.floor(
               ((this.state.creditOwed / 100) *
                 this.props.financialInfo.wallet.APR) /
-                12
+              12
             )}
             onClick={e => {
+              getDecision('bin', 'thatdoesntmattereither', 'billPostpones')
               this.props.payByCredit(e);
               this.props.failToPay();
-              this.setState({
-                creditCardDisabled: true,
-                disabledCount: this.state.disabledCount + 1
-              });
+              this.setState({ creditCardDisabled: true, disabledCount: this.state.disabledCount + 1 });
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -131,11 +124,27 @@ class Monthly extends Component {
             return (
               <p className="p__monthly" key={shortId.generate()}>
                 {key}: £{financialInfo.living_costs[key]}
+                
+                {financialInfo.living_costs[key] > financialInfo.wallet.credit.available &&
+                financialInfo.living_costs[key] > financialInfo.wallet.cash ? 
                 <button
+                className="button__monthly"
+                value={-financialInfo.wage}
+                onClick={e => {
+                  this.props.payByCash(e);
+                  this.setState({ wageDisabled: true, disabledCount: this.state.disabledCount + 1});
+                }}
+                disabled={this.state.wageDisabled}
+              >
+                collect wage
+              </button>
+                : <span>
+                {financialInfo.living_costs[key] > financialInfo.wallet.credit.available ? ('') : <button
                   className="button__monthly"
                   value={financialInfo.living_costs[key]}
                   disabled={this.state[`${key}Disabled`]}
                   onClick={e => {
+                    getDecision('bin', 'thatdoesntmattereither', 'creditSpends')
                     this.props.payByCredit(e);
                     this.setState({
                       [`${key}Disabled`]: true,
@@ -144,12 +153,13 @@ class Monthly extends Component {
                   }}
                 >
                   Credit
-                </button>
-                <button
+                </button>}
+               {financialInfo.living_costs[key] > financialInfo.wallet.cash ? ('') : <button
                   className="button__monthly"
                   value={financialInfo.living_costs[key]}
                   disabled={this.state[`${key}Disabled`]}
                   onClick={e => {
+                    getDecision('bin', 'thatdoesntmattereither', 'cashSpends')
                     this.props.payByCash(e);
                     this.setState({
                       [`${key}Disabled`]: true,
@@ -158,7 +168,10 @@ class Monthly extends Component {
                   }}
                 >
                   Cash
-                </button>
+                </button> }
+                </span>
+                }
+                
               </p>
             );
           })}
@@ -225,11 +238,12 @@ const mapDispatchToProps = dispatch => {
       dispatch(cashChange(value));
     },
     creditRatingChanger: (creditOwed, maxCredit) => {
-      let direction;
-      if ((creditOwed / maxCredit) * 100 < 75) {
-        direction = 'up';
-      } else {
-        direction = 'down';
+      let direction
+      if (creditOwed / maxCredit * 100 < 75) {
+        direction = 'up'
+      }
+      else {
+        direction = 'down'
       }
       dispatch(changeCreditRating(direction));
     },
@@ -241,8 +255,8 @@ const mapDispatchToProps = dispatch => {
       dispatch(cashChange(-e.target.value));
     },
     enableNextChapter: () => {
-      dispatch(enableChapterChange());
-    }
+      dispatch(enableChapterChange())
+    },
   };
 };
 const mapStateToProps = store => {
