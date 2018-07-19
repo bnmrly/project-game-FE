@@ -23,23 +23,26 @@ class Card extends Component {
           </li>
         </ul>
         <button
-          className="button button__1"
+          name="low"
+          className="button button__1 grid__1"
           value="LOW"
-          onClick={(e) => this.props.handleClick(e.target.value, 'low')}
+          onClick={this.props.handleClick}
         >
           Low
         </button>
         <button
-          className="button button__2"
+          name="med"
+          className="button button__2 grid__2"
           value="MEDIUM"
-          onClick={(e) => this.props.handleClick(e.target.value, 'med')}
+          onClick={this.props.handleClick}
         >
           Medium
         </button>
         <button
-          className="button button__3"
+          name="high"
+          className="button button__3 grid__3"
           value="HIGH"
-          onClick={(e) => this.props.handleClick(e.target.value, 'high')}
+          onClick={this.props.handleClick}
         >
           High
         </button>
@@ -49,10 +52,9 @@ class Card extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-
-    handleClick: (value, decision) => {
-      getDecision('cardDecision', decision)
-      dispatch(cardSelectionEvent(value));
+    handleClick: e => {
+      getDecision('card', e.target.name);
+      dispatch(cardSelectionEvent(e.target.value));
       dispatch(increaseTurnCount());
     }
   };
