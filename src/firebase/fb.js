@@ -62,21 +62,29 @@ export const initialisePlayer = name => {
         });
 };
 
-export const getDecision = (decisionType, decision, paymentType) => {
+export const getDecision = (decisionType, decision, paymentType, updateWallet) => {
     const state = store.getState();
+    const { wallet } = state.playerFinancialInfo;
     db.collection('games')
         .doc(state.playerMetaData.id).get()
         .then(gameDoc => {
             const players = gameDoc.data().players;
+            const player = players[state.playerMetaData.name];
+            const newWallet = updateWallet ? {
+                cashAvail: [...player.cashAvail, wallet.cash],
+                creditAvail: [...player.creditAvail, wallet.credit.available],
+                rating: [...player.rating, wallet.rating]
+            } : {};
             db.collection('games')
                 .doc(state.playerMetaData.id)
                 .update({
                     players: {
                         ...players,
                         [state.playerMetaData.name]: {
-                            ...players[state.playerMetaData.name],
+                            ...player,
                             [decisionType]: decision,
-                            [paymentType]: players[state.playerMetaData.name][paymentType] + 1
+                            [paymentType]: player[paymentType] + 1,
+                            ...newWallet
                         }
                     }
                 })
