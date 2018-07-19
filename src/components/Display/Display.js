@@ -79,7 +79,7 @@ class Display extends Component {
                       className="button__4"
                       onClick={(e) => {
                         this.nextChapterClickHandler(e)
-                        this.disableNextChapter()
+                        this.props.disableNextChapter()
                       }}
                       disabled={this.props.nextChapterDisabled}
                     >
