@@ -64,6 +64,12 @@ export function addToMonthlyCosts(livingCost) {
     payload: livingCost
   };
 }
+export function changeCredit({ available, max }) {
+  return {
+    type: 'CREDIT_CHANGE',
+    payload: { available: available, max: max }
+  };
+}
 export function resetGame() {
   return {
     type: 'RESET_GAME'
