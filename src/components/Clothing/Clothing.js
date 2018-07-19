@@ -63,7 +63,7 @@ class Clothing extends Component {
                     <button
                       className="button__1"    
                       value={dataChoiceEvents.partyClothesSuit.initialPrice}
-                      onClick={this.props.payForClothingByCredit}
+                      onClick={(e) => this.props.payForClothingByCredit(e.target.value, 'party-clothing-credit', 'creditSpends')}
                     >
                       Credit
                     </button>
@@ -75,7 +75,7 @@ class Clothing extends Component {
                     <button
                       className="button__1"
                       value={dataChoiceEvents.partyClothesSuit.initialPrice}
-                      onClick={this.props.payForClothingByCash}
+                      onClick={(e) => this.props.payForClothingByCash(e.target.value, 'party-clothing-cash', 'cashSpends')}
                     >
                       Cash
                     </button>
@@ -101,7 +101,7 @@ class Clothing extends Component {
                       <button
                         className="button__2"
                         value={dataChoiceEvents.smartCasual.initialPrice}
-                        onClick={this.props.payForClothingByCredit}
+                        onClick={(e) => this.props.payForClothingByCredit(e.target.value, 'smart-clothing-credit', 'creditSpends')}
                       >
                         Credit
                       </button>
@@ -113,7 +113,7 @@ class Clothing extends Component {
                       <button
                         className="button__2"
                         value={dataChoiceEvents.smartCasual.initialPrice}
-                        onClick={this.props.payForClothingByCash}
+                        onClick={(e) => this.props.payForClothingByCash(e.target.value, 'smart-clothing-cash', 'cashSpends')}
                       >
                         Cash
                       </button>
@@ -142,7 +142,7 @@ class Clothing extends Component {
                         className="button__3"
                         name="casualCloting-credit"
                         value={dataChoiceEvents.casualClothes.initialPrice}
-                        onClick={this.props.payForClothingByCredit}
+                        onClick={(e) => this.props.payForClothingByCredit(e.target.value, 'casual-clothing-credit', 'creditSpends')}
                       >
                         Credit
                       </button>
@@ -154,7 +154,7 @@ class Clothing extends Component {
                       <button
                         className="button__3"
                         value={dataChoiceEvents.casualClothes.initialPrice}
-                        onClick={this.props.payForClothingByCash}
+                        onClick={(e) => this.props.payForClothingByCash(e.target.value, 'casual-clothing-cash', 'cashSpends')}
                       >
                         Cash
                       </button>
