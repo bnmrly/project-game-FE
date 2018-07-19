@@ -13,7 +13,8 @@ import shortId from 'short-id';
 import { connect } from 'react-redux';
 import {
   increaseTurnCount,
-  resetTurnCount
+  resetTurnCount,
+  resetGame
 } from '../../redux/actions/PlayerInfoAction';
 import nextButton from '../../assets/button-arrow-green.png';
 
@@ -92,6 +93,22 @@ class Display extends Component {
                     </button>
                   </div>
                 );
+                break;           case 'End Of Game Win':
+                storyLines.push(
+                  <button>
+                    className="button__reset"
+                    onClick={() => {this.reset('win')}}
+                  </button>
+                )
+                break;
+                case 'End Of Game Lose':
+                storyLines.push(
+                  <button>
+                    className="button__reset"
+                    onClick={() => {this.reset('lose')}}
+                  </button>
+                )
+                break;
               default:
                 console.log('blah blah text');
             }
@@ -172,7 +189,10 @@ const mapDispatchToProps = dispatch => {
     },
     turnReset: () => {
       dispatch(resetTurnCount());
-    }
+    },
+    reset: (winOrLose) => {
+      dispatch(resetGame())
+    } 
   };
 };
 const mapStateToProps = store => {
