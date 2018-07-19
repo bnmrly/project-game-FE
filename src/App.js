@@ -9,13 +9,6 @@ import Header from './components/Header/Header';
 import store from './redux/index';
 import { connect } from 'react-redux';
 
-// {...store, id : "id"}
-
-// bank needs a bank object
-// bank button will on click change story object to bank object in dialogue
-// bank object will contain an isActive key, so that the bank link can be conditionally rendered with an
-// exit bank link. which will take you back to the story object
-
 class App extends Component {
   render() {
     return (
