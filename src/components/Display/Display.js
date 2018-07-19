@@ -101,7 +101,8 @@ class Display extends Component {
                     </button>
                   </div>
                 );
-                break; case 'End Of Game Win':
+                break;
+              case 'End Of Game Win':
                 storyLines.push(
                   <div>
                     <button
@@ -110,7 +111,7 @@ class Display extends Component {
                     >
                     </button>
                   </div>
-                )
+                );
                 break;
               case 'End Of Game Lose':
                 storyLines.push(
@@ -122,7 +123,7 @@ class Display extends Component {
                       Reset
                   </button>
                   </div>
-                )
+                );
                 break;
               default:
                 console.log('blah blah text');
@@ -205,11 +206,11 @@ const mapDispatchToProps = dispatch => {
     turnReset: () => {
       dispatch(resetTurnCount());
     },
-    reset: (winOrLose) => {
-      dispatch(resetGame())
+    reset: winOrLose => {
+      dispatch(resetGame());
     },
     disableNextChapter: () => {
-      dispatch(disableChapterChange())
+      dispatch(disableChapterChange());
     }
   };
 };

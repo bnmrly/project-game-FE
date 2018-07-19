@@ -18,8 +18,7 @@ class Wallet extends Component {
             percentage={this.props.wallet.rating / 10}
             text={this.props.wallet.rating}
           />
-          <p className="progress">Available /</p>
-          <p className="progress">Max Credit</p>
+          <p className="progress">Available Credit</p>
           <CircularProgressbar
             className="credit"
             percentage={

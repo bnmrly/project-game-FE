@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./Monthly.css";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import './Monthly.css';
+import { connect } from 'react-redux';
 import {
   cashChange,
   changeAvailableCredit,
@@ -53,7 +53,7 @@ class Monthly extends Component {
             }}
             disabled={this.state.wageDisabled}
           >
-            collect wage
+            Collect Wage
           </button>
         </div>
         <div className="container__card">
@@ -66,9 +66,15 @@ class Monthly extends Component {
             className="button__monthly"
             value={-this.state.creditOwed}
             onClick={e => {
-              this.setState({ creditCardDisabled: true, disabledCount: this.state.disabledCount + 1 });
+              this.setState({
+                creditCardDisabled: true,
+                disabledCount: this.state.disabledCount + 1
+              });
               this.props.payOffCard(e);
-              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
+              this.props.creditRatingChanger(
+                this.state.creditOwed,
+                financialInfo.wallet.credit.max
+              );
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -77,10 +83,16 @@ class Monthly extends Component {
 
           <button
             className="button__monthly"
-            onClick={(e) => {
-              this.setState({ creditCardDisabled: true, disabledCount: this.state.disabledCount + 1 });
-              this.props.payByCash(e)
-              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
+            onClick={e => {
+              this.setState({
+                creditCardDisabled: true,
+                disabledCount: this.state.disabledCount + 1
+              });
+              this.props.payByCash(e);
+              this.props.creditRatingChanger(
+                this.state.creditOwed,
+                financialInfo.wallet.credit.max
+              );
             }}
             disabled={this.state.creditCardDisabled}
           >
@@ -104,8 +116,6 @@ class Monthly extends Component {
           >
             Don't Pay This Month
           </button>
-
-
         </div>
         <div className="container__costs">
           <p className="p__costs">Living Costs</p>
@@ -136,7 +146,10 @@ class Monthly extends Component {
                   onClick={e => {
                     getDecision('bin', 'thatdoesntmattereither', 'creditSpends')
                     this.props.payByCredit(e);
-                    this.setState({ [`${key}Disabled`]: true, disabledCount: this.state.disabledCount + 1 });
+                    this.setState({
+                      [`${key}Disabled`]: true,
+                      disabledCount: this.state.disabledCount + 1
+                    });
                   }}
                 >
                   Credit
@@ -148,7 +161,10 @@ class Monthly extends Component {
                   onClick={e => {
                     getDecision('bin', 'thatdoesntmattereither', 'cashSpends')
                     this.props.payByCash(e);
-                    this.setState({ [`${key}Disabled`]: true, disabledCount: this.state.disabledCount + 1 });
+                    this.setState({
+                      [`${key}Disabled`]: true,
+                      disabledCount: this.state.disabledCount + 1
+                    });
                   }}
                 >
                   Cash
@@ -167,7 +183,7 @@ class Monthly extends Component {
             disabled={this.state.randomDisabled}
             onClick={() => this.openModal(randomEvents)}
           >
-            Risk a random Event
+            Risk a Random Event
           </button>
           <ReactModal
             randomEvent={this.state.randomEvent}
@@ -181,8 +197,8 @@ class Monthly extends Component {
               <div>
                 <h3 className="close-button" onClick={this.closeModal}>
                   X
-                </h3>{" "}
-                <p className="modal-content">{this.state.randomEvent.text}</p>{" "}
+                </h3>{' '}
+                <p className="modal-content">{this.state.randomEvent.text}</p>{' '}
               </div>
             )}
           </ReactModal>
@@ -229,10 +245,10 @@ const mapDispatchToProps = dispatch => {
       else {
         direction = 'down'
       }
-      dispatch(changeCreditRating(direction))
+      dispatch(changeCreditRating(direction));
     },
     failToPay: () => {
-      dispatch(changeCreditRating("down"))
+      dispatch(changeCreditRating('down'));
     },
     payOffCard: e => {
       dispatch(changeAvailableCredit(e.target.value));
@@ -241,7 +257,6 @@ const mapDispatchToProps = dispatch => {
     enableNextChapter: () => {
       dispatch(enableChapterChange())
     },
-
   };
 };
 const mapStateToProps = store => {

@@ -14,33 +14,36 @@ class Card extends Component {
       <section className="card">
         <ul className="card__list ul">
           <li className="card__list-item">
-            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Low APR: You have a £200 credit limit: for every £1 you spend, you
+            pay back £1.10
           </li>
           <li className="card__list-item">
-            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Medium APR: You have a £400 credit limit: for every £1 you spend,
+            you pay back £1.20
           </li>
           <li className="card__list-item">
-            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            High APR: You have a £600 credit limit: for every £1 you spend, you
+            pay back £1.30
           </li>
         </ul>
         <button
           className="button button__1 grid__1"
           value="LOW"
-          onClick={(e) => this.props.handleClick(e.target.value, 'low')}
+          onClick={e => this.props.handleClick(e.target.value, 'low')}
         >
           Low
         </button>
         <button
           className="button button__2 grid__2"
           value="MEDIUM"
-          onClick={(e) => this.props.handleClick(e.target.value, 'med')}
+          onClick={e => this.props.handleClick(e.target.value, 'med')}
         >
           Medium
         </button>
         <button
           className="button button__3 grid__3"
           value="HIGH"
-          onClick={(e) => this.props.handleClick(e.target.value, 'high')}
+          onClick={e => this.props.handleClick(e.target.value, 'high')}
         >
           High
         </button>
