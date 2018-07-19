@@ -158,11 +158,14 @@
         "choices": ["Personal Investment"]
       },
       {
-        "text": "Let's hope you made the right choice!",
-        "choices": ["End of Chapter"]
+        "text": "Let's hope you made the right choice!"
       },
       {
         "text": "It's the end of the month and you have bills to pay",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
         "choices": ["Monthly"]
       }
     ],
@@ -175,11 +178,14 @@
       },
       {
         "text":
-          "Great choice! You are going to be the sharpest dressed at the party!",
-        "choices": ["End of Chapter"]
+          "Great choice! You are going to be the sharpest dressed at the party!"
       },
       {
         "text": "It's the end of the month and you have bills to pay",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
         "choices": ["Monthly"]
       }
     ],
@@ -220,11 +226,14 @@
         "text": "You are sure your new phone will serve you well..."
       },
       {
-        "text": "But you won't be taking it anywhere near a pool for a while!",
-        "choices": ["End of Chapter"]
+        "text": "But you won't be taking it anywhere near a pool for a while!"
       },
       {
         "text": "It's time to pay those bills!",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
         "choices": ["Monthly"]
       }
     ],
@@ -246,12 +255,13 @@
         "text": "What do you want to do tonight?",
         "choices": ["Tonight"]
       },
+      { "text": "I'm sure you'll have a great time." },
       {
-        "text": "I'm sure you'll have a great time",
+        "text": "Ding dong...bill time again!",
         "choices": ["End of Chapter"]
       },
       {
-        "text": "Ding dong...bill time again!",
+        "text": "",
         "choices": ["Monthly"]
       }
     ]
