@@ -69,16 +69,3 @@ export function resetGame() {
     type: 'RESET_GAME'
   };
 }
-export function changeCreditRating(direction) {
-  if (direction === "up") { 
-    return {
-       type: 'CHANGE_CREDIT_RATING',
-       payload: 50
-  }
-} else if(direction === "down") {
-  return {
-    type: 'CHANGE_CREDIT_RATING',
-       payload: -50
-}
-  }
-}

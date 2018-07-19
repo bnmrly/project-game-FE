@@ -66,14 +66,6 @@ const playerFinancialReducer = (state = initialState, action) => {
       return { ...state, living_costs: newLivingState };
     case 'RESET_GAME':
       return initialState;
-    case 'CHANGE_CREDIT_RATING':
-      return {
-        ...state,
-        wallet: {
-          ...wallet,
-         rating: action.payload 
-        }
-      }
     default:
       return state;
   }
