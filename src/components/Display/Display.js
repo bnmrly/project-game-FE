@@ -19,6 +19,7 @@ import {
 } from '../../redux/actions/PlayerInfoAction';
 import nextButton from '../../assets/button-arrow-green.png';
 import Typing from 'react-typing-animation';
+import { getDecision } from '../../firebase/fb';
 
 // TO IMPLEMENT:
 
@@ -78,6 +79,7 @@ class Display extends Component {
                     <button
                       className="button__4"
                       onClick={(e) => {
+                        getDecision('bin', 'thatdoesntmattereither', 'neitherdoesthis', true)
                         this.nextChapterClickHandler(e)
                         this.props.disableNextChapter()
                       }}
@@ -99,25 +101,25 @@ class Display extends Component {
                     </button>
                   </div>
                 );
-                break;           case 'End Of Game Win':
+                break; case 'End Of Game Win':
                 storyLines.push(
                   <div>
-                  <button
-                    className="button__reset"
-                    onClick={() => {this.props.reset('win')}}
+                    <button
+                      className="button__reset"
+                      onClick={() => { this.props.reset('win') }}
                     >
-                  </button>
+                    </button>
                   </div>
                 )
                 break;
-                case 'End Of Game Lose':
+              case 'End Of Game Lose':
                 storyLines.push(
                   <div>
-                  <button
-                    className="button__reset"
-                    onClick={() => {this.props.reset('lose')}}
+                    <button
+                      className="button__reset"
+                      onClick={() => { this.props.reset('lose') }}
                     >
-                    Reset
+                      Reset
                   </button>
                   </div>
                 )
@@ -127,17 +129,17 @@ class Display extends Component {
             }
           })
         ) : (
-          // <button className="button__next" onClick={this.props.turnIncrement}>
-          //   next
-          // </button>
+            // <button className="button__next" onClick={this.props.turnIncrement}>
+            //   next
+            // </button>
 
-          <img
-            className="image__next"
-            src={nextButton}
-            alt=""
-            onClick={this.props.turnIncrement}
-          />
-        )}
+            <img
+              className="image__next"
+              src={nextButton}
+              alt=""
+              onClick={this.props.turnIncrement}
+            />
+          )}
       </React.Fragment>
     );
     storyLines.push(buttons);
@@ -208,7 +210,7 @@ const mapDispatchToProps = dispatch => {
     },
     disableNextChapter: () => {
       dispatch(disableChapterChange())
-    } 
+    }
   };
 };
 const mapStateToProps = store => {
