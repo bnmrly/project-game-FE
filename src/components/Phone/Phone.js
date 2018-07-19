@@ -13,6 +13,7 @@ import { getDecision } from '../../firebase/fb';
 
 class Phone extends Component {
   render() {
+    console.log(this.props)
     return (
       <section className="phone">
         <ul className="phone__list ul">
@@ -196,7 +197,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = store => {
   return {
-    credit: store.playerFinancialInfo.wallet.credit
+    credit: store.playerFinancialInfo.wallet.credit,
+    cash: store.playerFinancialInfo.wallet.cash
   };
 };
 export default connect(
