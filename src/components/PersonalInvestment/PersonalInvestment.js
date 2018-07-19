@@ -166,7 +166,9 @@ const mapDispatchToProps = dispatch => {
       const courseData = JSON.parse(value);
       dispatch(cashChange(courseData.initialPrice));
       dispatch(increaseTurnCount());
-      dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
+      dispatch(
+        setUserWage(Number(courseData.wageIncrease) + Number(courseData.wage))
+      );
 
       getDecision('careerProgressionDecision', decision, paymentType);
     },
@@ -174,7 +176,9 @@ const mapDispatchToProps = dispatch => {
       const courseData = JSON.parse(value);
       dispatch(changeAvailableCredit(courseData.initialPrice));
       dispatch(increaseTurnCount());
-      dispatch(setUserWage(courseData.wageIncrease + courseData.wage));
+      dispatch(
+        setUserWage(Number(courseData.wageIncrease) + Number(courseData.wage))
+      );
       getDecision('careerProgressionDecision', decision, paymentType);
     },
     cantAfford: e => {
