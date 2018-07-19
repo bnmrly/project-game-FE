@@ -112,7 +112,22 @@ class Monthly extends Component {
             return (
               <p className="p__monthly" key={shortId.generate()}>
                 {key}: £{financialInfo.living_costs[key]}
+                
+                {financialInfo.living_costs[key] > financialInfo.wallet.credit.available &&
+                financialInfo.living_costs[key] > financialInfo.wallet.cash ? 
                 <button
+                className="button__monthly"
+                value={-financialInfo.wage}
+                onClick={e => {
+                  this.props.payByCash(e);
+                  this.setState({ wageDisabled: true, disabledCount: this.state.disabledCount + 1});
+                }}
+                disabled={this.state.wageDisabled}
+              >
+                collect wage
+              </button>
+                : <span>
+                {financialInfo.living_costs[key] > financialInfo.wallet.credit.available ? ('') : <button
                   className="button__monthly"
                   value={financialInfo.living_costs[key]}
                   disabled={this.state[`${key}Disabled`]}
@@ -122,8 +137,8 @@ class Monthly extends Component {
                   }}
                 >
                   Credit
-                </button>
-                <button
+                </button>}
+               {financialInfo.living_costs[key] > financialInfo.wallet.cash ? ('') : <button
                   className="button__monthly"
                   value={financialInfo.living_costs[key]}
                   disabled={this.state[`${key}Disabled`]}
@@ -133,7 +148,10 @@ class Monthly extends Component {
                   }}
                 >
                   Cash
-                </button>
+                </button> }
+                </span>
+                }
+                
               </p>
             );
           })}
