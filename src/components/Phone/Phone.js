@@ -13,20 +13,21 @@ import { getDecision } from '../../firebase/fb';
 
 class Phone extends Component {
   render() {
+    console.log(this.props);
     return (
       <section className="phone">
         <ul className="phone__list ul">
           <li className="phone__list-item">
-            Contract phone: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
+            Contract Phone: Low up-front cost, but £30 a month to get the newest
+            phone on the market
           </li>
           <li className="phone__list-item">
-            Sim only phone: Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
+            Sim Only Phone: A big hit up-front cost, but only £10 a month for
+            all the calls, texts and data you could need
           </li>
           <li className="phone__list-item">
-            Second hand phone: Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
+            Second Hand Phone: Cheap as chips! Low up-front cost and only £10 a
+            month
           </li>
         </ul>
         {dataChoiceEvents.phoneContractHigh.initialPrice >
@@ -57,7 +58,7 @@ class Phone extends Component {
             ) : (
               <React.Fragment>
                 <p className="grid__1 grid__row1 grid__row1-phone">
-                  Contract phone
+                  Contract Phone
                 </p>
                 <div className="grid__1 grid__row2">
                   {dataChoiceEvents.phoneContractHigh.initialPrice >
@@ -107,7 +108,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__2 grid__row1 grid__row1-phone">
-                    Sim only phone
+                    Sim Only Phone
                   </p>
                   <div className="grid__2 grid__row2">
                     {dataChoiceEvents.phoneSimOnly.initialPrice >
@@ -159,7 +160,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__3 grid__row1 grid__row1-phone">
-                    Second hand phone
+                    Second Hand Phone
                   </p>
                   <div className="grid__3 grid__row2">
                     {dataChoiceEvents.phoneSecondHand.initialPrice >
@@ -234,7 +235,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = store => {
   return {
-    credit: store.playerFinancialInfo.wallet.credit
+    credit: store.playerFinancialInfo.wallet.credit,
+    cash: store.playerFinancialInfo.wallet.cash
   };
 };
 export default connect(

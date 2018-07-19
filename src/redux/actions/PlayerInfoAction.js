@@ -88,3 +88,15 @@ export function changeCreditRating(direction) {
 }
   }
 }
+
+export function enableChapterChange(){
+  return {
+    type: 'ALLOW_NEXT_CHAPTER'
+}
+}
+
+export function disableChapterChange(){
+  return {
+    type: 'PREVENT_NEXT_CHAPTER'
+}
+}

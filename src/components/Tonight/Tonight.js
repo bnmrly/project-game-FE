@@ -12,20 +12,34 @@ import { getDecision } from '../../firebase/fb';
 
 class Tonight extends Component {
   render() {
+    // "NightIn": {
+    //   "initialPrice": null
+    // },
+    // "onlineShopping": {
+    //   "initialPrice": 40
+    // },
+    // "eatOut": {
+    //   "initialPrice": 60
+    // },
+    // "movies": {
+    //   "initialPrice": 20
+    // },
+
     return (
       <section className="tonight">
         <ul className="tonight__list ul">
           <li className="tonight__list-item">
-            Job 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Online Shopping: Treat yourself, you know you want to
           </li>
           <li className="tonight__list-item">
-            Job 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Eat Out: Get some friends together and go out for a delicious meal
           </li>
           <li className="tonight__list-item">
-            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Cinema: The new Marvel film is out! Get some popcorn and go enjoy
+            yourself
           </li>
           <li className="tonight__list-item">
-            Job 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Night In: Put your feet up and relax at home
           </li>
         </ul>
         <React.Fragment>
@@ -136,7 +150,7 @@ class Tonight extends Component {
               <div />
             ) : (
               <React.Fragment>
-                <p className="grid__1 grid__row3">Movies</p>
+                <p className="grid__1 grid__row3">Cinema</p>
                 <div className="grid__1 grid__row4">
                   {dataChoiceEvents.movies.initialPrice >
                   this.props.credit.available ? (
@@ -215,7 +229,8 @@ const mapDispatchToProps = dispatch => {
 };
 const mapStateToProps = store => {
   return {
-    credit: store.playerFinancialInfo.wallet.credit
+    credit: store.playerFinancialInfo.wallet.credit,
+    cash: store.playerFinancialInfo.wallet.cash
   };
 };
 export default connect(

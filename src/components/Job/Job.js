@@ -14,11 +14,13 @@ class Job extends Component {
       <section className="job">
         <ul className="job__list ul">
           <li className="job__list-item">
-            Chef: Cook up some wonderful recipes!
+            Chef: Know your onions from your oranges!
           </li>
+          <br />
           <li className="job__list-item">
-            Teacher: Know your ABCs from your 123s!
+            Teacher: Know your ABC's from your 123's!
           </li>
+          <br />
           <li className="job__list-item">
             Doctor: Know your funny bone from your hip bone!
           </li>
