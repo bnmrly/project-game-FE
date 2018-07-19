@@ -14,7 +14,8 @@ import { connect } from 'react-redux';
 import {
   increaseTurnCount,
   resetTurnCount,
-  resetGame
+  resetGame,
+  disableChapterChange
 } from '../../redux/actions/PlayerInfoAction';
 import nextButton from '../../assets/button-arrow-green.png';
 import Typing from 'react-typing-animation';
@@ -76,7 +77,11 @@ class Display extends Component {
                   <div className="container__next-button">
                     <button
                       className="button__4"
-                      onClick={this.nextChapterClickHandler}
+                      onClick={(e) => {
+                        this.nextChapterClickHandler(e)
+                        this.disableNextChapter()
+                      }}
+                      disabled={this.props.nextChapterDisabled}
                     >
                       next chapter
                     </button>
@@ -199,13 +204,17 @@ const mapDispatchToProps = dispatch => {
     },
     reset: (winOrLose) => {
       dispatch(resetGame())
+    },
+    disableNextChapter: () => {
+      dispatch(disableChapterChange())
     } 
   };
 };
 const mapStateToProps = store => {
   return {
     turnCount: store.gameProgress.turn_count,
-    credit_rating: store.playerFinancialInfo.wallet.rating
+    credit_rating: store.playerFinancialInfo.wallet.rating,
+    nextChapterDisabled: store.gameProgress.nextChapterDisabled
   };
 };
 export default connect(
