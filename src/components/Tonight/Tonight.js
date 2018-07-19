@@ -28,126 +28,126 @@ class Tonight extends Component {
         <React.Fragment>
           {dataChoiceEvents.onlineShopping.initialPrice >
             this.props.credit.available &&
-          dataChoiceEvents.onlineShopping.initialPrice > this.props.cash ? (
-            <div />
-          ) : (
-            <React.Fragment>
-              <p className="grid__1 grid__row1">Online Shopping</p>
-              <div className="grid__1 grid__row2">
-                {dataChoiceEvents.onlineShopping.initialPrice >
-                this.props.credit.available ? (
-                  <div />
-                ) : (
-                  <button
-                    className="button__1"
-                    name="onlineShopping-credit"
-                    value={dataChoiceEvents.onlineShopping.initialPrice}
-                    onClick={(e) => this.props.payByCredit(e.target.value, 'online-shopping-credit', 'creditSpends')}
-                  >
-                    Credit
-                  </button>
-                )}{' '}
-                {dataChoiceEvents.partyClothesSuit.initialPrice >
-                this.props.cash ? (
-                  <div />
-                ) : (
-                  <button
-                    className="button__1"
-                    name="onlineShopping-cash"
-                    value={JSON.stringify(
-                      dataChoiceEvents.onlineShopping.initialPrice
-                    )}
-                    onClick={(e) => this.props.payByCash(e.target.value, 'online-shopping-cash', 'cashSpends')}
-                  >
-                    Cash
-                  </button>
-                )}
-              </div>
-            </React.Fragment>
-          )}
-          <React.Fragment>
-            {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
-            dataChoiceEvents.smartCasual.initialPrice >
-              this.props.credit.available ? (
+            dataChoiceEvents.onlineShopping.initialPrice > this.props.cash ? (
               <div />
             ) : (
               <React.Fragment>
-                <p className="grid__2 grid__row1">Eat Out</p>
-                <div className="grid__2 grid__row2">
-                  {dataChoiceEvents.eatOut.initialPrice >
-                  this.props.credit.available ? (
-                    <div />
-                  ) : (
-                    <button
-                      className="button__2" 
-                      value={dataChoiceEvents.eatOut.initialPrice}
-                      onClick={(e) => this.props.payByCredit(e.target.value, 'eat-out-credit', 'creditSpends')}
-                    >
-                      Credit
-                    </button>
-                  )}{' '}
-                  {dataChoiceEvents.eatOut.initialPrice > this.props.cash ? (
-                    <div />
-                  ) : (
-                    <button
-                      className="button__2"
-                      value={dataChoiceEvents.eatOut.initialPrice}
-                      onClick={(e) => this.props.payByCash(e.target.value, 'eat-out-cash', 'cashSpends')}
-                    >
-                      Cash
-                    </button>
-                  )}
+                <p className="grid__1 grid__row1">Online Shopping</p>
+                <div className="grid__1 grid__row2">
+                  {dataChoiceEvents.onlineShopping.initialPrice >
+                    this.props.credit.available ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__1"
+                        name="onlineShopping-credit"
+                        value={dataChoiceEvents.onlineShopping.initialPrice}
+                        onClick={(e) => this.props.payByCredit(e.target.value, 'onlineShopping', 'creditSpends')}
+                      >
+                        Credit
+                  </button>
+                    )}{' '}
+                  {dataChoiceEvents.partyClothesSuit.initialPrice >
+                    this.props.cash ? (
+                      <div />
+                    ) : (
+                      <button
+                        className="button__1"
+                        name="onlineShopping-cash"
+                        value={JSON.stringify(
+                          dataChoiceEvents.onlineShopping.initialPrice
+                        )}
+                        onClick={(e) => this.props.payByCash(e.target.value, 'onlineShopping', 'cashSpends')}
+                      >
+                        Cash
+                  </button>
+                    )}
                 </div>
               </React.Fragment>
             )}
+          <React.Fragment>
+            {dataChoiceEvents.smartCasual.initialPrice > this.props.cash &&
+              dataChoiceEvents.smartCasual.initialPrice >
+              this.props.credit.available ? (
+                <div />
+              ) : (
+                <React.Fragment>
+                  <p className="grid__2 grid__row1">Eat Out</p>
+                  <div className="grid__2 grid__row2">
+                    {dataChoiceEvents.eatOut.initialPrice >
+                      this.props.credit.available ? (
+                        <div />
+                      ) : (
+                        <button
+                          className="button__2"
+                          value={dataChoiceEvents.eatOut.initialPrice}
+                          onClick={(e) => this.props.payByCredit(e.target.value, 'eatOut', 'creditSpends')}
+                        >
+                          Credit
+                    </button>
+                      )}{' '}
+                    {dataChoiceEvents.eatOut.initialPrice > this.props.cash ? (
+                      <div />
+                    ) : (
+                        <button
+                          className="button__2"
+                          value={dataChoiceEvents.eatOut.initialPrice}
+                          onClick={(e) => this.props.payByCash(e.target.value, 'eatOut', 'cashSpends')}
+                        >
+                          Cash
+                    </button>
+                      )}
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
 
           <React.Fragment>
             {dataChoiceEvents.movies.initialPrice >
               this.props.credit.available &&
-            dataChoiceEvents.movies.initialPrice > this.props.cash ? (
-              <div />
-            ) : (
-              <React.Fragment>
-                <p className="grid__1 grid__row3">Movies</p>
-                <div className="grid__1 grid__row4">
-                  {dataChoiceEvents.movies.initialPrice >
-                  this.props.credit.available ? (
-                    <div />
-                  ) : (
-                    <button
-                      className="button__3"
-                      value={dataChoiceEvents.movies.initialPrice}
-                      onClick={(e) => this.props.payByCredit(e.target.value, 'movies-credit', 'creditSpends')}
-                    >
-                      Credit
-                    </button>
-                  )}{' '}
-                  {dataChoiceEvents.movies.initialPrice > this.props.cash ? (
-                    <div />
-                  ) : (
-                    <button
-                      className="button__3"
-                      value={dataChoiceEvents.movies.initialPrice}
-                      onClick={(e) => this.props.payByCash(e.target.value, 'movies-cash', 'cashSpends')}
-                    >
-                      Cash
-                    </button>
-                  )}
-                </div>
+              dataChoiceEvents.movies.initialPrice > this.props.cash ? (
+                <div />
+              ) : (
                 <React.Fragment>
-                  <p className="grid__2 grid__row3">Night In</p>
-                  <div className="grid__2 grid__row4">
-                    <button
-                      className="button__4"
-                      onClick={this.props.NightIn}
-                    >
-                      Free
+                  <p className="grid__1 grid__row3">Movies</p>
+                  <div className="grid__1 grid__row4">
+                    {dataChoiceEvents.movies.initialPrice >
+                      this.props.credit.available ? (
+                        <div />
+                      ) : (
+                        <button
+                          className="button__3"
+                          value={dataChoiceEvents.movies.initialPrice}
+                          onClick={(e) => this.props.payByCredit(e.target.value, 'movies', 'creditSpends')}
+                        >
+                          Credit
                     </button>
+                      )}{' '}
+                    {dataChoiceEvents.movies.initialPrice > this.props.cash ? (
+                      <div />
+                    ) : (
+                        <button
+                          className="button__3"
+                          value={dataChoiceEvents.movies.initialPrice}
+                          onClick={(e) => this.props.payByCash(e.target.value, 'movies', 'cashSpends')}
+                        >
+                          Cash
+                    </button>
+                      )}
                   </div>
+                  <React.Fragment>
+                    <p className="grid__2 grid__row3">Night In</p>
+                    <div className="grid__2 grid__row4">
+                      <button
+                        className="button__4"
+                        onClick={(e) => this.props.NightIn(e.target.value, 'nightIn')}
+                      >
+                        Free
+                    </button>
+                    </div>
+                  </React.Fragment>
                 </React.Fragment>
-              </React.Fragment>
-            )}
+              )}
           </React.Fragment>
         </React.Fragment>
       </section>
