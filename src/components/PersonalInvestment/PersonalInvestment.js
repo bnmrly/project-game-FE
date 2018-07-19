@@ -62,7 +62,7 @@ class PersonalInvestment extends Component {
                         ...dataChoiceEvents.careerProgression,
                         wage: this.props.wage
                       })}
-                      onClick={this.props.payForCourseByCredit}
+                      onClick={(e) => this.props.payForCourseByCredit(e.target.value, 'career-progression-credit', 'creditSpends')}
                     >
                       Credit
                     </button>
@@ -77,7 +77,7 @@ class PersonalInvestment extends Component {
                         ...dataChoiceEvents.careerProgression,
                         wage: this.props.wage
                       })}
-                      onClick={this.props.payForCourseByCash}
+                      onClick={(e) => this.props.payForCourseByCash(e.target.value, 'career-progession-cash', 'cashSpends')}
                     >
                       Cash
                     </button>
@@ -101,7 +101,7 @@ class PersonalInvestment extends Component {
                       <button
                         className="button__2"
                         value={dataChoiceEvents.holiday.initialPrice}
-                        onClick={this.props.payForHolidayByCredit}
+                        onClick={(e) => this.props.payForHolidayByCredit(e.target.value, 'holiday-credit', 'creditSpends')}
                       >
                         Credit
                       </button>
@@ -112,7 +112,7 @@ class PersonalInvestment extends Component {
                       <button
                         className="button__2"
                         value={dataChoiceEvents.holiday.initialPrice}
-                        onClick={this.props.payForHolidayByCash}
+                        onClick={(e) => this.props.payForHolidayByCash(e.target.value, 'holiday-cash', 'cashSpends')}
                       >
                         Cash
                       </button>

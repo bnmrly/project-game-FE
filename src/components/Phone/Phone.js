@@ -64,7 +64,8 @@ class Phone extends Component {
                     <button
                       className="button__1"
                       value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
-                      onClick={this.props.payForPhoneByCredit}
+                      onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'high-contract-credit', 'creditSpends')}
+
                     >
                       Credit
                     </button>
@@ -76,7 +77,7 @@ class Phone extends Component {
                     <button
                       className="button__1"
                       value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
-                      onClick={this.props.payForPhoneByCash}
+                      onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'high-contract-cash', 'cashSpends')}
                     >
                       Cash
                     </button>
@@ -102,7 +103,7 @@ class Phone extends Component {
                       <button
                         className="button__2"
                         value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
-                        onClick={this.props.payForPhoneByCredit}
+                        onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'sim-only-credit', 'creditSpends')}
                       >
                         Credit
                       </button>
@@ -114,7 +115,7 @@ class Phone extends Component {
                       <button
                         className="button__2"
                         value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
-                        onClick={this.props.payForPhoneByCash}
+                        onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'sim-only-cash', 'cashSpends')}
                       >
                         Cash
                       </button>
@@ -142,7 +143,7 @@ class Phone extends Component {
                       <button
                         className="button__3"
                         value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
-                        onClick={this.props.payForPhoneByCredit}
+                        onClick={(e) => this.props.payForPhoneByCredit(e.target.value, 'second-hand-credit', 'creditSpends')}
                       >
                         Credit
                       </button>
@@ -154,7 +155,7 @@ class Phone extends Component {
                       <button
                         className="button__3"
                         value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
-                        onClick={this.props.payForPhoneByCash}
+                        onClick={(e) => this.props.payForPhoneByCash(e.target.value, 'second-hand-cash', 'cashSpends')}
                       >
                         Cash
                       </button>

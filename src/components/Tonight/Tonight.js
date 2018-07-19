@@ -42,7 +42,7 @@ class Tonight extends Component {
                     className="button__1"
                     name="onlineShopping-credit"
                     value={dataChoiceEvents.onlineShopping.initialPrice}
-                    onClick={this.props.payByCredit}
+                    onClick={(e) => this.props.payByCredit(e.target.value, 'online-shopping-credit', 'creditSpends')}
                   >
                     Credit
                   </button>
@@ -57,7 +57,7 @@ class Tonight extends Component {
                     value={JSON.stringify(
                       dataChoiceEvents.onlineShopping.initialPrice
                     )}
-                    onClick={this.props.payByCash}
+                    onClick={(e) => this.props.payByCash(e.target.value, 'online-shopping-cash', 'cashSpends')}
                   >
                     Cash
                   </button>
@@ -81,7 +81,7 @@ class Tonight extends Component {
                     <button
                       className="button__2" 
                       value={dataChoiceEvents.eatOut.initialPrice}
-                      onClick={this.props.payByCredit}
+                      onClick={(e) => this.props.payByCredit(e.target.value, 'eat-out-credit', 'creditSpends')}
                     >
                       Credit
                     </button>
@@ -92,7 +92,7 @@ class Tonight extends Component {
                     <button
                       className="button__2"
                       value={dataChoiceEvents.eatOut.initialPrice}
-                      onClick={this.props.payByCash}
+                      onClick={(e) => this.props.payByCash(e.target.value, 'eat-out-cash', 'cashSpends')}
                     >
                       Cash
                     </button>
@@ -118,7 +118,7 @@ class Tonight extends Component {
                     <button
                       className="button__3"
                       value={dataChoiceEvents.movies.initialPrice}
-                      onClick={this.props.payByCredit}
+                      onClick={(e) => this.props.payByCredit(e.target.value, 'movies-credit', 'creditSpends')}
                     >
                       Credit
                     </button>
@@ -129,7 +129,7 @@ class Tonight extends Component {
                     <button
                       className="button__3"
                       value={dataChoiceEvents.movies.initialPrice}
-                      onClick={this.props.payByCash}
+                      onClick={(e) => this.props.payByCash(e.target.value, 'movies-cash', 'cashSpends')}
                     >
                       Cash
                     </button>
