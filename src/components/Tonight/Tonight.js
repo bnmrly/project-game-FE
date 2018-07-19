@@ -35,8 +35,7 @@ class Tonight extends Component {
             Eat Out: Get some friends together and go out for a delicious meal
           </li>
           <li className="tonight__list-item">
-            Cinema: The new Marvel film is out! Get some popcorn and go enjoy
-            yourself
+            Cinema: Get some popcorn and enjoy yourself
           </li>
           <li className="tonight__list-item">
             Night In: Put your feet up and relax at home
@@ -49,7 +48,7 @@ class Tonight extends Component {
             <div />
           ) : (
             <React.Fragment>
-              <p className="grid__1 grid__row1">Online Shopping</p>
+              <p className="grid__1 grid__row1 p__tonight">Online Shopping</p>
               <div className="grid__1 grid__row2">
                 {dataChoiceEvents.onlineShopping.initialPrice >
                 this.props.credit.available ? (
@@ -101,7 +100,7 @@ class Tonight extends Component {
               <div />
             ) : (
               <React.Fragment>
-                <p className="grid__2 grid__row1">Eat Out</p>
+                <p className="grid__2 grid__row1 p__tonight">Eat Out</p>
                 <div className="grid__2 grid__row2">
                   {dataChoiceEvents.eatOut.initialPrice >
                   this.props.credit.available ? (
@@ -150,7 +149,7 @@ class Tonight extends Component {
               <div />
             ) : (
               <React.Fragment>
-                <p className="grid__1 grid__row3">Cinema</p>
+                <p className="grid__1 grid__row3 p__tonight">Cinema</p>
                 <div className="grid__1 grid__row4">
                   {dataChoiceEvents.movies.initialPrice >
                   this.props.credit.available ? (
@@ -189,7 +188,7 @@ class Tonight extends Component {
                   )}
                 </div>
                 <React.Fragment>
-                  <p className="grid__2 grid__row3">Night In</p>
+                  <p className="grid__2 grid__row3 p__tonight">Night In</p>
                   <div className="grid__2 grid__row4">
                     <button
                       className="button__4"
