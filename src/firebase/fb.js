@@ -40,7 +40,6 @@ export const initialisePlayer = name => {
                                 rating: [0], // progress through chapters
                                 creditAvail: [0], // progress through chapters
                                 cashAvail: [0], // progress through chapters
-                                chapterCount: 0,
                                 billPostpones: 0, // count
                                 cashSpends: 0, // count
                                 creditSpends: 0, // count
