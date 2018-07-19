@@ -16,6 +16,7 @@ import {
   resetTurnCount
 } from '../../redux/actions/PlayerInfoAction';
 import nextButton from '../../assets/button-arrow-green.png';
+import Typing from 'react-typing-animation';
 
 // TO IMPLEMENT:
 
@@ -39,7 +40,7 @@ class Display extends Component {
 
     storyLines.push(
       <p key={shortId.generate()} className="p__storyline">
-        {storyBook[this.props.turnCount - 1].text}
+        {<Typing>{storyBook[this.props.turnCount - 1].text}</Typing>}
       </p>
     );
     const buttons = (
