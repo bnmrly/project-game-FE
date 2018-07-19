@@ -39,7 +39,6 @@ class Phone extends Component {
             <p className="grid__2 grid__row1">Empty pockets!</p>
             <button
               className="button__4 grid__2 grid__row2"
-              name="old-phone"
               onClick={this.props.continueWithStory}
             >
               No Spending Today
@@ -55,7 +54,7 @@ class Phone extends Component {
             ) : (
               <React.Fragment>
                 <p className="grid__1 grid__row1 grid__row1-phone">
-                  High contract phone dealt
+                  Contract phone
                 </p>
                 <div className="grid__1 grid__row2">
                   {dataChoiceEvents.phoneContractHigh.initialPrice >
@@ -64,7 +63,6 @@ class Phone extends Component {
                   ) : (
                     <button
                       className="button__1"
-                      name="highContract-credit"
                       value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
                       onClick={this.props.payForPhoneByCredit}
                     >
@@ -77,7 +75,6 @@ class Phone extends Component {
                   ) : (
                     <button
                       className="button__1"
-                      name="highContract-cash"
                       value={JSON.stringify(dataChoiceEvents.phoneContractHigh)}
                       onClick={this.props.payForPhoneByCash}
                     >
@@ -95,7 +92,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__2 grid__row1 grid__row1-phone">
-                    Sim only phone deal
+                    Sim only phone
                   </p>
                   <div className="grid__2 grid__row2">
                     {dataChoiceEvents.phoneSimOnly.initialPrice >
@@ -104,7 +101,6 @@ class Phone extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="simOnly-credit"
                         value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
                         onClick={this.props.payForPhoneByCredit}
                       >
@@ -117,7 +113,6 @@ class Phone extends Component {
                     ) : (
                       <button
                         className="button__2"
-                        name="simOnly-cash"
                         value={JSON.stringify(dataChoiceEvents.phoneSimOnly)}
                         onClick={this.props.payForPhoneByCash}
                       >
@@ -137,7 +132,7 @@ class Phone extends Component {
               ) : (
                 <React.Fragment>
                   <p className="grid__3 grid__row1 grid__row1-phone">
-                    Second hand phone deal
+                    Second hand phone
                   </p>
                   <div className="grid__3 grid__row2">
                     {dataChoiceEvents.phoneSecondHand.initialPrice >
@@ -146,7 +141,6 @@ class Phone extends Component {
                     ) : (
                       <button
                         className="button__3"
-                        name="secondHand-credit"
                         value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
                         onClick={this.props.payForPhoneByCredit}
                       >
@@ -159,7 +153,6 @@ class Phone extends Component {
                     ) : (
                       <button
                         className="button__3"
-                        name="secondHand-cash"
                         value={JSON.stringify(dataChoiceEvents.phoneSecondHand)}
                         onClick={this.props.payForPhoneByCash}
                       >
@@ -179,22 +172,22 @@ class Phone extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    continueWithStory: e => {
+continueWithStory: e => {
       dispatch(increaseTurnCount());
       getDecision('phone', e.target.name);
     },
-    payForPhoneByCash: e => {
-      const contractInfo = JSON.parse(e.target.value);
+    payForPhoneByCash: (value, decision, paymentType) => {
+      const contractInfo = JSON.parse(value);
       const phoneMonthly = { key: 'phone', value: contractInfo.monthlyCost };
-      getDecision('phone', e.target.name);
+      getDecision('phoneDecision', decision, paymentType)
       dispatch(cashChange(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());
     },
-    payForPhoneByCredit: e => {
-      const contractInfo = JSON.parse(e.target.value);
+    payForPhoneByCredit: (value, decision, paymentType) => {
+      const contractInfo = JSON.parse(value);
       const phoneMonthly = { key: 'phone', value: contractInfo.monthlyCost };
-      getDecision('phone', e.target.name);
+      getDecision('phoneDecision', decision, paymentType)
       dispatch(changeAvailableCredit(contractInfo.initialPrice));
       dispatch(addToMonthlyCosts(phoneMonthly));
       dispatch(increaseTurnCount());

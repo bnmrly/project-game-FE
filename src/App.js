@@ -31,12 +31,12 @@ class App extends Component {
             <Name />
           </div>
         ) : (
-          <div className="app__game-container">
-            <Display />
-            <Snippets />
-            <Wallet />
-          </div>
-        )}
+              <div className="app__game-container">
+                <Display />
+                <Snippets />
+                <Wallet />
+              </div>
+            )}
 
       </React.Fragment>
     );
