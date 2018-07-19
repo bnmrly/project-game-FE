@@ -95,18 +95,24 @@ class Display extends Component {
                 );
                 break;           case 'End Of Game Win':
                 storyLines.push(
-                  <button>
+                  <div>
+                  <button
                     className="button__reset"
-                    onClick={() => {this.reset('win')}}
+                    onClick={() => {this.props.reset('win')}}
+                    >
                   </button>
+                  </div>
                 )
                 break;
                 case 'End Of Game Lose':
                 storyLines.push(
-                  <button>
+                  <div>
+                  <button
                     className="button__reset"
-                    onClick={() => {this.reset('lose')}}
+                    onClick={() => {this.props.reset('lose')}}
+                    >
                   </button>
+                  </div>
                 )
                 break;
               default:

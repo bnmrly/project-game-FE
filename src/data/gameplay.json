@@ -100,7 +100,7 @@
         "text":
           "You walk out of the bank, not quite believing you will soon be a homeowner"
       },
-      { "text": "Congratulations!", "choices": ["Thanks for playing"] }
+      { "text": "Congratulations!", "choices": ["End Of Game Win"] }
     ],
     "finaleLose": [
       { "text": "You walk into the bank, feeling a bit nervous" },
@@ -115,7 +115,7 @@
         "text":
           "You walk out of the bank, swearing that you will be more careful with money in the future"
       },
-      { "text": "Please try again!", "choices": ["Thanks for playing"] }
+      { "text": "Please try again!", "choices": ["End Of Game Lose"] }
     ]
   },
   "storyBoard": {

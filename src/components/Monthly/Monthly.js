@@ -68,7 +68,7 @@ class Monthly extends Component {
 
           <button
             className="button__monthly"
-            onClick={() => {
+            onClick={(e) => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCash(e)
               this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
