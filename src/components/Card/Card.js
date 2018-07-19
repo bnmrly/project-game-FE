@@ -49,9 +49,9 @@ class Card extends Component {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    handleClick: e => {
-      getDecision('card', e.target.name);
-      dispatch(cardSelectionEvent(e.target.value));
+    handleClick: (value, decision) => {
+      getDecision('card', decision);
+      dispatch(cardSelectionEvent(value));
       dispatch(increaseTurnCount());
     }
   };
