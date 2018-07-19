@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import {
   cashChange,
   changeAvailableCredit,
-  increaseTurnCount
+  increaseTurnCount,
+  changeCreditRating
 } from "../../redux/actions/PlayerInfoAction";
 import shortId from "short-id";
 import ReactModal from "react-modal";
@@ -67,7 +68,7 @@ class Monthly extends Component {
 
           <button
             className="button__monthly"
-            onClick={() => {
+            onClick={(e) => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCash(e)
               this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
