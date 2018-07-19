@@ -77,9 +77,9 @@ class Display extends Component {
                   <div className="container__next-button">
                     <button
                       className="button__4"
-                      onClick={(e) => {
-                        this.nextChapterClickHandler(e)
-                        this.disableNextChapter()
+                      onClick={e => {
+                        this.nextChapterClickHandler(e);
+                        this.props.disableNextChapter();
                       }}
                       disabled={this.props.nextChapterDisabled}
                     >
@@ -99,28 +99,32 @@ class Display extends Component {
                     </button>
                   </div>
                 );
-                break;           case 'End Of Game Win':
-                storyLines.push(
-                  <div>
-                  <button
-                    className="button__reset"
-                    onClick={() => {this.props.reset('win')}}
-                    >
-                  </button>
-                  </div>
-                )
                 break;
-                case 'End Of Game Lose':
+              case 'End Of Game Win':
                 storyLines.push(
                   <div>
-                  <button
-                    className="button__reset"
-                    onClick={() => {this.props.reset('lose')}}
-                    >
-                    Reset
-                  </button>
+                    <button
+                      className="button__reset"
+                      onClick={() => {
+                        this.props.reset('win');
+                      }}
+                    />
                   </div>
-                )
+                );
+                break;
+              case 'End Of Game Lose':
+                storyLines.push(
+                  <div>
+                    <button
+                      className="button__reset"
+                      onClick={() => {
+                        this.props.reset('lose');
+                      }}
+                    >
+                      Reset
+                    </button>
+                  </div>
+                );
                 break;
               default:
                 console.log('blah blah text');
@@ -203,12 +207,12 @@ const mapDispatchToProps = dispatch => {
     turnReset: () => {
       dispatch(resetTurnCount());
     },
-    reset: (winOrLose) => {
-      dispatch(resetGame())
+    reset: winOrLose => {
+      dispatch(resetGame());
     },
     disableNextChapter: () => {
-      dispatch(disableChapterChange())
-    } 
+      dispatch(disableChapterChange());
+    }
   };
 };
 const mapStateToProps = store => {
