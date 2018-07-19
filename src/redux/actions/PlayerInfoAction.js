@@ -54,7 +54,7 @@ export function cashChange(initialPrice) {
 }
 export function changeAvailableCredit(initialPrice) {
   return {
-    type: 'CREDIT_CHANGE',
+    type: 'AVAILABLE_CREDIT_CHANGE',
     payload: initialPrice
   };
 }
