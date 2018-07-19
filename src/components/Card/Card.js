@@ -26,7 +26,7 @@ class Card extends Component {
           name="low"
           className="button button__1 grid__1"
           value="LOW"
-          onClick={this.props.handleClick}
+          onClick={(e) => this.props.handleClick(e.target.value, 'low')}
         >
           Low
         </button>
@@ -34,7 +34,7 @@ class Card extends Component {
           name="med"
           className="button button__2 grid__2"
           value="MEDIUM"
-          onClick={this.props.handleClick}
+          onClick={(e) => this.props.handleClick(e.target.value, 'med')}
         >
           Medium
         </button>
@@ -42,7 +42,7 @@ class Card extends Component {
           name="high"
           className="button button__3 grid__3"
           value="HIGH"
-          onClick={this.props.handleClick}
+          onClick={(e) => this.props.handleClick(e.target.value, 'high')}
         >
           High
         </button>
