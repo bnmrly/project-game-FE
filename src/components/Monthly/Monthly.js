@@ -54,14 +54,14 @@ class Monthly extends Component {
             value={-this.state.creditOwed}
             onClick={e => {
               this.setState({ creditCardDisabled: true });
-              this.props.payByCredit(e);
-              this.props.payByCash(-e)
-              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.available)
+              this.props.payOffCard(e);
+              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
             }}
             disabled={this.state.creditCardDisabled}
           >
             Pay Full Amount
           </button>
+
           <button
             className="button__monthly"
             value={Math.floor(
@@ -72,12 +72,13 @@ class Monthly extends Component {
             onClick={(e) => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCash(e)
-              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.available)
+              this.props.creditRatingChanger(this.state.creditOwed, financialInfo.wallet.credit.max)
             }}
             disabled={this.state.creditCardDisabled}
           >
             Pay Interest
           </button>
+
           <button
             className="button__monthly"
             value={Math.floor(
@@ -88,13 +89,14 @@ class Monthly extends Component {
             onClick={e => {
               this.setState({ creditCardDisabled: true });
               this.props.payByCredit(e);
-              this.props.payByCash(-e)
-              this.props.failToPay()
+              this.props.failToPay()  
             }}
             disabled={this.state.creditCardDisabled}
           >
             Don't Pay This Month
           </button>
+
+
         </div>
         <div className="container__costs">
           <p className="p__costs">Living Costs</p>
@@ -175,7 +177,11 @@ const mapDispatchToProps = dispatch => {
     },
     failToPay: () => {
       dispatch(changeCreditRating("down"))
-    }
+    },
+    payOffCard: e => {
+      dispatch(changeAvailableCredit(e.target.value));
+      dispatch(cashChange(-e.target.value));
+    },
   };
 };
 const mapStateToProps = store => {
