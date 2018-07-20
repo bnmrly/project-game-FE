@@ -1,0 +1,16 @@
+.clothing {
+  display: grid;
+}
+
+.clothing__list {
+  grid-column-start: 1;
+  grid-column-end: 8;
+}
+
+.clothing__list-item {
+  margin-bottom: 1rem;
+}
+
+.p__clothing {
+  margin: 0;
+}

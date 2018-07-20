@@ -1,0 +1,68 @@
+.monthly {
+  margin-top: -3rem;
+}
+
+.button__next {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+}
+
+.container__wage {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.container__card {
+  margin-bottom: 0.35rem;
+}
+
+.container__costs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2rem 3rem 3rem;
+}
+
+.p__costs {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: 0;
+  margin-bottom: 0.35rem;
+}
+
+.button__monthly {
+  background-image: url('../../assets/button-green.png');
+  background-size: 100% 100%;
+  background-color: Transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 1.3rem;
+  margin-left: 0.4rem;
+}
+
+.p__monthly {
+  margin: 0;
+  margin-bottom: 0.35rem;
+}
+
+.modal {
+  margin-top: 10%;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 10%;
+  background-color: aliceblue;
+  border-radius: 2%;
+}
+
+.modal-content {
+  padding: 5em;
+}
+
+.modal-animate-opacity {
+  animation: opac 0.8s;
+}

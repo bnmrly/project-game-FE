@@ -1,0 +1,89 @@
+.wallet__container {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr;
+  background-color: rgb(236, 236, 236);
+}
+/*rating circular bar*/
+.rating .CircularProgressbar-path {
+  stroke: rgb(66, 187, 22);
+  stroke-linecap: butt;
+  stroke-width: 8px;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+.rating .CircularProgressbar-trail {
+  stroke: rgb(217, 13, 6);
+}
+.rating .CircularProgressbar-text {
+  fill: white;
+  text-align: center;
+  text-anchor: middle;
+}
+
+/*credit circular bar*/
+
+.credit .CircularProgressbar-trail {
+  stroke: rgb(217, 13, 6);
+}
+
+.credit .CircularProgressbar-path {
+  stroke: rgb(66, 187, 22);
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.credit .CircularProgressbar-text {
+  fill: black;
+  text-align: center;
+  text-anchor: middle;
+}
+
+/*cash circular bar*/
+
+.cash .CircularProgressbar-trail {
+  stroke: rgb(66, 187, 22);
+}
+
+.cash .CircularProgressbar-path {
+  stroke: rgb(66, 187, 22);
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.cash .CircularProgressbar-text {
+  fill: black;
+  text-align: center;
+  text-anchor: middle;
+}
+
+.progress {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.progress__top {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.wallet__container {
+  text-align: center;
+}
+
+/* Landscape mobile up to ipad */
+
+@media screen and (min-height: 320px) and (max-height: 767px) {
+  svg {
+    max-height: 4rem;
+  }
+}
+
+/* Landscape ipad and above*/
+
+@media screen and (min-height: 768px) and (max-height: 1023px) {
+  svg {
+    max-height: 11rem;
+  }
+}

@@ -1,0 +1,14 @@
+.investment {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 50% 20% 30%;
+}
+
+.investment__list {
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+.investment__list-item {
+  margin-bottom: 1rem;
+}

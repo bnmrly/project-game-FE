@@ -1,0 +1,336 @@
+{
+  "dataChoiceEvents": {
+    "phoneContractHigh": {
+      "monthlyCost": 60,
+      "initialPrice": 20,
+      "contractLength": 24
+    },
+    "phoneSimOnly": {
+      "monthlyCost": 30,
+      "initialPrice": 400,
+      "contractLength": 1
+    },
+    "phoneSecondHand": {
+      "monthlyCost": 30,
+      "initialPrice": 80,
+      "contractLength": 1
+    },
+    "partyClothesSuit": {
+      "initialPrice": 200
+    },
+    "smartCasual": {
+      "initialPrice": 140
+    },
+    "casualClothes": {
+      "initialPrice": 100
+    },
+    "creditCard": {
+      "card1": 1,
+      "card2": 2,
+      "card3": 3
+    },
+    "careerProgression": {
+      "initialPrice": 400,
+      "wageIncrease": 75
+    },
+    "holiday": {
+      "initialPrice": 800
+    },
+    "petOwner": {
+      "initialPrice": 75,
+      "monthlyCost": 20
+    },
+    "beachTrip": {
+      "initialPrice": 50
+    },
+    "NightIn": {
+      "initialPrice": null
+    },
+    "onlineShopping": {
+      "initialPrice": 130
+    },
+    "eatOut": {
+      "initialPrice": 80
+    },
+    "movies": {
+      "initialPrice": 50
+    },
+    "buyBike": {
+      "initialPrice": 80,
+      "monthlyCost": -20
+    }
+  },
+  "fixedChapters": {
+    "intro": [
+      { "text": "Let's get started! Pick a job...", "choices": ["Job"] },
+      { "text": "You want to buy a house and need a loan..." },
+      {
+        "text": "To reach this dream you must build up your credit rating..."
+      },
+      {
+        "text":
+          "A good credit rating will show the bank that you are a responsible customer, able to pay off your debts..."
+      },
+      {
+        "text": "To increase your credit rating you will need a credit card...",
+        "choices": ["Card"]
+      },
+      { "text": "Good choice!" },
+      { "text": "Now you can pay by cash or card..." },
+      { "text": "Paying by card will build up your credit rating..." },
+      { "text": "Paying by cash will keep your debts low..." },
+      {
+        "text": "Now you have a credit card, you need to learn how to use it..."
+      },
+      { "text": "To build credit, you need to start spending on your card..." },
+      {
+        "text": "Be careful! Everything you spend must be paid back..."
+      },
+      {
+        "text":
+          "You will be paid monthly and need to decide how to manage your bills",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
+        "choices": ["Monthly"]
+      }
+    ],
+    "finaleWin": [
+      { "text": "You walk into the bank with your head held high..." },
+      {
+        "text":
+          "Thanks to your excellent credit rating, you're sure the bank will want to lend to you!"
+      },
+      {
+        "text":
+          "You sit down with a lovely bank advisor who talks about your many options..."
+      },
+      {
+        "text":
+          "You walk out of the bank, not quite believing you will soon be a homeowner!"
+      },
+      { "text": "Congratulations!", "choices": ["End Of Game Win"] }
+    ],
+    "finaleLose": [
+      { "text": "You walk into the bank, feeling a little bit nervous..." },
+      {
+        "text": "You could have been more careful with your money..."
+      },
+      {
+        "text":
+          "You sit down with a lovely bank advisor who gently tells you that they can't help you..."
+      },
+      {
+        "text":
+          "You walk out of the bank, diappointed with the outcome but keen to learn how to handle money better in the future"
+      },
+      { "text": "Please try again!", "choices": ["End Of Game Lose"] }
+    ]
+  },
+  "storyBoard": {
+    "chapterOne": [
+     
+      { "text": "There is an opportunity to get a better job..." },
+      {
+        "text":
+          "It will cost you some money now but could lead to a bigger monthly wage in the future"
+      },
+      { "text": "But you have a problem..." },
+      {
+        "text":
+          "Your friends want to go on holiday and you want to go with them..."
+      },
+      {
+        "text":
+          "The holiday and the opportunity to get a better job are at the same time..."
+      },
+      {
+        "text": "Holiday..?"
+      },
+      {
+        "text": "Invest in your future..?"
+      },
+      {
+        "text": "What do you want to do?",
+        "choices": ["Personal Investment"]
+      },
+      {
+        "text": "Let's hope you made the right choice!"
+      },
+      {
+        "text": "It's the end of the month and you have bills to pay",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
+        "choices": ["Monthly"]
+      }
+    ],
+    "chapterTwo": [
+      { "text": "A friend is having a party, you want a new outfit" },
+      {
+        "text":
+          "What are you going to wear? Remember to spend what you can afford!",
+        "choices": ["Clothes"]
+      },
+      {
+        "text":
+          "Great choice! You are going to be the sharpest dressed at the party!"
+      },
+      {
+        "text": "It's the end of the month and you have bills to pay",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
+        "choices": ["Monthly"]
+      }
+    ],
+    "chapterThree": [
+      { "text": "At the party you went for an unexpected swim..." },
+      { "text": "Maybe you were pushed in the pool..." },
+      { "text": "Sam said you slipped!" },
+      { "text": "Either way, you need to get a new phone" },
+      { "text": "There are 3 different phones available..." },
+      {
+        "text": "Do you choose a contract phone?"
+      },
+      {
+        "text": "If you are trying to improve your credit rating..."
+      },
+      {
+        "text":
+          "...and are comfortable with paying for it monthly, using a credit card can be useful"
+      },
+      {
+        "text":
+          "Sometimes, if you have enough savings, it can be smart to pay with cash..."
+      },
+      {
+        "text": "This helps to keep your debts low..."
+      },
+
+      {
+        "text": "...and gives you more control over future financial decisions"
+      },
+
+      {
+        "text":
+          "Which kind of phone do you want?",
+        "choices": ["Phone"]
+      },
+      {
+        "text": "You are sure your new phone will serve you well..."
+      },
+      {
+        "text": "But you won't be taking it anywhere near a pool for a while!"
+      },
+      {
+        "text": "It's time to pay those bills!",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
+        "choices": ["Monthly"]
+      }
+    ],
+    "chapterFour": [
+      { "text": "Time is passing by..." },
+      { "text": "You want to buy your own home..." },
+      { "text": "Where you can be your own boss!" },
+      { "text": "Buying a home costs a lot of money..." },
+      { "text": "And you need to build up a good credit rating..." },
+      { "text": "So you can borrow money from the bank..." },
+      {
+        "text": "You can improve your credit rating by..."
+      },
+      {
+        "text":
+          "Buying with your credit card and paying your debts off each month"
+      },
+      {
+        "text": "What do you want to do tonight?",
+        "choices": ["Tonight"]
+      },
+      { "text": "I'm sure you'll have a great time." },
+      {
+        "text": "Ding dong...bill time again!",
+        "choices": ["End of Chapter"]
+      },
+      {
+        "text": "",
+        "choices": ["Monthly"]
+      }
+    ]
+  },
+  "educationSnippets": [
+    "Using a credit card can help build good credit when managed well",
+    "You have more purchasing options when using a credit card",
+    "A credit card can help if you are in need of emegency funds",
+    "Some credit card companies will offer rewards for choosing to use their card",
+    "There can be a temptation to spend more when you own a credit card",
+    "Misuse of a credit card can lead to debt",
+    "Although security is improving, you can be exposed to credit card fraud",
+    "Credit cards can come with confusing terms and conditions",
+    "Using a credit card is often quicker than paying in cash",
+    "Certain laws protect you as the consumer if you pay with a credit card and lose your receipt",
+    "You can pay off credit debt in installments if necessary",
+    "Using a credit card at a cash machine will incur an extra cost",
+    "Paying your bills on-time and not overspending on credit cards will improve your credit rating",
+    "Having too many credit cards will decrease your credit rating",
+    "Missing a payment or paying late will decrease your credit rating"
+  ],
+  "randomEvents": [
+    {
+      "text": "You have been offered overtime at work",
+      "value": -40
+    },
+    {
+      "text": "You found £5 on your way to work",
+      "value": -5
+    },
+    {
+      "text": "You found £20 on your way to work",
+      "value": -20
+    },
+    {
+      "text": "Happy Birthday! Your family and friends gave you £100",
+      "value": -100
+    },
+    {
+      "text":
+        "Merry Christmas! Your Nanna gives you a Christmas card with £10 in it",
+      "value": -10
+    },
+    {
+      "text":
+        "Your bike needs servicing, you take it to the bike shop to be repaired. Lose £40!",
+      "value": 40
+    },
+    {
+      "text": "You need to buy new trainers. Lose £60!",
+      "value": 60
+    },
+    {
+      "text":
+        "Your prescription is ready; you go to the chemist to collect it. Lose £15!",
+      "value": 15
+    },
+    {
+      "text": "Your kettle is broken, you buy a new one. Lose £25!",
+      "value": 25
+    },
+    {
+      "text":
+        "Your bike is stolen but you still have to get to work. Buy a new one. Lose £100!",
+      "value": 100
+    }
+  ],
+  "betterCreditCards": {
+    "card1": "A card that gives you better APR",
+    "card2": "A card that gives good cash back",
+    "card3": "A card that gives airmiles",
+    "card4": "A card that offers electronic device insurance"
+  }
+}

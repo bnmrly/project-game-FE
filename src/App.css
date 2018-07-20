@@ -1,0 +1,15 @@
+.app__game-container {
+  display: grid;
+  grid-template-columns: 70vw 10vw 20vw;
+  grid-template-rows: 10vh 90vh;
+  max-height: 100vh;
+  background-color: rgb(236, 236, 236);
+}
+
+.container__login-id,
+.container__login-name {
+  background-color: rgb(236, 236, 236);
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10vh 90vh;
+}

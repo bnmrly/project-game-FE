@@ -1,0 +1,18 @@
+.phone {
+  display: grid;
+}
+
+.phone__list {
+  text-align: center;
+  grid-column-start: 2;
+  grid-column-end: 7;
+}
+
+.phone__list-item {
+  margin-bottom: 1rem;
+  margin-left: 0.25rem;
+}
+
+.grid__row1-phone {
+  margin-left: 0.5rem;
+}
