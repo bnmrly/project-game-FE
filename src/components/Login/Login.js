@@ -4,7 +4,7 @@ import { idCheckFirebase } from '../../firebase/fb';
 import './Login.css';
 class Login extends Component {
   state = {
-    idInput: 'CVN0bxy15TAVJNbiflLJ'
+    idInput: ''
   };
   render() {
     return (

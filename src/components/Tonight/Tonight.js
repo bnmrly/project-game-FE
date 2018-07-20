@@ -32,7 +32,7 @@ class Tonight extends Component {
             Online Shopping: Treat yourself, you know you want to
           </li>
           <li className="tonight__list-item">
-            Eat Out: Get some friends together and go out for a delicious meal
+            Eat Out: Go out for a delicious meal with friends
           </li>
           <li className="tonight__list-item">
             Cinema: Get some popcorn and enjoy yourself
