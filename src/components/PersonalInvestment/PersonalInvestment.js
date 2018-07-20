@@ -27,9 +27,9 @@ class PersonalInvestment extends Component {
         {dataChoiceEvents.careerProgression.initialPrice >
           this.props.credit.available &&
         dataChoiceEvents.careerProgression.initialPrice > this.props.cash &&
-        dataChoiceEvents.smartCasual.initialPrice >
+        dataChoiceEvents.holiday.initialPrice >
           this.props.credit.available &&
-        dataChoiceEvents.smartCasual.initialPrice > this.props.cash ? (
+        dataChoiceEvents.holiday.initialPrice > this.props.cash ? (
           <React.Fragment>
             <p className="grid__4 grid__row1">Empty pockets!</p>
             <button
@@ -41,9 +41,9 @@ class PersonalInvestment extends Component {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            {dataChoiceEvents.partyClothesSuit.initialPrice >
+            {dataChoiceEvents.careerProgression.initialPrice >
               this.props.credit.available &&
-            dataChoiceEvents.partyClothesSuit.initialPrice > this.props.cash ? (
+            dataChoiceEvents.careerProgression.initialPrice > this.props.cash ? (
               <div />
             ) : (
               <React.Fragment>

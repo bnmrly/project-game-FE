@@ -1,17 +1,17 @@
 {
   "dataChoiceEvents": {
     "phoneContractHigh": {
-      "monthlyCost": 30,
+      "monthlyCost": 60,
       "initialPrice": 20,
       "contractLength": 24
     },
     "phoneSimOnly": {
-      "monthlyCost": 10,
+      "monthlyCost": 30,
       "initialPrice": 400,
       "contractLength": 1
     },
     "phoneSecondHand": {
-      "monthlyCost": 10,
+      "monthlyCost": 30,
       "initialPrice": 80,
       "contractLength": 1
     },
@@ -19,10 +19,10 @@
       "initialPrice": 200
     },
     "smartCasual": {
-      "initialPrice": 110
+      "initialPrice": 140
     },
     "casualClothes": {
-      "initialPrice": 70
+      "initialPrice": 100
     },
     "creditCard": {
       "card1": 1,
@@ -30,11 +30,11 @@
       "card3": 3
     },
     "careerProgression": {
-      "initialPrice": 150,
+      "initialPrice": 400,
       "wageIncrease": 75
     },
     "holiday": {
-      "initialPrice": 600
+      "initialPrice": 800
     },
     "petOwner": {
       "initialPrice": 75,
@@ -47,13 +47,13 @@
       "initialPrice": null
     },
     "onlineShopping": {
-      "initialPrice": 40
+      "initialPrice": 130
     },
     "eatOut": {
-      "initialPrice": 60
+      "initialPrice": 80
     },
     "movies": {
-      "initialPrice": 20
+      "initialPrice": 50
     },
     "buyBike": {
       "initialPrice": 80,
@@ -79,6 +79,13 @@
       { "text": "Now you can pay by cash or card..." },
       { "text": "Paying by card will build up your credit rating..." },
       { "text": "Paying by cash will keep your debts low..." },
+      {
+        "text": "Now you have a credit card, you need to learn how to use it..."
+      },
+      { "text": "To build credit, you need to start spending on your card..." },
+      {
+        "text": "Be careful! Everything you spend must be paid back..."
+      },
       {
         "text":
           "You will be paid monthly and need to decide how to manage your bills",
@@ -123,29 +130,20 @@
   },
   "storyBoard": {
     "chapterOne": [
-      {
-        "text": "Now you have a credit card, you need to learn how to use it..."
-      },
-      { "text": "To build credit, you need to start spending on your card..." },
-      {
-        "text": "Be careful! Everything you spend must be paid back..."
-      },
-      { "text": "Think about how much money you spend each month..." },
-      { "text": "and how much you get paid" },
-      { "text": "How will you pay back the money you owe?" },
+     
       { "text": "There is an opportunity to get a better job..." },
       {
         "text":
           "It will cost you some money now but could lead to a bigger monthly wage in the future"
       },
-      { "text": "You have a problem..." },
+      { "text": "But you have a problem..." },
       {
         "text":
-          "Your friends want to go on holiday and you want you to go with them..."
+          "Your friends want to go on holiday and you want to go with them..."
       },
       {
         "text":
-          "The holiday and the opportunity to get a better job are on the same days..."
+          "The holiday and the opportunity to get a better job are at the same time..."
       },
       {
         "text": "Holiday..?"
@@ -270,18 +268,18 @@
     "Using a credit card can help build good credit when managed well",
     "You have more purchasing options when using a credit card",
     "A credit card can help if you are in need of emegency funds",
-    "Some credit cards will offer rewards for choosing to go with their card",
+    "Some credit card companies will offer rewards for choosing to use their card",
     "There can be a temptation to spend more when you own a credit card",
     "Due to the workings of a credit card, using one will reduce your future income",
     "Misuse of a credit card can lead to debt",
     "Although security is improving, you can be exposed to credit card fraud",
     "Credit cards can come with confusing terms and conditions",
     "Using a credit card is often quicker than paying in cash",
-    "Certain laws protect you as the consumer if you pay with plastic and lose your receipt",
+    "Certain laws protect you as the consumer if you pay with a credit card and lose your receipt",
     "You can pay off credit debt in installments if necessary",
     "Using a credit card at a cash machine will incur an extra cost",
-    "Paying your bills on-time will improve your credit rating",
-    "Having too many credit cards with decrease your credit rating",
+    "Paying your bills on-time and not overspending on credit cards will improve your credit rating",
+    "Having too many credit cards will decrease your credit rating",
     "Missing a payment or paying late will decrease your credit rating"
   ],
   "randomEvents": [
