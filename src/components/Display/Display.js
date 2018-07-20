@@ -106,9 +106,10 @@ class Display extends Component {
                 storyLines.push(
                   <div>
                     <button
-                      className="button__reset"
+                      className="button__reset button__4"
                       onClick={() => { this.props.reset('win') }}
                     >
+                    Reset
                     </button>
                   </div>
                 );
@@ -117,7 +118,7 @@ class Display extends Component {
                 storyLines.push(
                   <div>
                     <button
-                      className="button__reset"
+                      className="button__reset button__4"
                       onClick={() => { this.props.reset('lose') }}
                     >
                       Reset
@@ -151,7 +152,7 @@ class Display extends Component {
     if (this.state.chapterCount === 3) {
       this.props.turnReset();
       // if minimum win value credit rating reached
-      if (this.props.credit_rating > 650) {
+      if (this.props.credit_rating > 500) {
         this.setState({
           storyBook: data.fixedChapters.finaleWin,
           chapterCount: 4

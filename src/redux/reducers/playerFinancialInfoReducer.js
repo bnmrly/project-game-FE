@@ -1,7 +1,7 @@
 const initialState = {
   wallet: {
     cash: 0,
-    credit: { available: 0, max: 500 },
+    credit: { available: 0, max: 0 },
     rating: 0,
     APR: 0
   },
@@ -82,7 +82,7 @@ const playerFinancialReducer = (state = initialState, action) => {
     return {
       ...state,
       wallet:{ ...wallet,
-        rating: wallet.rating - action.payload
+        rating: wallet.rating + action.payload
       }
     }
     default:
