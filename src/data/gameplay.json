@@ -217,7 +217,7 @@
 
       {
         "text":
-          "Which kind of phone do you want? Sim only, contract or second hand?",
+          "Which kind of phone do you want?",
         "choices": ["Phone"]
       },
       {
@@ -270,7 +270,6 @@
     "A credit card can help if you are in need of emegency funds",
     "Some credit card companies will offer rewards for choosing to use their card",
     "There can be a temptation to spend more when you own a credit card",
-    "Due to the workings of a credit card, using one will reduce your future income",
     "Misuse of a credit card can lead to debt",
     "Although security is improving, you can be exposed to credit card fraud",
     "Credit cards can come with confusing terms and conditions",
