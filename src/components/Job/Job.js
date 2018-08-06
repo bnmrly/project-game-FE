@@ -27,14 +27,14 @@ class Job extends Component {
         </ul>
         <button
           className="button button__1 grid__1"
-          value={100}
+          value={300}
           onClick={this.props.handleClick}
         >
           Chef
         </button>
         <button
           className="button button__2 grid__2"
-          value={200}
+          value={300}
           onClick={this.props.handleClick}
         >
           Teacher

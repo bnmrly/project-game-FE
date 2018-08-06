@@ -25,10 +25,10 @@ export function cardSelectionEvent(data) {
     type: data,
     payload:
       data === 'LOW'
-        ? { APR: 20, rating: 100 }
+        ? { APR: 20, rating: 200 }
         : data === 'MEDIUM'
-          ? { APR: 25, rating: 200 }
-          : { APR: 30, rating: 300 }
+          ? { APR: 25, rating: 300 }
+          : { APR: 30, rating: 400 }
   };
 }
 export function setUserWage(wage) {
@@ -79,12 +79,12 @@ export function changeCreditRating(direction) {
   if (direction === "up") { 
     return {
        type: 'CHANGE_CREDIT_RATING',
-       payload: 50
+       payload: 100
   }
 } else if(direction === "down") {
   return {
     type: 'CHANGE_CREDIT_RATING',
-       payload: -50
+       payload: -100
 }
   }
 }
