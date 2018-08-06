@@ -45,8 +45,6 @@ This will open the app in your browser at this address:
 localhost:3000/
 ```
 
-## Id
-
 Please enter the following id and create a username to play the game locally:
 
 ```
