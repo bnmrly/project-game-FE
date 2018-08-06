@@ -16,6 +16,23 @@ Run npm install in the command line to get the required dependencies.
 npm install
 ```
 
+You will need to create a Firebase account in order to play the game locally. To do this, you need to create a config.js file in the firebase folder. Please visit [https://firebase.google.com/docs/](https://firebase.google.com/docs/) for info on how to create an account then replace the info below with your credentials.
+
+```
+import firebase from ‘firebase’;
+import ‘firebase/firestore’;
+
+const config = {
+ apiKey: `${YOUR-API-KEY}`,
+ databaseURL: `https://${URL-TO-YOUR-DATABASE}.firebaseio.com`,
+ projectId: ‘${YOUR-PROJECT-NAME}’
+};
+
+firebase.initializeApp(config);
+
+export const db = firebase.firestore();
+```
+
 To launch the development server, run the start script
 
 ```
